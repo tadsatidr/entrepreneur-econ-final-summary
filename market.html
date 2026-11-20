@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter 5 · Market demand in practice · 01111219</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script>
+window.MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <strong>Entrepreneurial Economics</strong>
+      <span>01111219 · Final exam</span>
+    </a>
+    <nav class="main" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="demand.html">Ch 1–2</a>
+      <a href="behavior.html">Ch 3–4</a>
+      <a href="market.html" aria-current="page">Ch 5</a>
+      <a href="practice.html">Practice</a>
+      <a href="formulas.html">Formula sheet</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap narrow">
+  <p class="kicker">20 of 80 questions · 25%</p>
+  <h1>Chapter 5. Market demand analysis in practice</h1>
+  <p class="lede">Willingness to pay is a point on the demand curve. The deck measures it two ways, contingent valuation and Van Westendorp’s price sensitivity meter, then extends Van Westendorp with Newton–Miller–Smith so a survey becomes a demand curve and a revenue curve.</p>
+  <nav class="toc" aria-label="On this page">
+    <a href="#wtp">Reservation price</a>
+    <a href="#cvm">Double-bounded CVM</a>
+    <a href="#forecast">From shares to demand</a>
+    <a href="#psm">Four PSM questions</a>
+    <a href="#points">PMC, PME, OPP, IDP</a>
+    <a href="#egg">Egg-cake example</a>
+    <a href="#nms">Newton–Miller–Smith</a>
+    <a href="#rev">Revenue</a>
+    <a href="#tips">No-calculator tips</a>
+    <a href="#quiz">Practice</a>
+  </nav>
+
+  <h2 id="wtp">Willingness to pay is the demand curve</h2>
+  <p>The slides also call willingness to pay the reservation price. It is the height of the demand curve at a given unit.</p>
+  <ul>
+    <li>When the unit in question is the 1st unit, the consumer will pay up to 20 baht.</li>
+    <li>When the unit is the 10th, the consumer will pay up to 9 baht.</li>
+  </ul>
+  <p>Two measurement methods are named: the contingent valuation method (CVM), and Van Westendorp’s price sensitivity meter (PSM).</p>
+
+  <h2 id="cvm">Contingent valuation, double-bounded</h2>
+  <p>Respondents state how much they would pay in a hypothetical scenario written into the questionnaire. The worked design is double-bounded: three prices chosen from competitor prices and costs, and each person answers two questions in sequence.</p>
+  <ul>
+    <li>Original or base price, \(P_0 = 60\) baht. This is the initial bid.</li>
+    <li>Low price, \(P_L = 40\) baht.</li>
+    <li>High price, \(P_H = 80\) baht.</li>
+  </ul>
+  <p>Question 1: would you buy the new product at 60 baht?</p>
+  <ul>
+    <li>If yes, question 2 offers the higher bid. The script mentions premium materials and special features and asks about 80 baht.</li>
+    <li>If no, question 2 offers the lower bid. The script says the team could reduce costs and asks about 40 baht.</li>
+  </ul>
+  <div class="scroll">
+    <table class="data">
+      <thead>
+        <tr><th>Answers</th><th>Willingness to pay</th><th>Segment</th><th>Strategy on the slide</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>[yes, yes]</td>
+          <td>WTP \(\ge P_H\) (at least 80)</td>
+          <td>Premium / loyal</td>
+          <td>Primary target. Focus on them early. Offer the full-featured premium or luxury version and use price skimming to raise profit per unit.</td>
+        </tr>
+        <tr>
+          <td>[yes, no]</td>
+          <td>\(P_0 \le\) WTP \( &lt; P_H\) (60 up to, but not including, 80)</td>
+          <td>Value-for-money</td>
+          <td>Emphasize value and keep the base price.</td>
+        </tr>
+        <tr>
+          <td>[no, yes]</td>
+          <td>\(P_L \le\) WTP \( &lt; P_0\) (40 up to, but not including, 60)</td>
+          <td>Price-sensitive / promotion</td>
+          <td>Short-term sales from occasional discounts, discount codes, or a lower-spec economy version, which also collects data on this group.</td>
+        </tr>
+        <tr>
+          <td>[no, no]</td>
+          <td>WTP \( &lt; P_L\) (below 40)</td>
+          <td>Non-consumers</td>
+          <td>Exclude this group from all marketing communications.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The order of the pair is the order of the questions the person actually received. [yes, no] means yes to 60 and no to 80. [no, yes] means no to 60 and yes to 40.</p>
+
+  <h2 id="forecast">From those groups to a demand curve</h2>
+  <p>Someone buys at a posted price if their willingness to pay is at least that price. The slide stacks the groups:</p>
+  <div class="scroll">
+    <table class="data">
+      <thead>
+        <tr><th>Who is included</th><th>Rule</th><th>Price</th><th>Share who buy</th><th>Out of 10,000 people</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>[yes, yes] only</td><td>WTP \(\ge P_H\)</td><td>80</td><td>25%</td><td>2,500</td></tr>
+        <tr><td>[yes, yes] + [yes, no]</td><td>WTP \(\ge P_0\)</td><td>60</td><td>50%</td><td>5,000</td></tr>
+        <tr><td>Those two plus [no, yes]</td><td>WTP \(\ge P_L\)</td><td>40</td><td>80%</td><td>8,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The individual-demand picture plots price against the share: (80, 0.25), (60, 0.50), (40, 0.80). The slide says those shares are the calculated response proportions from the CVM survey. Scaling by a target market of 10,000 people moves the horizontal axis from a share to a count and produces the market demand curve: (80, 2,500), (60, 5,000), (40, 8,000).</p>
+  <p>[no, no] is in none of the three rows. They do not buy at 40, 60, or 80.</p>
+
+  <h2 id="psm">Van Westendorp: four price perceptions</h2>
+  <p>PSM does not ask for a single willingness-to-pay number. Each respondent gives four monetary amounts. The pure-EV wording on the slides:</p>
+  <div class="scroll">
+    <table class="data">
+      <thead>
+        <tr><th>Question</th><th>Buy?</th><th>What is being asked</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Too expensive</td><td>Not buy</td><td>The price at which the EV is so expensive the person would never buy it.</td></tr>
+        <tr><td>Expensive</td><td>Buy</td><td>It feels expensive, but the person would still consider buying.</td></tr>
+        <tr><td>Cheap</td><td>Buy</td><td>A bargain: so reasonable that the person wants to buy right away.</td></tr>
+        <tr><td>Too cheap</td><td>Not buy</td><td>So cheap that quality is in doubt and the person would not buy.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Four graphs are built from those answers. The shape is part of the definition.</p>
+  <ol>
+    <li><strong>Too expensive, not buy.</strong> Cumulative frequency. At a low starting price almost nobody calls it too expensive. As price rises, more people do. The curve rises.</li>
+    <li><strong>Expensive, buy.</strong> Cumulative frequency. As price rises, more people say it is expensive but they would still buy. The curve rises.</li>
+    <li><strong>Cheap, buy.</strong> Inverse cumulative frequency. At low prices many people call it cheap. That share falls as price rises.</li>
+    <li><strong>Too cheap, not buy.</strong> Inverse cumulative frequency. At very low prices many people suspect low quality and refuse to buy. As price rises, fewer people refuse for that reason. The curve falls.</li>
+  </ol>
+
+  <h2 id="points">The four intersections</h2>
+  <div class="scroll">
+    <table class="data">
+      <thead>
+        <tr><th>Point</th><th>Which curves cross</th><th>Role</th><th>Figure used on the slides</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Point of marginal cheapness, PMC</td>
+          <td>Expensive and too cheap</td>
+          <td>Lower boundary of the acceptable range</td>
+          <td>About 68 baht</td>
+        </tr>
+        <tr>
+          <td>Point of marginal expensiveness, PME</td>
+          <td>Too expensive and cheap</td>
+          <td>Upper boundary</td>
+          <td>About 92 baht</td>
+        </tr>
+        <tr>
+          <td>Optimal price point, OPP</td>
+          <td>The two not-buy curves, too cheap and too expensive</td>
+          <td>The price that minimizes consumer resistance, so the widest audience is not pushed away on either side</td>
+          <td>In the egg example, between 70 and 80 baht</td>
+        </tr>
+        <tr>
+          <td>Indifference price point, IDP</td>
+          <td>Cheap and expensive, the two buy curves</td>
+          <td>The price most people treat as normal. About as many call it expensive as call it cheap. Used as a reading of the current market price, or when the firm wants to look like good value</td>
+          <td>About 83 baht on the egg graph</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Acceptable launch prices are the range (PMC, PME). The slide’s sentence for the running diagram: a new product can be priced between 68 and 92 baht.</p>
+  <ul>
+    <li>Below the PMC, for example at 63 baht, more people say “too cheap to buy” than “expensive but still buy.” The product is still viewed with suspicion.</li>
+    <li>At the PMC, the fear that a cheap product is low quality fades, and people start to see a real price.</li>
+    <li>Above the PME, for example at 100 baht, most people say it is too expensive and few still see a good value. The too-expensive curve rises quickly and demand falls.</li>
+  </ul>
+
+  <h2 id="egg">The high-protein egg cake</h2>
+  <p>Undergraduate entrepreneurship students at Kasetsart designed a “Healthy High-Protein Egg Cake” for KU students. Before launch they ran a Van Westendorp survey online. It reached 100 people who often eat healthy food or go to the gym. A response is discarded if the four prices are not in the order too cheap &lt; cheap &lt; expensive &lt; too expensive. The file is <code>High Protein Egg.xlsx</code>. The task is to find PMC, PME, OPP, and IDP.</p>
+  <p>Stata path on the slides: save the Excel file, import it with variable names in the first row, open the do-file <code>PSM_4lines.do</code>, highlight the code, and run it. The resulting graph is read as PMC ≈ 68, PME ≈ 92, and IDP ≈ 83. The too-cheap curve (solid blue) and the too-expensive curve (dashed red) stay apart and do not cross in the ordinary way. They only meet around 0% near 70–80 baht, so the slide places OPP between 70 and 80 baht. One label on that graph also marks about 70 and about 80 around the OPP region.</p>
+
+  <h2 id="nms">Newton–Miller–Smith: from four prices to a demand curve</h2>
+  <p>The NMS extension adds two intent-to-purchase questions to the original four prices:</p>
+  <ol>
+    <li>When the price is the one this person called cheap, how likely are they to buy? Answer on a 1–5 scale or a 0–100% scale.</li>
+    <li>When the price is the one they called expensive, how likely are they to buy? Same scales.</li>
+  </ol>
+  <p>Four steps:</p>
+  <ol>
+    <li>Choose the prices that will be plotted.</li>
+    <li>Turn the response scale into probability weights.</li>
+    <li>At each plotted price, compute each respondent’s purchase probability, then average across respondents.</li>
+    <li>Plot the demand curve. The do-file named on the last slide is “NMS demand curve and revenue.”</li>
+  </ol>
+
+  <h3>Step 1. The price grid</h3>
+  <p>Find the minimum stated price and the maximum. In the egg data the lowest price shown is 42 baht, and the program rounds it down to a round number, 40. The largest is 158 baht, rounded up to 160. If the curve uses 12 price points,</p>
+  <div class="formula">
+    \[
+      \text{Interval} = \frac{P_{\max}-P_{\min}}{12} = \frac{160-40}{12} = \frac{120}{12} = 10
+    \]
+  </div>
+  <p>The prices on the demand curve are 40, 50, 60, …, 160.</p>
+
+  <h3>Step 2. Likert weights</h3>
+  <p>When the likelihood question is a 5-point scale:</p>
+  <ul>
+    <li>Score 5, definitely buy → 0.70.</li>
+    <li>Score 4, probably buy → 0.30.</li>
+    <li>Scores 1, 2, and 3, neutral through not buy → 0.</li>
+  </ul>
+
+  <h3>Step 3. One person’s weight at a test price</h3>
+  <p>The worked rule at a test price of 80 baht: if that price lies between the person’s cheap price and expensive price, average the two weights. If it does not, the purchase weight is 0.</p>
+  <div class="scroll">
+    <table class="data">
+      <thead>
+        <tr><th>Id</th><th>Too cheap</th><th>Cheap</th><th>Expensive</th><th>Too expensive</th><th>Intent at cheap</th><th>Intent at expensive</th><th>Weights</th><th>80 inside the buy interval?</th><th>Weight at 80</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>51</td><td>81</td><td>92</td><td>115</td><td>4</td><td>3</td><td>30% and 0%</td><td>No</td><td>0%</td></tr>
+        <tr><td>2</td><td>52</td><td>81</td><td>99</td><td>125</td><td>4</td><td>3</td><td>30% and 0%</td><td>No</td><td>0%</td></tr>
+        <tr><td>3</td><td>61</td><td>73</td><td>93</td><td>125</td><td>4</td><td>1</td><td>30% and 0%</td><td>Yes</td><td>(30% + 0%) / 2 = 15%</td></tr>
+        <tr><td>4</td><td>57</td><td>80</td><td>108</td><td>128</td><td>5</td><td>4</td><td>70% and 30%</td><td>Yes</td><td>(70% + 30%) / 2 = 50%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The average of everyone’s weights, not only these four rows, is the purchase probability at that price. The slide reports:</p>
+  <ul>
+    <li>At 80 baht, probability average 29.65%. The accompanying sentence rounds the market reading to about 30% of the target market.</li>
+    <li>At 90 baht, 17.85%.</li>
+    <li>At 100 baht, 9.75%.</li>
+  </ul>
+  <p>The plotted individual demand curve is not a straight downward line at the far left. The slide says that if the high-protein eggs are priced too low, about 40 to 70 baht a pack, buyers doubt quality: hormones, counterfeits, or stock near expiry. Those doubts reduce the probability of purchase. A separate caption on the plot says that, in that too-low region, a lower price goes with a lower purchase probability.</p>
+
+  <h2 id="rev">Expected revenue, then the whole market</h2>
+  <p>The teaching definition:</p>
+  <div class="formula">
+    \[
+      \text{Expected revenue index per customer} = \text{Price} \times \text{Probability of purchase at that price}
+    \]
+  </div>
+  <div class="scroll">
+    <table class="data">
+      <thead><tr><th>Price</th><th>Probability</th><th>Index per customer</th></tr></thead>
+      <tbody>
+        <tr><td>80</td><td>30%</td><td>80 × 30% = 24</td></tr>
+        <tr><td>85</td><td>25%</td><td>85 × 25% = 21.25</td></tr>
+        <tr><td>90</td><td>20%</td><td>90 × 20% = 18</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>That small table is an illustration of the multiplication. The estimated egg-cake chart is a separate picture. Its demand panel is the probability-weighted purchase share. Its revenue panel is the expected revenue curve. The slide reads the revenue curve and says the entrepreneur should price the product at <strong>70 baht per unit</strong> to maximize expected revenue per customer.</p>
+  <p>The target population of students for this product at Kasetsart is 72,000. Market demand at each price is that population times the purchase probability. Total expected revenue is the population times the revenue index. The slide’s arithmetic at the revenue-maximizing price:</p>
+  <div class="formula">
+    \[
+      2{,}450 \times 72{,}000 = 176{,}400{,}000 \text{ baht}
+    \]
+  </div>
+  <p>So 2,450 is the revenue-index reading they take off the chart at 70 baht, and 176.4 million baht is total expected revenue for the 72,000-person market. A fast multiplication: \(2{,}450 \times 72 = 2{,}450 \times 70 + 2{,}450 \times 2 = 171{,}500 + 4{,}900 = 176{,}400\), then three more zeros because 72,000 is 72 × 1,000.</p>
+
+  <h2 id="tips">No-calculator tips for this block</h2>
+  <div class="tips">
+    <div class="tip">
+      <strong>CVM is a path, not four unrelated labels.</strong>
+      Yes at 60 goes up to 80. No at 60 goes down to 40. Write the pair in that order before you pick the segment.
+    </div>
+    <div class="tip">
+      <strong>Stack the buyers.</strong>
+      At 80, only [yes, yes]. At 60, add [yes, no]. At 40, add [no, yes]. Shares 25, 50, 80. Of 10,000: 2,500, 5,000, 8,000.
+    </div>
+    <div class="tip">
+      <strong>Two curves rise, two fall.</strong>
+      Cumulative curves (too expensive, expensive) rise with price. Inverse curves (cheap, too cheap) fall with price.
+    </div>
+    <div class="tip">
+      <strong>Pair the crossings.</strong>
+      PMC = expensive ∩ too cheap = lower bound ≈ 68. PME = too expensive ∩ cheap = upper bound ≈ 92. IDP = cheap ∩ expensive ≈ 83. OPP = the resistance minimum, 70 to 80 in the egg graph. Launch inside (68, 92).
+    </div>
+    <div class="tip">
+      <strong>NMS weights are 70, 30, and 0.</strong>
+      Average of 30 and 0 is 15. Average of 70 and 30 is 50. Outside the cheap-to-expensive interval, the weight is 0. Grid step: (160 − 40) / 12 = 10.
+    </div>
+    <div class="tip">
+      <strong>Revenue is a product you can do in your head.</strong>
+      80 × 0.3 = 24. The market illustration is 2,450 × 72,000 = 176,400,000, at the price the chart picks, 70 baht.
+    </div>
+  </div>
+
+  <h2 id="quiz">Practice for Chapter 5</h2>
+  <p>Seventeen questions from this deck. The same set is on the <a href="practice.html#set-c">practice page</a>.</p>
+  <div class="quiz" data-quiz="c"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Source: Chapter 5, Market Demand Analysis in Practice. Professor Dr. Poomthan Rangkakulnuwat. Figures cited here are the ones printed on the slides: the CVM bids, the egg-cake intersections, the NMS weights, and the 70-baht revenue reading.</p>
+  </div>
+</footer>
+<script src="js/quiz-data.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapters 1–2 · Individual demand · 01111219</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script>
+window.MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <strong>Entrepreneurial Economics</strong>
+      <span>01111219 · Final exam</span>
+    </a>
+    <nav class="main" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="demand.html" aria-current="page">Ch 1–2</a>
+      <a href="behavior.html">Ch 3–4</a>
+      <a href="market.html">Ch 5</a>
+      <a href="practice.html">Practice</a>
+      <a href="formulas.html">Formula sheet</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap narrow">
+  <p class="kicker">30 of 80 questions · 37.5%</p>
+  <h1>Chapters 1–2. Individual demand, elasticity, regression</h1>
+  <p class="lede">Chapter 1 is the definition and the arc-elasticity arithmetic. Chapter 2 estimates the same demand function in Stata and turns a significant slope into an elasticity at the sample mean.</p>
+  <nav class="toc" aria-label="On this page">
+    <a href="#law">Law of demand</a>
+    <a href="#shift">Shift versus movement</a>
+    <a href="#market">Market demand</a>
+    <a href="#own">Own-price elasticity</a>
+    <a href="#tr">Total revenue</a>
+    <a href="#cross">Cross and income</a>
+    <a href="#reg">Regression setup</a>
+    <a href="#stars">Stars</a>
+    <a href="#elin">Elasticity from a slope</a>
+    <a href="#simple">Simple Stata example</a>
+    <a href="#multi">Price, ads, GPP</a>
+    <a href="#tips">No-calculator tips</a>
+    <a href="#quiz">Practice</a>
+  </nav>
+
+  <h2 id="law">Law of demand</h2>
+  <p>When the good’s own price rises, quantity demanded falls. When that price falls, quantity demanded rises. The slides write this as \(P \uparrow \rightarrow Q^d \downarrow\) and \(P \downarrow \rightarrow Q^d \uparrow\).</p>
+
+  <h2 id="shift">A shift of demand is not a movement along it</h2>
+  <p>The slide titled “Demand Rises” draws a rightward shift from \(D_1\) to \(D_2\) and labels it an increase in demand. At a price of 60 dollars, the blue-jeans quantity on that diagram goes from 600 on \(D_1\) (point A) to 900 on \(D_2\) (point B).</p>
+  <p>Four slides then give the reasons demand for blue jeans rises:</p>
+  <ul>
+    <li>Income increases, so people buy more blue jeans.</li>
+    <li>Greater preference for the good.</li>
+    <li>A higher price of a substitute.</li>
+    <li>A lower price of a complement.</li>
+  </ul>
+  <p>The next slide, “Quantity Demand Decreases,” is a different object. It shows a movement from A to B <em>along</em> a single curve \(D_1\). The caption says a change in quantity demanded is a movement along the demand curve, and the factor that causes it is the good’s own price.</p>
+  <div class="callout">
+    <p><strong>The exam distinction.</strong> Own price changes quantity demanded (a slide along the curve). Income, preference, the substitute’s price, and the complement’s price change demand (a shift of the curve).</p>
+  </div>
+
+  <h2 id="market">Individual demand adds up to market demand</h2>
+  <p>The market diagram adds three individual curves at the same price. Jones, Smith, and other buyers:</p>
+  <div class="scroll">
+    <table class="data">
+      <thead>
+        <tr><th>Price</th><th>Jones</th><th>Smith</th><th>Other buyers</th><th>Market</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>$12</td><td>4</td><td>5</td><td>100</td><td>4 + 5 + 100 = 109</td></tr>
+        <tr><td>$11</td><td>5</td><td>6</td><td>130</td><td>5 + 6 + 130 = 141</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>No calculator: group 4 + 5 first, then add 100. At the lower price every buyer wants more, which is the law of demand again.</p>
+
+  <h2 id="own">Own-price elasticity</h2>
+  <p>The effect is the percent change in quantity. The cause is the percent change in price. Using the average (midpoint) price and quantity:</p>
+  <div class="formula">
+    \[
+      E_{Q_x,P_x}
+      = \frac{\%\Delta Q_x^d}{\%\Delta P_x}
+      = \frac{\Delta Q_x^d}{\Delta P_x} \times \frac{\bar P_x}{\bar Q_x^d}
+    \]
+  </div>
+  <p>with \(\bar P_x = (P_1+P_2)/2\) and \(\bar Q_x^d = (Q_1+Q_2)/2\).</p>
+
+  <h3>Interpretation when the elasticity is −2</h3>
+  <p>The slide states \(E_{Q_x,P_x} = -2\) and reads it as: if the firm lowers its price by 1%, sales are expected to rise by 2%. The minus sign is the direction. The 2 is the size.</p>
+
+  <h3>Worked example on the slides</h3>
+  <p>Point A is \((Q,P) = (100, 10)\). Point B is \((50, 12)\).</p>
+  <ul>
+    <li>\(\Delta P = 12 - 10 = 2\)</li>
+    <li>\(\Delta Q^d = 50 - 100 = -50\)</li>
+    <li>\(\bar P = (10+12)/2 = 11\)</li>
+    <li>\(\bar Q^d = (50+100)/2 = 75\)</li>
+    <li>\(\%\Delta P = (2/11)\times 100 = 18.2\%\)</li>
+    <li>\(\%\Delta Q^d = (-50/75)\times 100 = -66.7\%\)</li>
+  </ul>
+  <p>The slide then writes</p>
+  <div class="formula">
+    \[
+      E_{Q_x,P_x} = \frac{-66.7\%}{18.2\%} = 3.67
+    \]
+  </div>
+  <p>It reports the size, 3.67, and the classification rule that follows uses that size. The two percent changes have opposite signs, which is the law of demand. Because 3.67 is greater than 1, this demand curve is elastic. A mental check without the decimal: 50/75 is two thirds, about 67%, and 2/11 is a bit under one fifth, about 18%. Quantity’s percent change is several times the price’s, so the curve is elastic even before you divide 66.7 by 18.2.</p>
+
+  <h3>Five labels</h3>
+  <div class="scroll">
+    <table class="data">
+      <thead><tr><th>Case</th><th>Rule on the slide</th></tr></thead>
+      <tbody>
+        <tr><td>Elastic</td><td>\(E_{Q_x,P_x} &gt; 1\)</td></tr>
+        <tr><td>Inelastic</td><td>\(E_{Q_x,P_x} &lt; 1\)</td></tr>
+        <tr><td>Unitary elastic</td><td>\(E_{Q_x,P_x} = 1\)</td></tr>
+        <tr><td>Perfectly elastic</td><td>\(E_{Q_x,P_x} = \infty\)</td></tr>
+        <tr><td>Perfectly inelastic</td><td>\(E_{Q_x,P_x} = 0\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Compare the size with 1. A signed elasticity of −2 is elastic because its size is 2. A signed elasticity of −0.31, from the Stata example below, is inelastic.</p>
+
+  <h2 id="tr">Price elasticity and total revenue</h2>
+  <p>Total revenue is also called total expenditure on these slides. The deck fills in the same sentence twice, once for a 10% price increase and once for a 10% price decrease.</p>
+  <div class="scroll">
+    <table class="data">
+      <thead>
+        <tr><th>Demand</th><th>Quantity response to a 10% price change</th><th>Price up: revenue</th><th>Price down: revenue</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Elastic, \(E_d &gt; 1\)</td><td>Quantity changes by <strong>more than</strong> 10%</td><td>Falls</td><td>Rises</td></tr>
+        <tr><td>Unit elastic, \(E_d = 1\)</td><td>Quantity changes by <strong>exactly</strong> 10%</td><td>Unchanged</td><td>Unchanged</td></tr>
+        <tr><td>Inelastic, \(E_d &lt; 1\)</td><td>Quantity changes by <strong>less than</strong> 10%</td><td>Rises</td><td>Falls</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Direction of quantity is still the law of demand: price up, quantity down; price down, quantity up. The revenue result depends on whether that quantity change is larger than, equal to, or smaller than the price change.</p>
+
+  <h2 id="cross">Cross-price and income elasticity</h2>
+  <div class="formula">
+    \[
+      E_{Q_x,P_z} = \frac{\%\Delta Q_x^d}{\%\Delta P_z} = \frac{\Delta Q_x^d}{\Delta P_z}\times\frac{\bar P_z}{\bar Q_x^d}
+      \qquad
+      E_{Q_x,Y} = \frac{\%\Delta Q_x^d}{\%\Delta Y} = \frac{\Delta Q_x^d}{\Delta Y}\times\frac{\bar Y}{\bar Q_x^d}
+    \]
+  </div>
+  <div class="grid-2">
+    <div class="callout">
+      <p><strong>Cross-price, \(E_c\).</strong> Positive: the two goods are substitutes. Negative: they are complements.</p>
+    </div>
+    <div class="callout warn">
+      <p><strong>Income, \(E_y\).</strong> Positive: X is normal. Inside that branch, \(E_y &gt; 1\) is a luxury and \(E_y &lt; 1\) is a necessity. Negative: X is inferior.</p>
+    </div>
+  </div>
+  <p>The necessity bullet is nested under the normal-good branch. An inferior good has negative income elasticity; it is not “a necessity” in this classification.</p>
+
+  <h2 id="reg">Chapter 2. The demand regression</h2>
+  <p>The demand function uses quantity demanded of X, the price of X, the price of a related good Z (substitute or complement), and income Y.</p>
+  <div class="formula">
+    \[
+      \text{Population: }\quad Q_x^d = \beta_0 + \beta_1 P_x + \beta_2 P_z + \beta_3 Y + u
+    \]
+    \[
+      \text{Sample: }\quad Q_x^d = b_0 + b_1 P_x + b_2 P_z + b_3 Y + e
+    \]
+  </div>
+  <p>\(\beta\) is the population parameter, the true value. \(b\) is the sample estimator, the estimated coefficient. The slides are explicit that we do not know \(\beta_0,\beta_1,\beta_2,\beta_3\). We estimate them and test.</p>
+  <p>For each slope the null is that the parameter is zero and the alternative is that it is not zero. The examples:</p>
+  <ul>
+    <li>\(H_0: \beta_1 = 0\) against \(H_1: \beta_1 \neq 0\) (the own price).</li>
+    <li>\(H_0: \beta_2 = 0\) against \(H_1: \beta_2 \neq 0\) (the related price).</li>
+    <li>\(H_0: \beta_3 = 0\) against \(H_1: \beta_3 \neq 0\) (income).</li>
+  </ul>
+  <p>Reject \(H_0\) when the p-value is below \(\alpha\). Alpha may be 0.01, 0.05, or 0.10.</p>
+  <h3>How to read a coefficient once you have decided</h3>
+  <ul>
+    <li><strong>Reject \(H_0: \beta_1 = 0\)</strong> (p-value \( &lt; \alpha \)). A 1-baht increase in \(P_x\) leads to an average change in quantity of \(b_1\) units, holding the other factors constant.</li>
+    <li><strong>Fail to reject</strong> (p-value \( &gt; \alpha \)). A 1-baht increase in \(P_x\) has no statistically significant effect on quantity, holding the other factors constant.</li>
+  </ul>
+  <p>The same sentence is used for \(P_z\) with \(b_2\), and for income with \(b_3\). The slide’s wording is “an average change of \(b\) units,” so the sign of \(b\) supplies the direction.</p>
+
+  <h2 id="stars">Stars: 10%, 5%, and 1%</h2>
+  <p>One worked equation is reused while the slides attach stars:</p>
+  <div class="formula">
+    \[
+      \hat Y = 90.8 - 0.06 X_1 + 0.116 X_2 - 2.355 X_3
+    \]
+  </div>
+  <p>P-values under the coefficients: intercept 0.000, \(X_1\) 0.000, \(X_2\) 0.57, \(X_3\) 0.095.</p>
+  <div class="scroll">
+    <table class="data">
+      <thead>
+        <tr><th>P-value</th><th>Compared with</th><th>Conclusion on the slide</th><th>Stars</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0.000</td><td>0.10, 0.05, and 0.01</td><td>Reject at each of those levels</td><td>*** (it also qualifies for * and **)</td></tr>
+        <tr><td>0.57</td><td>all three</td><td>Fail to reject at 10%, 5%, and 1%. Statistically insignificant</td><td>None</td></tr>
+        <tr><td>0.095</td><td>0.10 only</td><td>Reject at 10%. Fail to reject at 5% and at 1%</td><td>* only</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>After that last step the slide prints \(X_3\) as \(-2.355^{*}\) with p-value \((0.095)^{*}\), and it puts *** on the intercept and on \(X_1\). \(X_2\) stays bare.</p>
+  <p>The slide’s own gloss of a star: there is a 10% chance (or 5%, or 1%, matching the level) of rejecting \(H_0\) given that the true parameter is inside \(H_0\). That is how the deck describes \(\alpha\), not a second formula you need to compute.</p>
+
+  <h2 id="elin">Elasticity from a linear regression</h2>
+  <p>These slides estimate a <strong>linear</strong> demand equation. The coefficient is a slope in units, not a percent elasticity. A log-log regression, where the coefficient itself would be the elasticity, is not in this deck. Do not read \(b_1\) as “percent.”</p>
+  <p>If the null is rejected, convert the slope at the sample means:</p>
+  <div class="formula">
+    \[
+      E_d = b_1 \times \frac{\bar P_x}{\bar Q_x^d}
+      \qquad
+      E_c = b_2 \times \frac{\bar P_z}{\bar Q_x^d}
+      \qquad
+      E_Y = b_3 \times \frac{\bar Y}{\bar Q_x^d}
+    \]
+  </div>
+  <p>If you fail to reject \(H_0: \beta = 0\), the slide sets that estimated elasticity to 0. The ratio of means is not used.</p>
+
+  <h2 id="simple">Stata example 1. A line through ten prices</h2>
+  <p>Population \(Y = \beta_0 + \beta_1 X + u\). The sample is one price column and one quantity column:</p>
+  <div class="scroll">
+    <table class="data">
+      <thead><tr><th>Y, quantity demanded</th><td>49</td><td>45</td><td>44</td><td>39</td><td>38</td><td>37</td><td>34</td><td>33</td><td>30</td><td>29</td></tr></thead>
+      <tbody>
+        <tr><th>X, price</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Commands the slides show:</p>
+  <ul>
+    <li><code>regress y x</code> in the Command window. The slide notes that commands typed there cannot be saved.</li>
+    <li>The same command in a do-file, which can be saved.</li>
+    <li><code>twoway (scatter y x) (lfit y x)</code> for the scatter with the fitted line.</li>
+    <li><code>sum y x</code> for the means used in the elasticity.</li>
+  </ul>
+  <div class="scroll">
+    <table class="stata">
+      <caption>regress y x</caption>
+      <tbody>
+        <tr><th>Number of obs</th><td>10</td><th>F(1, 8)</th><td>321.66</td></tr>
+        <tr><th>Prob &gt; F</th><td>0.0000</td><th>R-squared</th><td>0.9757</td></tr>
+        <tr><th>Adj R-squared</th><td>0.9727</td><th>Root MSE</th><td>1.0927</td></tr>
+      </tbody>
+    </table>
+    <table class="stata">
+      <thead>
+        <tr><th>y</th><th>Coefficient</th><th>Std. err.</th><th>t</th><th>P&gt;|t|</th><th>95% conf. interval</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>x</td><td>−2.157576</td><td>0.1202996</td><td>−17.94</td><td>0.000</td><td>−2.434987 to −1.880164</td></tr>
+        <tr><td>_cons</td><td>49.66667</td><td>0.7464394</td><td>66.54</td><td>0.000</td><td>47.94537 to 51.38796</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The slide rounds this to \(\hat Y = 49.667 - 2.1576x\), with both p-values 0.000 and both marked ***.</p>
+  <ul>
+    <li>Reject \(H_0: \beta_1 = 0\). If price rises by $1, mean quantity demanded falls by about 2.1576 units.</li>
+    <li>Reject \(H_0: \beta_0 = 0\). The intercept says fitted quantity would be about 49.67 if price were zero. The slide says to ignore the intercept because that has no economic meaning.</li>
+    <li><code>sum y x</code> reports mean quantity 37.8 and mean price 5.5 (10 observations).</li>
+  </ul>
+  <p>Because the price slope is significant, elasticity at the means is</p>
+  <div class="formula">
+    \[
+      E_d = b_1 \times \frac{\bar P_x}{\bar Q}
+      = -2.16 \times \frac{5.5}{37.8}
+      = -0.31
+    \]
+  </div>
+  <p>The slide’s sentence: if the price increases by 1%, quantity demanded falls by 0.31%. The size is below 1, so this estimated demand is inelastic. R-squared 0.9757 means the fitted line accounts for 97.57% of the sample variation in quantity. That is a statement about fit, separate from the t test on one coefficient. Prob &gt; F = 0.0000 says the regression as a whole is significant.</p>
+  <div class="callout">
+    <p><strong>Mental check of −0.31.</strong> 37.8 / 5.5 is about 7, so 5.5/37.8 is about 1/7. Two-sevenths of 2.16 is about 0.3. Sign comes from the slope. Inelastic, because 0.3 is less than 1.</p>
+  </div>
+
+  <h2 id="multi">Stata example 2. Price, advertising, and GPP</h2>
+  <div class="formula">
+    \[
+      Q_x^d = \beta_0 + \beta_1 \text{Price} + \beta_2 \text{Advertise} + \beta_3 \text{GPP} + u
+    \]
+  </div>
+  <p>Advertise is advertising expenditure. GPP is gross provincial product. Expected signs from demand theory: price negative, advertising positive, GPP positive.</p>
+  <p>Ten provinces, A through J. Quantity is in thousands of units, price in dollars per unit, advertising in thousands of dollars, GPP in millions of dollars. The slide’s averages, which match <code>sum</code>, are quantity 175, price 15.1, advertising 125, GPP 17.95.</p>
+  <div class="scroll">
+    <table class="stata">
+      <caption>reg qd price advertise gpp</caption>
+      <tbody>
+        <tr><th>Number of obs</th><td>10</td><th>F(3, 6)</th><td>7.50</td></tr>
+        <tr><th>Prob &gt; F</th><td>0.0187</td><th>R-squared</th><td>0.7896</td></tr>
+        <tr><th>Adj R-squared</th><td>0.6844</td><th>Root MSE</th><td>17.417</td></tr>
+      </tbody>
+    </table>
+    <table class="stata">
+      <thead>
+        <tr><th>qd</th><th>Coefficient</th><th>Std. err.</th><th>t</th><th>P&gt;|t|</th><th>95% conf. interval</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>price</td><td>−12.2025</td><td>4.58207</td><td>−2.66</td><td>0.037</td><td>−23.41442 to −0.9905742</td></tr>
+        <tr><td>advertise</td><td>0.0077169</td><td>0.2040643</td><td>0.04</td><td>0.971</td><td>−0.4916104 to 0.5070442</td></tr>
+        <tr><td>gpp</td><td>2.676784</td><td>3.160072</td><td>0.85</td><td>0.429</td><td>−5.055634 to 10.4092</td></tr>
+        <tr><td>_cons</td><td>310.2448</td><td>95.07486</td><td>3.26</td><td>0.017</td><td>77.60497 to 542.8846</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The slide rounds the fitted equation to</p>
+  <div class="formula">
+    \[
+      \hat Q = 310.245 - 12.203\,\text{Price} + 0.008\,\text{Advertise} + 2.677\,\text{GPP}
+    \]
+  </div>
+  <p>and prints p-values \((0.017)\), \((0.037)^{**}\), \((0.971)\), \((0.429)\). The footnote says ***, **, and * denote significance at the 0.01, 0.05, and 0.10 levels.</p>
+  <div class="scroll">
+    <table class="data">
+      <thead>
+        <tr><th>Variable</th><th>Test</th><th>Reading on the slide</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Price, \(b_1 = -12.203\), p = 0.037</td>
+          <td>Reject \(H_0\)</td>
+          <td>A $1 higher price decreases average quantity sold by 12,200 units, other things constant. The coefficient is in thousands of units: \(12.203 \times 1{,}000 \approx 12{,}200\).</td>
+        </tr>
+        <tr>
+          <td>Advertise, \(b_2 = 0.008\), p = 0.971</td>
+          <td>Fail to reject</td>
+          <td>If advertising expenditure increases by $1,000, average quantity sold remains unchanged, all else equal.</td>
+        </tr>
+        <tr>
+          <td>GPP, \(b_3 = 2.677\), p = 0.429</td>
+          <td>Fail to reject</td>
+          <td>If GPP increases by $1 million, average quantity sold remains unchanged.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>By the star rule, p = 0.037 is ** (below 0.05, not below 0.01). The intercept’s p = 0.017 is also below 0.05. Advertising and GPP are above 0.10, so they get no stars. R-squared is 0.7896. The model F test is significant at 5% because Prob &gt; F = 0.0187.</p>
+  <h3>Elasticities at the means</h3>
+  <p>Only the price coefficient is significant, so only the price elasticity is computed. Means: \(\bar Q = 175\), price 15.1, advertising 125, GPP 17.95.</p>
+  <div class="formula">
+    \[
+      E_{\text{price}} = b_1 \times \frac{\overline{\text{Price}}}{\bar Q}
+      = -12.202 \times \frac{15.1}{175}
+    \]
+  </div>
+  <div class="callout alert">
+    <p><strong>Recompute this product.</strong> The slide prints the result of that multiplication as −1.503. The product \(-12.202 \times 15.1 / 175\) is about −1.05, not −1.503. On the exam, use the formula. A fast bound: \(12 \times 15 / 175 = 180/175\), a little over 1. So the size is a bit above 1 and this demand is slightly elastic. Advertising elasticity is written as 0. GPP elasticity is written as 0.</p>
+  </div>
+  <p>The same slide shows the simple-regression column of the elasticity table as “NA” for advertising and for GPP, because that model has no advertising or GPP regressor. Price elasticity in a simple regression is still \(b_1 \times \bar P / \bar Q\).</p>
+
+  <h2 id="tips">No-calculator tips for this block</h2>
+  <div class="tips">
+    <div class="tip">
+      <strong>Classify, then stop.</strong>
+      Substitutes, complements, normal, inferior, luxury, and necessity are sign rules and a comparison with 1. They do not need a product.
+    </div>
+    <div class="tip">
+      <strong>Total revenue is a 3-by-2 table.</strong>
+      Elastic moves revenue with the opposite of the price change. Inelastic moves revenue with the price change. Unit elastic leaves it alone.
+    </div>
+    <div class="tip">
+      <strong>Stars: compare with 0.10, then 0.05, then 0.01.</strong>
+      0.000 beats all three. 0.095 beats only 0.10. 0.57 beats none. 0.037 beats 0.10 and 0.05, so **.
+    </div>
+    <div class="tip">
+      <strong>Slope and elasticity are different sentences.</strong>
+      “Falls by 2.1576 units” is the slope. “Falls by 0.31%” is the elasticity. Insignificant slope: say “unchanged,” and set elasticity to 0.
+    </div>
+    <div class="tip">
+      <strong>Means you should recognize.</strong>
+      Simple example: quantity 37.8, price 5.5, elasticity −0.31. Multiple example: quantity 175, price 15.1, ads 125, GPP 17.95.
+    </div>
+    <div class="tip">
+      <strong>Percent versus units.</strong>
+      A coefficient of −12.203 on quantity measured in thousands is about 12,200 units, which is the slide’s wording. It is not a 12.203% elasticity.
+    </div>
+  </div>
+
+  <h2 id="quiz">Practice for Chapters 1–2</h2>
+  <p>Twenty-two questions from the slides. Check each one, or reveal it if you would rather read the explanation first. The same set is on the <a href="practice.html#set-a">practice page</a>.</p>
+  <div class="quiz" data-quiz="a"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Source: Chapter 1, Individual Demand Estimation and Elasticity Analysis, and Chapter 2, Individual Demand Estimation using Regression Analysis. Professor Dr. Poomthan Rangkakulnuwat.</p>
+  </div>
+</footer>
+<script src="js/quiz-data.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>
