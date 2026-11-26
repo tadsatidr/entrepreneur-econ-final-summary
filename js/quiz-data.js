@@ -1,602 +1,971 @@
+/* 80-question bank in exam proportions: a = Ch 1–2 (30), b = Ch 3–4 (30), c = Ch 5 (20).
+   answer = zero-based index of the correct option. Every item is grounded in the lecture slides
+   as explained on the chapter pages of this site. */
 window.QUIZ = {
-  a: [
+  "a": [
     {
-      q: "On the Chapter 1 slides, a rise in the price of blue jeans, holding other factors fixed, does what?",
-      options: [
-        "Shifts the demand curve right, from D1 to D2",
-        "Moves the buyer along the demand curve: quantity demanded changes",
-        "Shifts the demand curve because preference changed",
-        "Raises quantity demanded, by the law of demand"
+      "topic": "Ch 1 · Shift vs movement",
+      "q": "The price of blue jeans rises while income, preferences and the prices of other goods stay the same. On the Chapter 1 slides this is shown as…",
+      "options": [
+        "A rightward shift of the demand curve from D1 to D2",
+        "A leftward shift of the demand curve — a decrease in demand",
+        "A movement along the demand curve — a decrease in quantity demanded",
+        "No change, because demand only responds to income"
       ],
-      answer: 1,
-      why: "The slide “Quantity Demand Decreases” labels a change in quantity demanded as a movement along D1, caused by the good’s own price. Income, preference, substitutes, and complements shift the curve."
+      "answer": 2,
+      "why": "Only the good’s own price causes a movement along the curve (“a change in quantity demanded”). Income, preference, a substitute’s price and a complement’s price shift the whole curve. Saying “demand decreased” for an own-price change is the classic wording trap."
     },
     {
-      q: "Which change does the blue-jeans slide treat as a rightward shift (an increase in demand)?",
-      options: [
-        "A higher price of blue jeans",
-        "A higher price of a complement",
-        "A higher price of a substitute",
-        "A lower income, for this example"
+      "topic": "Ch 1 · Demand shifters",
+      "q": "Which change raises the demand for blue jeans (shifts the curve to the right)?",
+      "options": [
+        "A lower price of a complement of blue jeans",
+        "A higher price of a complement of blue jeans",
+        "A lower price of a substitute for blue jeans",
+        "A lower price of blue jeans themselves"
       ],
-      answer: 2,
-      why: "The slides say higher substitute prices lead to a rise in blue-jeans demand. Lower complement prices, higher income, and greater preference also shift demand right. Own price moves you along the curve."
+      "answer": 0,
+      "why": "The slides list four reasons demand rises: higher income, greater preference, a HIGHER substitute price, and a LOWER complement price. A higher complement price or a lower substitute price would shift demand left. A lower price of jeans themselves is a movement along the curve, not a shift."
     },
     {
-      q: "In the individual-versus-market diagram, Jones wants 4 units at $12, Smith wants 5, and other buyers want 100. Market quantity at $12 is",
-      options: ["9", "104", "109", "141"],
-      answer: 2,
-      why: "Market demand adds the individual quantities at the same price: 4 + 5 + 100 = 109. At $11 the slide adds 5 + 6 + 130 = 141."
-    },
-    {
-      q: "The worked arc-elasticity example goes from point A (P = 10, Q = 100) to point B (P = 12, Q = 50). The average price and average quantity are",
-      options: [
-        "P-bar = 11 and Q-bar = 75",
-        "P-bar = 2 and Q-bar = 50",
-        "P-bar = 22 and Q-bar = 150",
-        "P-bar = 11 and Q-bar = 150"
+      "topic": "Ch 1 · Market demand",
+      "q": "At $12, Jones wants 4 units, Smith wants 5 units and all other buyers want 100 units. What is market quantity demanded at $12?",
+      "options": [
+        "9",
+        "100",
+        "109",
+        "141"
       ],
-      answer: 0,
-      why: "P-bar = (10 + 12) / 2 = 11 and Q-bar = (100 + 50) / 2 = 75. Those averages are the denominators of the percent changes."
+      "answer": 2,
+      "why": "Market demand is the horizontal sum of individual demands at the same price: 4 + 5 + 100 = 109. (141 is the market quantity at $11: 5 + 6 + 130.) 9 forgets the other buyers."
     },
     {
-      q: "In that same example the slide reports %ΔP = 18.2% and %ΔQ = −66.7%, then writes the elasticity as 3.67. How should you classify the demand curve?",
-      options: [
-        "Inelastic, because quantity changed by less than price",
-        "Elastic, because 3.67 > 1",
-        "Unit elastic, because total revenue is the focus",
-        "Perfectly inelastic, because price rose"
+      "topic": "Ch 1 · Midpoint formula",
+      "q": "Price rises from $10 (point A) to $12 (point B). What average price (P-bar) does the slide use in the elasticity formula?",
+      "options": [
+        "$2",
+        "$10",
+        "$11",
+        "$12"
       ],
-      answer: 1,
-      why: "The classification slide says elastic if the elasticity is greater than 1. Here |%ΔQ| is much larger than |%ΔP|, so you do not need a calculator to see it is elastic. The slide states the size as 3.67."
+      "answer": 2,
+      "why": "P-bar = (P1 + P2)/2 = (10 + 12)/2 = 22/2 = 11. $2 is ΔP, not the average. Using $10 or $12 alone would give a different percent change depending on direction — the midpoint avoids that."
     },
     {
-      q: "The interpretation slide sets the price elasticity equal to −2. What does that mean?",
-      options: [
-        "A 1% price increase raises sales by 2%",
+      "topic": "Ch 1 · Percent change",
+      "q": "Quantity falls from 100 to 50. Using the average quantity as the base, the percent change in quantity is…",
+      "options": [
+        "−50%",
+        "−100%",
+        "+66.7%",
+        "−66.7%"
+      ],
+      "answer": 3,
+      "why": "ΔQ = 50 − 100 = −50 and Q-bar = (100 + 50)/2 = 75, so %ΔQ = −50/75 × 100 = −66.7% (two-thirds). −50% uses the old quantity as base; −100% uses the new one. The sign is negative because quantity fell."
+    },
+    {
+      "topic": "Ch 1 · Elasticity worked example",
+      "q": "With %ΔP = 18.2% and %ΔQ = −66.7%, the slide reports the price elasticity as 3.67 (in size). This demand is…",
+      "options": [
+        "Inelastic, because 3.67 is positive",
+        "Elastic, because |E| = 3.67 > 1",
+        "Unit elastic",
+        "Perfectly elastic"
+      ],
+      "answer": 1,
+      "why": "Classify by the absolute value: |−66.7/18.2| ≈ 3.67 > 1 → elastic. Quantity’s percent change is several times the price’s. Unit elastic needs exactly 1; perfectly elastic needs infinity (horizontal curve)."
+    },
+    {
+      "topic": "Ch 1 · Interpreting E",
+      "q": "A firm’s price elasticity of demand is E = −2. According to the slide, this means…",
+      "options": [
+        "If the firm lowers its price by 2%, sales rise by 1%",
         "If the firm lowers its price by 1%, sales are expected to rise by 2%",
-        "Demand is inelastic",
-        "The two goods are complements"
+        "If the firm lowers its price by 1 baht, sales rise by 2 units",
+        "Demand is inelastic, so cutting price lowers revenue"
       ],
-      answer: 1,
-      why: "The slide’s own sentence: if the firm lowers its price by 1%, sales are expected to rise by 2%. The minus sign is the law of demand. The size, 2, is greater than 1, so this case is elastic."
+      "answer": 1,
+      "why": "Elasticity is percent over percent: %ΔQ/%ΔP = −2, so a 1% price cut → +2% quantity. “1 baht → 2 units” confuses elasticity with a slope in units. |−2| > 1 means elastic, not inelastic."
     },
     {
-      q: "Demand is perfectly inelastic when the price elasticity equals",
-      options: ["1", "infinity", "0", "−1 only"],
-      answer: 2,
-      why: "The slide lists five cases: elastic if greater than 1, inelastic if less than 1, unitary if equal to 1, perfectly elastic if infinity, perfectly inelastic if 0."
-    },
-    {
-      q: "If demand is elastic and the firm raises price by 10%, total revenue",
-      options: [
-        "Rises, because each unit sells for more",
-        "Falls, because quantity demanded falls by more than 10%",
-        "Stays the same",
-        "Rises only if the good is inferior"
+      "topic": "Ch 1 · Five types",
+      "q": "A demand curve drawn as a vertical line — a 10% price rise leaves quantity unchanged — has elasticity…",
+      "options": [
+        "|E| = 0, perfectly inelastic",
+        "|E| = ∞, perfectly elastic",
+        "|E| = 1, unit elastic",
+        "|E| > 1, elastic"
       ],
-      answer: 1,
-      why: "Elastic and a price increase: quantity demanded falls by more than 10%, and the slide says total revenue falls."
+      "answer": 0,
+      "why": "Vertical = quantity never responds → |E| = 0, perfectly inelastic. A horizontal line is perfectly elastic (|E| = ∞). Unit elastic: 10% → 10%. Elastic: 10% → e.g. 20%."
     },
     {
-      q: "If demand is inelastic and the firm cuts price by 10%, total revenue",
-      options: [
-        "Rises, because quantity rises",
-        "Is unchanged, because elasticity equals 1",
-        "Falls, because quantity demanded rises by less than 10%",
-        "Falls only when the goods are substitutes"
+      "topic": "Ch 1 · Elasticity and revenue",
+      "q": "Demand is elastic (|Ed| > 1). The firm raises its price by 10%. Quantity demanded falls by ____ 10%, and total revenue ____.",
+      "options": [
+        "less than; rises",
+        "equal to; is unchanged",
+        "greater than; rises",
+        "greater than; falls"
       ],
-      answer: 2,
-      why: "Inelastic and a price decrease: quantity demanded rises by less than the price cut, and the slide says total revenue falls."
+      "answer": 3,
+      "why": "Elastic means quantity reacts more than price, so a 10% price rise cuts quantity by more than 10%; the quantity loss outweighs the price gain → TR falls. (Inelastic: less than 10%, TR rises. Unit: equal, unchanged.)"
     },
     {
-      q: "If demand is unit elastic, a price increase leaves total revenue",
-      options: ["Higher", "Lower", "Unchanged", "Impossible to sign without income"],
-      answer: 2,
-      why: "Unit elastic means quantity demanded changes by the same percent as price, in the opposite direction. The slide says total revenue is unchanged for both a price increase and a price decrease."
+      "topic": "Ch 1 · Elasticity and revenue",
+      "q": "Demand is inelastic (|Ed| < 1). The firm cuts its price by 10%. Total revenue (total expenditure)…",
+      "options": [
+        "Falls",
+        "Rises",
+        "Is unchanged",
+        "Doubles"
+      ],
+      "answer": 0,
+      "why": "Inelastic: quantity rises by less than 10%, so the price cut dominates and TR falls. With inelastic demand TR moves in the same direction as price. Cutting price raises TR only when demand is elastic."
     },
     {
-      q: "Cross-price elasticity of demand for X with respect to Pz is positive. The slides say the two goods are",
-      options: ["Complements", "Substitutes", "Both inferior", "Unrelated, so the elasticity should have been zero"],
-      answer: 1,
-      why: "Ec > 0 means substitutes. Ec < 0 means complements. The sign is the whole classification; you do not need the size."
+      "topic": "Ch 1 · Elasticity and revenue",
+      "q": "If demand is unit elastic (|Ed| = 1), a 10% price decrease causes total revenue to…",
+      "options": [
+        "Rise by 10%",
+        "Fall by 10%",
+        "Remain unchanged",
+        "Fall to zero"
+      ],
+      "answer": 2,
+      "why": "Unit elastic: quantity rises by exactly 10%, which exactly offsets the 10% price cut, so TR is unchanged (the slide’s box shows TR with a bar over it: constant)."
     },
     {
-      q: "Income elasticity is −0.4. Good X is",
-      options: ["A luxury", "A necessity", "A normal good", "An inferior good"],
-      answer: 3,
-      why: "The slide says Ey < 0 means X is inferior. Luxury and necessity are the two branches under Ey > 0 (normal): luxury if Ey > 1, necessity if Ey < 1 while still positive."
+      "topic": "Ch 1 · Linear demand & TR",
+      "q": "On the slide’s straight-line demand (from P = 40 at Q = 0 to Q = 80 at P = 0), total revenue is highest at point E (Q = 40, P = 20). What is TR there and what is elasticity at that point?",
+      "options": [
+        "600; elastic",
+        "800; unit elastic",
+        "800; perfectly inelastic",
+        "750; inelastic"
+      ],
+      "answer": 1,
+      "why": "TR = 40 × 20 = 800, the peak of the TR curve (350, 600, 750, 800, 750, 600, 350, 0). TR is maximised where demand is unit elastic; above E (higher prices) demand is elastic, below E it is inelastic."
     },
     {
-      q: "Income elasticity is 1.8. The nested classification on the income slide is",
-      options: [
-        "Inferior",
-        "Normal, and a necessity",
-        "Normal, and a luxury",
+      "topic": "Ch 1 · Linear demand & TR",
+      "q": "Moving down the same demand curve from H (Q = 10, P = $35) to G (Q = 20, P = $30), total revenue changes from 350 to ____, which shows demand is ____ in this range.",
+      "options": [
+        "600; elastic",
+        "600; inelastic",
+        "300; elastic",
+        "350; unit elastic"
+      ],
+      "answer": 0,
+      "why": "TR at G = 20 × 30 = 600. Price fell and TR rose (350 → 600), which only happens when demand is elastic — the upper part of a linear demand curve is the elastic part."
+    },
+    {
+      "topic": "Ch 1 · Cross-price elasticity",
+      "q": "The slide’s USDA table gives a cross-price elasticity of −0.21 for meat and dairy. By the slide’s rule, the two goods are…",
+      "options": [
+        "Substitutes",
+        "Unrelated, because 0.21 < 1",
+        "Inferior goods",
+        "Complements"
+      ],
+      "answer": 3,
+      "why": "Cross-price elasticity: Ec > 0 → substitutes; Ec < 0 → complements. −0.21 is negative → complements. Size compared with 1 matters for own-price and income elasticity classification, not for this sign rule. Inferior is about income."
+    },
+    {
+      "topic": "Ch 1 · Income elasticity",
+      "q": "When income rises by 10%, the quantity of good X bought rises by 15% (Ey = 1.5). Good X is…",
+      "options": [
+        "An inferior good",
+        "A normal good that is a necessity",
+        "A normal good that is a luxury",
         "A complement"
       ],
-      answer: 2,
-      why: "Ey > 0 means normal. Inside that branch, Ey > 1 means luxury and Ey < 1 means necessity."
+      "answer": 2,
+      "why": "Ey > 0 → normal; inside normal, Ey > 1 → luxury (slide pictures: watch, sports car, jewellery). Ey < 1 would be a necessity; Ey < 0 inferior. Complement is a cross-price concept."
     },
     {
-      q: "You reject H0: β = 0 when",
-      options: [
-        "The coefficient is negative",
-        "The p-value is greater than alpha",
-        "The p-value is smaller than alpha",
-        "R-squared is below 0.5"
+      "topic": "Ch 1 · Income elasticity",
+      "q": "A student’s income rises and she buys fewer packs of instant noodles; the income elasticity is −0.4. The noodles are…",
+      "options": [
+        "A luxury",
+        "An inferior good",
+        "A necessity",
+        "A substitute"
       ],
-      answer: 2,
-      why: "Chapter 2: reject H0 if the p-value is below α. Alpha may be 0.01, 0.05, or 0.10. R-squared is not the test of one coefficient."
+      "answer": 1,
+      "why": "Negative income elasticity (Ey < 0) means X is an inferior good — people buy less as income rises. Necessity and luxury are both normal goods with positive Ey."
     },
     {
-      q: "A coefficient has p-value 0.095. At which significance level do the slides put a star?",
-      options: [
-        "No star at 10%, 5%, or 1%",
-        "* at 10% only; no star at 5% or 1%",
-        "** at 5%",
-        "*** at 1%"
+      "topic": "Ch 1 · Income elasticity",
+      "q": "Which income elasticity describes a necessity in the slide’s classification?",
+      "options": [
+        "Ey = 0.5",
+        "Ey = −0.3",
+        "Ey = 1.8",
+        "Ey = ∞"
       ],
-      answer: 1,
-      why: "0.095 is below 0.10, so reject at 10% and show *. It is above 0.05 and above 0.01, so no ** and no ***. The worked equation is Ŷ = 90.8 − 0.06 X1 + 0.116 X2 − 2.355 X3, and the X3 p-value is 0.095."
+      "answer": 0,
+      "why": "Necessity: normal good (Ey > 0) with Ey < 1 → 0.5. −0.3 is inferior (trap: necessities are NOT inferior); 1.8 is a luxury."
     },
     {
-      q: "In that same star example, X2 has p-value 0.57. What do you print?",
-      options: [
-        "*** because the intercept is significant",
-        "** because 0.57 is a t statistic",
-        "No stars; fail to reject at 10%, 5%, and 1%",
-        "* because any p-value below 1 gets a star"
+      "topic": "Ch 2 · Population vs sample",
+      "q": "In Chapter 2, what is the difference between β1 and b1?",
+      "options": [
+        "β1 is the true (unknown) population parameter; b1 is the sample estimator (estimated coefficient)",
+        "β1 is the estimated coefficient from the sample; b1 is the true value",
+        "They are the same number written two ways",
+        "β1 is the p-value; b1 is the coefficient"
       ],
-      answer: 2,
-      why: "0.57 is greater than 0.10, 0.05, and 0.01. The slide says fail to reject and do not show stars. Compare the p-value with 0.10 first; if it loses that comparison, it gets nothing."
+      "answer": 0,
+      "why": "The slide’s table: population parameter (true parameter) β; sample estimator (estimated coefficient) b. “We don’t know the true value of parameters β0, β1, β2, β3” — we estimate them with b and test them."
     },
     {
-      q: "Simple regression on the slides: Ŷ = 49.667 − 2.1576 X, and H0: β1 = 0 is rejected. A $1 higher price changes mean quantity demanded by about",
-      options: [
-        "+2.1576 units",
-        "−2.1576 units",
-        "−0.31 units",
-        "No change, because the intercept is 49.67"
+      "topic": "Ch 2 · Hypothesis testing",
+      "q": "To test whether own price affects quantity demanded, the slides set up…",
+      "options": [
+        "H0: β1 ≠ 0 vs H1: β1 = 0; reject H0 if the p-value is greater than α",
+        "H0: β1 = 0 vs H1: β1 ≠ 0; reject H0 if the p-value is less than α (0.01, 0.05 or 0.10)",
+        "H0: b1 = 0; reject if the coefficient is negative",
+        "H0: β1 = 1; reject if R-squared is above 0.5"
       ],
-      answer: 1,
-      why: "The slope is the unit change, holding the model to a single price regressor. The slide says mean quantity demanded decreases by about 2.1576 units. The −0.31 figure is the percent elasticity at the means, not the slope."
+      "answer": 1,
+      "why": "Null: no effect (β1 = 0). Alternative: some effect (β1 ≠ 0). Reject the null when the p-value is below the significance level α, which can be 0.01, 0.05 or 0.10. Hypotheses are about the population β, not the sample b."
     },
     {
-      q: "For that simple regression, means are Ȳ = 37.8 and X̄ = 5.5, and the slide computes the price elasticity at the means as −0.31. A 1% higher price means quantity demanded",
-      options: [
-        "Falls by 0.31%",
-        "Falls by 2.16%",
-        "Rises by 0.31%",
-        "Does not change, because |E| < 1"
+      "topic": "Ch 2 · Stars",
+      "q": "In ŷ = 90.8 − 0.06X1 + 0.116X2 − 2.355X3, the p-value of X3 is 0.095. How many stars does it get?",
+      "options": [
+        "*** (significant at 1%)",
+        "** (significant at 5%)",
+        "* (significant at 10% only)",
+        "No star"
       ],
-      answer: 0,
-      why: "E = b1 × (X̄ / Ȳ) = −2.16 × (5.5 / 37.8) = −0.31. The slide: if price increases by 1%, quantity demanded falls by 0.31%. |E| < 1, so it is inelastic, but the quantity response is still −0.31%, not zero."
+      "answer": 2,
+      "why": "0.095 < 0.10 → reject at 10%; 0.095 > 0.05 and > 0.01 → fail to reject at 5% and 1%. So one star: −2.355X3*."
     },
     {
-      q: "Why do the slides say to ignore the intercept 49.67 in that demand equation?",
-      options: [
-        "Its p-value is above 0.10",
-        "It is the elasticity",
-        "A price of zero has no economic meaning here, even though H0: β0 = 0 is rejected",
-        "R-squared is only 0.10"
+      "topic": "Ch 2 · Stars",
+      "q": "In the same equation, X2 has coefficient 0.116 with p-value 0.57. The correct conclusion is…",
+      "options": [
+        "Reject H0 at 10%: one star",
+        "Reject H0 at 1% because 0.57 is less than 1",
+        "Significant because the coefficient is positive",
+        "Fail to reject H0 at 10%, 5% and 1%: statistically insignificant, no star"
       ],
-      answer: 2,
-      why: "The intercept is statistically significant (p = 0.000), and R-squared is 0.9757. The slide still sets it aside: if price were zero, fitted quantity would be about 49.67, which has no economic meaning."
+      "answer": 3,
+      "why": "0.57 is larger than 0.10, 0.05 and 0.01, so H0: β2 = 0 is never rejected; the slide writes “do not show stars”. Comparing with 1 or looking at the sign is not a significance test."
     },
     {
-      q: "For Qd = β0 + β1 Price + β2 Advertise + β3 GPP + u, demand theory on the slide says the expected signs are",
-      options: [
-        "Price +, Advertise −, GPP −",
-        "Price −, Advertise +, GPP +",
-        "All three negative",
-        "Price −, Advertise −, GPP +"
+      "topic": "Ch 2 · Stars",
+      "q": "In Example 2, the price coefficient has p-value 0.037. On the slide it is reported as…",
+      "options": [
+        "(0.037)***",
+        "(0.037)*",
+        "(0.037)**",
+        "(0.037) with no star"
       ],
-      answer: 1,
-      why: "The expected-sign table: b1 Price negative, b2 Advertise positive, b3 GPP positive."
+      "answer": 2,
+      "why": "0.037 < 0.10 ✓ and < 0.05 ✓ but not < 0.01 ✗ → significant at 5% → two stars. The footnote: ***, **, * = significance at 0.01, 0.05, 0.1."
     },
     {
-      q: "The estimated multiple regression is Q̂ = 310.245 − 12.203 Price + 0.008 Advertise + 2.677 GPP. Quantity is measured in thousands of units. The slide’s reading of the price coefficient, which is significant, is that a $1 higher price",
-      options: [
-        "Lowers average quantity sold by about 12,200 units",
-        "Lowers average quantity sold by 12.203 units",
-        "Has no effect, because elasticity is a percent",
-        "Raises quantity, because GPP is positive"
+      "topic": "Ch 2 · Stata example 1",
+      "q": "regress y x gives ŷ = 49.667 − 2.1576x with p = 0.000 for x (y = quantity, x = price). The slide’s interpretation of the slope is…",
+      "options": [
+        "If price rises by $1, mean quantity demanded decreases by about 2.1576 units",
+        "If price rises by 1%, quantity demanded falls by 2.1576%",
+        "Price has no significant effect on quantity",
+        "If price is zero, quantity is 2.1576 units"
       ],
-      answer: 0,
-      why: "−12.203 is in thousands of units, so the slide says average quantity sold would decrease by 12,200 units, other things constant. p = 0.037, so H0: β1 = 0 is rejected."
+      "answer": 0,
+      "why": "In a linear regression the coefficient is a slope in units: ΔQ/ΔP = −2.1576 units per $1, and p = 0.000 < 0.01 so we reject H0. The “1% → 2.1576%” reading is an elasticity interpretation, which needs the means, which needs the means. 49.667 is the intercept."
     },
     {
-      q: "In that multiple regression, Advertise has p = 0.971 and GPP has p = 0.429. Their elasticities at the means are",
-      options: [
-        "b2 × (125 / 175) and b3 × (17.95 / 175), because the formula always applies",
-        "Both set to 0, because you fail to reject H0: β = 0",
-        "Both negative",
-        "Equal to the price elasticity"
+      "topic": "Ch 2 · Stata example 1",
+      "q": "Why does the slide say to ignore the intercept b0 = 49.67 even though its p-value is 0.000?",
+      "options": [
+        "Because it is statistically insignificant",
+        "Because Stata always reports the intercept wrongly",
+        "Because the intercept is the elasticity",
+        "Because it is the quantity demanded when price is zero, which holds no economic meaning"
       ],
-      answer: 1,
-      why: "Chapter 2’s rule: if you fail to reject the slope hypothesis, the estimated elasticity is 0. You do not multiply an insignificant coefficient by the ratio of means. The slide writes both the advertising elasticity and the GPP elasticity as 0."
+      "answer": 3,
+      "why": "Rejecting H0: β0 = 0 only says the constant is not zero. b0 is the predicted quantity at a price of zero (about 49.67 units) — a situation with no economic meaning, so we ignore it."
+    },
+    {
+      "topic": "Ch 2 · Elasticity at the means",
+      "q": "Using b1 = −2.16, mean price 5.5 and mean quantity 37.8, the price elasticity at the means is about −0.31. What does it mean?",
+      "options": [
+        "A $1 price rise lowers quantity by 0.31 units — elastic demand",
+        "A 1% price rise lowers quantity demanded by 0.31% — inelastic demand",
+        "A 1% price rise lowers quantity by 31% — elastic demand",
+        "Demand is unit elastic"
+      ],
+      "answer": 1,
+      "why": "Ed = b1 × P-bar/Q-bar = −2.16 × 5.5/37.8 ≈ −2.16 × (1/7) ≈ −0.31. It is a percent-to-percent measure; |−0.31| < 1 → inelastic. The slide: “If the price increases by 1%, the quantity demanded falls by 0.31%.”"
+    },
+    {
+      "topic": "Ch 2 · Reading Stata",
+      "q": "Example 1 reports R-squared = 0.9757. This tells you that…",
+      "options": [
+        "The price coefficient is significant at 97.57%",
+        "The fitted line explains about 97.57% of the variation in quantity demanded",
+        "The elasticity is 0.9757",
+        "97.57% of consumers buy the product"
+      ],
+      "answer": 1,
+      "why": "R² = SS Model / SS Total = 384.05/393.6 ≈ 0.9757: the share of the variation in y explained by the regression. Significance comes from P>|t|; elasticity needs b × P-bar/Q-bar."
+    },
+    {
+      "topic": "Ch 2 · Stata procedure",
+      "q": "The slides show two ways to run regress y x. What is the difference between them?",
+      "options": [
+        "The Command window gives OLS; the Do-file gives a different estimator",
+        "Only the Do-file can show the p-values",
+        "The Command window is used to enter data; the Do-file to rename variables",
+        "Commands typed in the Command window cannot be saved; commands written in a Do-file can be saved"
+      ],
+      "answer": 3,
+      "why": "Method 1: type in the Command window (note: commands cannot be saved). Method 2: type the command in a Do-file — you can save it and run it again (highlight → Execute selection). Both run the same OLS regression."
+    },
+    {
+      "topic": "Ch 2 · Stata example 2",
+      "q": "For Qd = β0 + β1Price + β2Advertise + β3GPP + u, what signs does demand theory lead us to expect for b1, b2, b3?",
+      "options": [
+        "−, +, +",
+        "+, +, +",
+        "−, −, +",
+        "+, −, −"
+      ],
+      "answer": 0,
+      "why": "Price: negative (law of demand). Advertising expenditure: positive (raises preference). GPP (gross provincial product, i.e. income): positive for a normal good."
+    },
+    {
+      "topic": "Ch 2 · Stata example 2",
+      "q": "Quantity sold is measured in 1,000 units and the price coefficient is −12.203 (p = 0.037). The slide’s interpretation is…",
+      "options": [
+        "If price increases by $1, quantity falls by 12.203 units",
+        "If price increases by 1%, quantity falls by 12.2%",
+        "If price increases by $1, the average quantity sold decreases by about 12,200 units, all else constant",
+        "Price has no significant effect on quantity sold"
+      ],
+      "answer": 2,
+      "why": "The coefficient is in the units of the dependent variable — thousands of units — so −12.203 × 1,000 ≈ −12,200 units. p = 0.037 < 0.05 → reject H0 (significant). It is a slope, not an elasticity."
+    },
+    {
+      "topic": "Ch 2 · Elasticity at the means",
+      "q": "In Example 2, advertising (p = 0.971) and GPP (p = 0.429) are insignificant, and the price coefficient is significant. Which statement about the elasticities at the means is correct?",
+      "options": [
+        "Advertising elasticity = 0.008 × 125/175 and GPP elasticity = 2.677 × 17.95/175",
+        "All three elasticities are 0 because R-squared is below 0.8",
+        "Price elasticity is −12.202, the coefficient itself",
+        "Advertising and GPP elasticities are set to 0; the price elasticity −12.202 × 15.1/175 has size above 1, so demand is (slightly) elastic"
+      ],
+      "answer": 3,
+      "why": "If you fail to reject H0: β = 0, the slide sets the elasticity to 0 — no multiplication. Price: −12.202 × 15.1/175 ≈ −1.05 (the slide prints −1.503); either way the size exceeds 1 → elastic. The coefficient is a slope, not the elasticity."
     }
   ],
-  b: [
+  "b": [
     {
-      q: "The Chapter 3 definition of demand is",
-      options: [
-        "The quantity people wish to buy at one official price",
-        "Willingness and ability to buy different quantities at different prices during a specific time period",
-        "Purchase intention only, whether or not the person can pay",
-        "The market price that minimizes consumer resistance"
+      "topic": "Ch 3 · Demand",
+      "q": "Chapter 3 defines demand as…",
+      "options": [
+        "The quantity a consumer actually bought last month",
+        "The desire to own a product regardless of income",
+        "The willingness and ability of buyers to purchase different quantities of a good or service at different prices during a specific time period",
+        "The total revenue earned by a firm at each price"
       ],
-      answer: 1,
-      why: "The opening slide requires both willingness and ability, more than one price, and a specific time period."
+      "answer": 2,
+      "why": "Both willingness AND ability (the two highlighted words), at different prices, during a specific time period. Desire without ability is not demand; past purchases and revenue are other concepts."
     },
     {
-      q: "In Qxd = β0 + β1 Px + β2 Pz + β3 Y + u, the term u is",
-      options: [
-        "The observed price of a substitute",
-        "Unobserved variables that affect quantity demanded",
-        "The R-squared of the regression",
+      "topic": "Ch 3 · Observed vs unobserved",
+      "q": "In Qxd = β0 + β1Px + β2Pz + β3Y + u, which part does Chapter 3 call the unobserved variables?",
+      "options": [
+        "Px",
+        "u",
+        "Pz",
+        "Y"
+      ],
+      "answer": 1,
+      "why": "Px, Pz and Y are observed variables (they can be recorded in a data table). u represents the unobserved variables affecting Qxd — psychological factors that TPB later tries to measure."
+    },
+    {
+      "topic": "Ch 3 · Economics vs psychology",
+      "q": "Case Qx2: a consumer intends to buy, but no purchase occurs (purchase intention ≠ actual purchase). Which explanation do the slides use?",
+      "options": [
+        "Psychology explanation (Theory of Planned Behavior)",
+        "Economics explanation (demand theory)",
+        "The law of demand",
+        "Cross-price elasticity"
+      ],
+      "answer": 0,
+      "why": "Qx1 — purchasing occurred (intention = actual purchase) — is the economics/demand-theory case. Qx2 — intention only — needs the psychology explanation, TPB, because intention and actual purchase can differ."
+    },
+    {
+      "topic": "Ch 4 · 4-step strategy",
+      "q": "What is the correct order of the four steps of the data-driven marketing strategy?",
+      "options": [
+        "Market segmentation → Segment naming → Segment profiling → Data-driven strategy formulation (4Ps)",
+        "Segment naming → Market segmentation → Strategy formulation → Segment profiling",
+        "Segment profiling → Market segmentation → Segment naming → 4Ps",
+        "4Ps → Market segmentation → Segment profiling → Segment naming"
+      ],
+      "answer": 0,
+      "why": "Step 1 group consumers (segmentation), Step 2 give the chosen group a meaningful name (naming), Step 3 analyse its constraints, drivers and barriers (profiling), Step 4 design the 4Ps from the data — “never guess, let the data drive your strategy.”"
+    },
+    {
+      "topic": "Ch 3 · TPB constructs",
+      "q": "“The degree to which people evaluate a specific behavior as favorable or unfavorable” defines…",
+      "options": [
+        "Subjective norm",
+        "Attitude toward behavior",
+        "Perceived behavioral control",
+        "Intention"
+      ],
+      "answer": 1,
+      "why": "That is the slide’s definition of attitude. Subjective norm = perceived social pressure; PBC = difficulty in implementation, past experiences, expected obstacles; intention = motivation/effort."
+    },
+    {
+      "topic": "Ch 3 · TPB constructs",
+      "q": "Subjective norms refer to…",
+      "options": [
+        "The consumer’s own technical knowledge",
+        "How much effort a person will put into the behavior",
+        "Perceived social pressure on behavior accomplishment",
+        "Actions already taken, such as test drives"
+      ],
+      "answer": 2,
+      "why": "Subjective norm = perceived social pressure (family, friends, someone respected/boss, experts or influencers, neighbours encouraging you). Knowledge is a PBC item, effort describes intention, and actions taken are behavior."
+    },
+    {
+      "topic": "Ch 3 · TPB constructs",
+      "q": "“People’s difficulty in implementation, reflecting past experiences and expected difficulties or obstacles” defines…",
+      "options": [
+        "Attitude",
+        "Behavior",
+        "Subjective norm",
         "Perceived behavioral control"
       ],
-      answer: 1,
-      why: "Px, Pz, and Y are the observed variables. The slide labels u as the unobserved variables affecting Qxd."
+      "answer": 3,
+      "why": "That is perceived behavioral control (PBC): resources, autonomy, confidence and knowledge that make the behavior feel easy or hard."
     },
     {
-      q: "The slides use “Qx1: purchasing occurred” for which explanation?",
-      options: [
-        "Theory of planned behavior, because intention differs from purchase",
-        "Demand theory, the economics explanation, where purchase intention equals actual purchase",
-        "Van Westendorp’s too-cheap curve",
-        "A non-consumer segment"
+      "topic": "Ch 3 · TPB constructs",
+      "q": "Individual behavioral intention reflects…",
+      "options": [
+        "Whether the person has already placed a booking deposit",
+        "The social pressure from family and friends",
+        "How motivated individuals are to perform a specific behavior — how much effort they will put into doing it",
+        "The price the consumer considers too expensive"
       ],
-      answer: 1,
-      why: "Qx1 is the economics case: purchasing occurred, and intention equals the actual purchase. Qx2 is intention only, and that is where the slides switch to psychology and TPB."
+      "answer": 2,
+      "why": "Intention = motivation/effort, a cognitive readiness (mental state). Placing a deposit is behavior (ultimate/preparatory action); social pressure is subjective norm."
     },
     {
-      q: "Under the theory of planned behavior, intention is driven by",
-      options: [
-        "Attitude, subjective norm, and perceived behavioral control, each with a positive sign",
-        "Own price, the price of Z, and income only",
-        "Behavior first, then attitude",
-        "Subjective norm only"
+      "topic": "Ch 3 · Classifying items",
+      "q": "“Experts or influencers I follow encourage me to purchase a pure electric vehicle” (sn4) measures…",
+      "options": [
+        "Subjective norm",
+        "Attitude",
+        "Perceived behavioral control",
+        "Behavior"
       ],
-      answer: 0,
-      why: "Ajzen (1991), as quoted on the slide: a more positive attitude, a stronger positive subjective norm, and greater perceived behavioral control all enhance intention. The equation is intent = β0 + β1 att + β2 sn + β3 pbc + ε1, with each slope marked positive."
+      "answer": 0,
+      "why": "Encouragement from other people = social pressure = subjective norm. In Chapter 4, sn4 is used in the Promotion strategy (expert advocacy & influencers)."
     },
     {
-      q: "“Attitudes reflect the degree to which people evaluate a specific behavior as favorable or unfavorable.” Which item matches that construct?",
-      options: [
-        "My family encourages me to purchase a pure electric vehicle",
-        "It is wise to purchase a pure electric vehicle",
-        "I have taken an actual test drive of a pure EV",
-        "I have sufficient financial resources to purchase an EV without hesitation"
+      "topic": "Ch 3 · Classifying items",
+      "q": "Which item measures BEHAVIOR rather than intention?",
+      "options": [
+        "I am willing to make an effort to gather information and test-drive a pure EV before my next purchase",
+        "I intend to choose a pure electric vehicle as my next car",
+        "I expect to purchase a pure EV within the next 3 to 5 years",
+        "I have taken actual test drives of Pure EVs"
       ],
-      answer: 1,
-      why: "“Wise,” “happy,” “fashion,” and “attractive” are attitude items. Family encouragement is a subjective norm. A test drive is behavior. Financial readiness is perceived behavioral control."
+      "answer": 3,
+      "why": "Behavior items describe actions already done (“I HAVE taken test drives” = beh2). Willingness, intending and expecting are about the future → intention items (int4, int2/3, int5). Watch the trap between int4 and beh2."
     },
     {
-      q: "Subjective norms, on these slides, refer to",
-      options: [
-        "The buyer’s own evaluation of the EV as wise or attractive",
-        "Perceived social pressure on accomplishing the behavior",
-        "Past difficulty and expected obstacles",
-        "The final purchase only"
+      "topic": "Ch 3 · Classifying items",
+      "q": "“I have sufficient financial resources and situational readiness to purchase an EV without hesitation” (pbc1) belongs to…",
+      "options": [
+        "Attitude",
+        "Perceived behavioral control",
+        "Subjective norm",
+        "Intention"
       ],
-      answer: 1,
-      why: "That is the slide’s definition. Items include family, friends, someone respected or the boss, experts or influencers, and, on the Chapter 4 instrument, neighbors."
+      "answer": 1,
+      "why": "It is about one’s resources and ability to carry out the purchase → PBC. In the 4P table pbc1 (with pbc6) supports the Price strategy (budget and cash-flow readiness)."
     },
     {
-      q: "Perceived behavioral control reflects",
-      options: [
-        "Only how fashionable the family will look",
-        "People’s difficulty in implementation, past experience, and expected obstacles",
-        "The reservation price on a demand curve",
-        "Whether the good is a luxury"
+      "topic": "Ch 3 · Intention vs behavior",
+      "q": "According to the slide comparing INTENTION and BEHAVIOR, what is the measurement scope of each?",
+      "options": [
+        "Intention: preparatory actions; Behavior: mental state",
+        "Intention: cognitive readiness (mental state); Behavior: preparatory actions (e.g. information search, test drive, loan checks) and ultimate action (final purchase & adoption)",
+        "Both measure only the final purchase",
+        "Intention: the price paid; Behavior: the quantity bought"
       ],
-      answer: 1,
-      why: "That is the Chapter 3 definition. The EV items cover money and cash flow, autonomy, feeling comfortable with the decision, and having enough technical information."
+      "answer": 1,
+      "why": "Intention is a mental state (cognitive readiness). Behavior covers observable actions — from preparatory steps (search, test drive, loan checks) to the ultimate action (purchase and adoption)."
     },
     {
-      q: "Which statement is a behavior item, not an intention item?",
-      options: [
-        "When I buy my next car, I will consider a pure EV",
-        "I intend to choose a pure EV as my next car",
-        "I have compared auto-loan rates and insurance for buying a pure EV",
-        "I expect to purchase a pure EV within 3 to 5 years"
-      ],
-      answer: 2,
-      why: "Behavior covers observable actions. Comparing loans and insurance is BEH3. The other three are intention items (consider, intend, expect)."
-    },
-    {
-      q: "The second TPB equation on the slides is",
-      options: [
-        "beh = δ0 + δ1 intent + δ2 pbc + ε2",
+      "topic": "Ch 3 · TPB equations",
+      "q": "Which equation is TPB equation (2) in the slides?",
+      "options": [
+        "intent = β0 + β1 att + β2 sn + β3 pbc + ε1",
         "beh = δ0 + δ1 att + δ2 sn + ε2",
-        "intent = δ0 + δ1 beh + ε2",
-        "Qxd = β0 + β1 Px + β2 Pz + β3 Y + u"
+        "pbc = δ0 + δ1 intent + δ2 beh + ε2",
+        "beh = δ0 + δ1 intent + δ2 pbc + ε2"
       ],
-      answer: 0,
-      why: "Equation (2) puts behavior on intention and perceived behavioral control. Equation (1) puts intention on attitude, subjective norm, and PBC. Both slopes in equation (2) are hypothesized positive."
+      "answer": 3,
+      "why": "Equation (1) explains intention by att, sn and pbc. Equation (2) explains behavior by intention and pbc (pbc appears in both). Attitude and subjective norm are not in equation (2)."
     },
     {
-      q: "Why do the Stata commands create a variable named intent rather than int?",
-      options: [
-        "int is a reserved keyword for the integer data type",
-        "int would be confused with the intercept",
-        "Stata cannot average variables whose names start with i",
-        "The questionnaire has no intention items"
+      "topic": "Ch 3 · Hypothesized signs",
+      "q": "According to Ajzen (1991), as presented in Chapter 3, the expected signs of β1, β2, β3, δ1, δ2 are…",
+      "options": [
+        "All positive",
+        "All negative",
+        "β positive, δ negative",
+        "Only δ1 positive; the rest are zero"
       ],
-      answer: 0,
-      why: "The slide’s note says exactly that: in Stata, int is reserved for the integer storage type. The command is egen intent = rowmean(int1-int5)."
+      "answer": 0,
+      "why": "A more positive attitude, a stronger positive subjective norm and greater PBC all enhance intention; stronger intentions and PBC positively influence actual behavior. Every arrow is drawn with (+)."
     },
     {
-      q: "The composites used in the regressions are row means. Attitude uses how many items?",
-      options: [
-        "att1–att4, divided by 4, as in the shorter Chapter 3 list",
-        "att1–att5, divided by 5",
-        "att1–att7, the same count as PBC",
-        "A single item, att1 only"
+      "topic": "Ch 4 · The data",
+      "q": "How was the Chapter 4 EV data collected?",
+      "options": [
+        "Random sampling of 132 Bangkok men",
+        "An online Van Westendorp survey of 100 gym-goers",
+        "Questionnaires distributed in Bangkok using convenience sampling; 550 people responded (file EV.xlsx)",
+        "Ten provinces with price, advertising and GPP"
       ],
-      answer: 1,
-      why: "Chapter 4’s estimation slide writes att = (att1 + … + att5) / 5, sn over 5 items, pbc over 7, intent over 5, and beh over 5. Chapter 3’s earlier item list is shorter; the regression uses the Chapter 4 instrument."
+      "answer": 2,
+      "why": "Bangkok, convenience sampling, 550 respondents, EV.xlsx. 132 is the Ready-to-Buy Males segment; 100 gym-goers is the Chapter 5 egg-cake survey; ten provinces is Chapter 2."
     },
     {
-      q: "The EV survey was fielded as",
-      options: [
-        "A census of Bangkok car owners",
-        "Convenience sampling in Bangkok, 550 respondents, file EV.xlsx",
-        "A double-bounded CVM with bids 40, 60, and 80",
-        "A Van Westendorp survey of 100 gym users"
+      "topic": "Ch 4 · Labels in Stata",
+      "q": "Which statement about labelling the EV data in Stata matches the slides?",
+      "options": [
+        "Value labels can only be attached to one variable each",
+        "Variable names and labels are the same thing, so changing one changes the other",
+        "Likert answers are stored as text, not numbers",
+        "For gender, the value label is 1 = male, 2 = female, 3 = LGBTQ+, and a label such as AgreementLabel or YesNoLabel can be applied to multiple variables"
       ],
-      answer: 1,
-      why: "The slide says questionnaires were distributed in Bangkok using convenience sampling and 550 people responded. The CVM bids and the 100-person egg survey belong to Chapter 5."
+      "answer": 3,
+      "why": "The slides create value labels (gender 1 male, 2 female, 3 LGBTQ+) and note a label like YesNoLabel or AgreementLabel (1 Strongly Disagree … 5 Strongly Agree) can be reused on many variables. You can change a variable’s label but not its name."
     },
     {
-      q: "The four-step marketing sequence on the slides is",
-      options: [
-        "Product, price, place, promotion, and only then segmentation",
-        "Market segmentation, segment naming, segment profiling, data-driven strategy",
-        "Estimate intent, estimate behavior, drop insignificant variables, raise price",
-        "PMC, PME, OPP, IDP"
+      "topic": "Ch 4 · Stata commands",
+      "q": "Why does the slide create the intention score with egen intent = rowmean(int1-int5) instead of naming it int?",
+      "options": [
+        "Because rowmean cannot create variables shorter than 6 letters",
+        "Because int already holds the behavior score",
+        "Because int is a reserved keyword in Stata used to specify the integer data type",
+        "Because the professor prefers longer names"
       ],
-      answer: 1,
-      why: "Those are the four named steps. The 4Ps come inside step 4, after the customer profile exists. The command for the gender example is tabulate gender int1, row."
+      "answer": 2,
+      "why": "The slide’s comment: “In STATA, int is a reserved keyword used to specify the integer data type.” So the composite is named intent."
     },
     {
-      q: "From tabulate gender int1, row, the slides’ chosen target is",
-      options: [
-        "Women with int1 = 5, because 70 of them strongly agree",
-        "Men with int1 = 5: 132 men, 40.87% of male respondents, named Ready-to-Buy Males",
-        "Everyone with a bachelor’s degree",
-        "Buyers with no car debt"
+      "topic": "Ch 4 · Stata commands",
+      "q": "Which command correctly builds the PBC score?",
+      "options": [
+        "egen pbc = rowmean(pbc1-pbc5)",
+        "egen pbc = rowmean(pbc1-pbc7)",
+        "gen pbc = pbc1 + pbc7",
+        "reg pbc att sn"
       ],
-      answer: 1,
-      why: "132 male respondents, 40.87% of men, answered 5 on int1. 70 women, 33.18% of women, did the same. The slide says men are more ready and focuses on males with int1 = 5."
+      "answer": 1,
+      "why": "The Chapter 4 questionnaire has seven PBC items, so pbc = (pbc1 + … + pbc7)/7 = rowmean(pbc1-pbc7). Attitude, SN, intention and behavior each have five items."
     },
     {
-      q: "Inside Ready-to-Buy Males (gender = 1 and int1 = 5, N = 132), the car-debt profile says",
-      options: [
-        "11% owe more than 1,500,000 baht, so a small cash discount is enough",
-        "88.64% currently carry car debt, and 52.27% owe more than 1,500,000 baht",
-        "High intention means they can pay cash today",
-        "Debt is irrelevant because pbc5 is insignificant"
+      "topic": "Ch 4 · Row means",
+      "q": "Respondent 001 ticks att1–att5 as 5, 4, 5, 5, 4 on the 5-point Likert scale (5 = Strongly Agree). Their att score is…",
+      "options": [
+        "4.0",
+        "4.6",
+        "5.0",
+        "23"
       ],
-      answer: 1,
-      why: "The slide: 88.64% carry existing car debt, and 52.27% owe more than 1,500,000 baht. High purchase intention does not equal ability to buy. Small cash discounts are said to fail."
+      "answer": 1,
+      "why": "Row mean: (5 + 4 + 5 + 5 + 4)/5 = 23/5 = 4.6. 23 is the sum, not the mean."
     },
     {
-      q: "The pbc5 profile of the same 132 men is used to conclude that",
-      options: [
-        "90.15% feel confident in their technical knowledge, so technology is not the main barrier",
-        "90.15% doubt home charging and will not buy",
-        "PBC has a negative effect on intention",
-        "Most of them scored pbc5 = 1"
+      "topic": "Ch 4 · Regression (1)",
+      "q": "reg intent att sn pbc gives att .3168693, sn .2694953, pbc .2538433, all with P>|t| = 0.000. Which conclusion is on the slide?",
+      "options": [
+        "All three influence intention, and attitude is the most important factor",
+        "Only attitude affects intention",
+        "Perceived behavioral control is the most important factor",
+        "None is significant because the coefficients are below 1"
       ],
-      answer: 0,
-      why: "tabulate pbc5 if gender == 1 & int1 == 5. The slide calls 90.15% high technical confidence and says nearly all of these men see no major technology barrier."
+      "answer": 0,
+      "why": "All p-values are 0.000 < 0.01 → all significant (***) and positive. Attitude has the largest coefficient (0.317 > 0.269 > 0.254), so it is the most important driver of intention. Coefficient size relative to 1 says nothing about significance."
     },
     {
-      q: "The package built from those two profiles is",
-      options: [
-        "A lower-spec car and no financing, because they are price sensitive",
-        "Financial transition (trade-in, debt rolled into the EV loan, balloon or flexible payments) plus a smart home charger",
-        "Exclude them from marketing, as if they were a [no, no] CVM group",
-        "Raise the price above the point of marginal expensiveness"
+      "topic": "Ch 4 · Regression (1)",
+      "q": "In reg intent att sn pbc, the coefficient on att is 0.317. The best interpretation is…",
+      "options": [
+        "A 1-point higher attitude score raises the intention score by about 0.32 points, holding sn and pbc constant",
+        "31.7% of respondents have a positive attitude",
+        "Attitude explains 31.7% of the variation in intention",
+        "A 1% rise in attitude raises intention by 0.317%"
       ],
-      answer: 1,
-      why: "The slide’s name is the Financial Transition and Tech-Forward package. Debt tools answer car_debt. The charger is justified by technical readiness on pbc5, not by a knowledge gap."
+      "answer": 0,
+      "why": "A regression coefficient is a slope in the units of the variables (both on the 1–5 scale), holding other regressors constant. The share of variation explained is R² (0.5058 for the whole model), not a coefficient."
     },
     {
-      q: "reg intent att sn pbc on the 550 respondents. Which reading matches the slide?",
-      options: [
-        "Only attitude is significant; sn and pbc have p-values above 0.10",
-        "All three slopes are significant at p = 0.000, and attitude has the largest coefficient",
-        "The model is insignificant because R-squared is 0.5058",
-        "PBC has the largest coefficient, about 0.84"
+      "topic": "Ch 4 · Regression (1)",
+      "q": "Equation (1) has R-squared = 0.5058 with 550 observations. This means…",
+      "options": [
+        "50.58% of respondents intend to buy an EV",
+        "att, sn and pbc together explain about 51% of the variation in intention",
+        "The model is insignificant",
+        "Each variable has a 50.58% chance of being significant"
       ],
-      answer: 1,
-      why: "Coefficients are about 0.317 (att), 0.269 (sn), and 0.254 (pbc), each with p = 0.000. R-squared is 0.5058, F(3, 546) = 186.29, Prob > F = 0.0000. Attitude is the largest of the three, which is why the slide calls it the most important factor for intention. The 0.84 figure is the intention coefficient in the behavior equation."
+      "answer": 1,
+      "why": "R² measures goodness of fit: the share of variation in the dependent variable (intent) explained by the regressors. Prob > F = 0.0000 shows the model is significant overall."
     },
     {
-      q: "reg beh intent pbc. The slide’s conclusion is",
-      options: [
-        "Both intention and PBC raise purchase behavior",
-        "Intention is the only significant factor; PBC has no effect on purchase behavior (p = 0.177)",
-        "PBC is significant and negative, so it blocks purchase",
-        "Neither variable matters because R-squared is 0.2452"
+      "topic": "Ch 4 · Regression (2)",
+      "q": "reg beh intent pbc gives intent .8389568 (p = 0.000) and pbc −.0992519 (p = 0.177). The slide concludes…",
+      "options": [
+        "PBC strongly reduces purchase behavior",
+        "Both intention and PBC are significant at 5%",
+        "Intention is the only factor that influences purchase behavior; PBC has no effect on this purchase behavior",
+        "Intention has no effect because the constant is significant"
       ],
-      answer: 1,
-      why: "Intention’s coefficient is about 0.839 with p = 0.000. PBC’s coefficient is about −0.099 with p = 0.177, which is above 0.10, so the slide says it has no effect. R-squared here is 0.2452; a moderate R-squared does not by itself make a slope insignificant."
+      "answer": 2,
+      "why": "p = 0.177 > 0.10 → fail to reject H0: δ2 = 0, so PBC has no (statistically significant) direct effect — don’t read the negative sign as a real effect. Intention (0.839, p = 0.000) is significant at 1%."
     },
     {
-      q: "Attitude, subjective norm, and PBC “indirectly” affect the decision to buy. That sentence fits the two equations because",
-      options: [
-        "They appear in the behavior equation with large t statistics",
-        "They shift intention, and intention is what shifts behavior; PBC’s direct behavior coefficient is not significant",
-        "They are insignificant in the intention equation",
-        "Behavior is regressed on price and income"
+      "topic": "Ch 4 · Indirect effects",
+      "q": "Attitude, social norms and PBC do not appear as significant regressors in the behavior equation. How do the slides say they affect buying?",
+      "options": [
+        "They have no effect on buying at all",
+        "Directly, through the constant term",
+        "Only through the price of the EV",
+        "Indirectly — they raise intention (equation 1), and intention raises behavior (equation 2)"
       ],
-      answer: 1,
-      why: "All three are significant in the intention equation. Only intention is significant in the behavior equation. The indirect path is the one the slide states."
+      "answer": 3,
+      "why": "“Attitude, social norms, and perceived behavioral control indirectly affect how people decide to buy a pure electric vehicle.” The path is att/sn/pbc → intention → behavior."
+    },
+    {
+      "topic": "Ch 4 · Segmentation",
+      "q": "tabulate gender int1, row shows 132 of 323 male respondents answered int1 = 5 (Strongly agree). The row percentage the slide highlights is…",
+      "options": [
+        "24.00%",
+        "33.18%",
+        "37.82%",
+        "40.87%"
+      ],
+      "answer": 3,
+      "why": "Row % = 132/323 ≈ 40.87% of all male respondents. 33.18% is the female share at int1 = 5; 37.82% is the share of all 550 respondents. Because men are more likely to be ready, the target is males with int1 = 5."
+    },
+    {
+      "topic": "Ch 4 · Profiling command",
+      "q": "Which Stata command profiles the car debt of the Ready-to-Buy Males segment (N = 132)?",
+      "options": [
+        "tabulate car_debt if gender == 2 & int1 == 1",
+        "reg car_debt gender int1",
+        "tabulate car_debt if gender == 1 & int1 == 5",
+        "egen car_debt = rowmean(gender int1)"
+      ],
+      "answer": 2,
+      "why": "Ready-to-Buy Males = gender coded 1 (male) AND int1 = 5. Step 3 (profiling) uses if-conditions to scan the selected segment; == is the equality test in Stata."
+    },
+    {
+      "topic": "Ch 4 · Profiling result",
+      "q": "88.64% of Ready-to-Buy Males carry car debt and 52.27% owe more than 1,500,000 baht. What is the slide’s key interpretation?",
+      "options": [
+        "High intention does NOT equal financial ability; traditional advertising or small cash discounts will fail",
+        "They lack interest in EVs, so more advertising is needed",
+        "They should be excluded from marketing",
+        "A small cash discount will convert most of them"
+      ],
+      "answer": 0,
+      "why": "They want the EV today but are trapped by current loans. So the package uses integrated financial engineering: aggressive trade-ins, debt consolidation into the new EV loan, balloon financing/flexible leasing. (88.64 = 100 − 11.36 with no debt.)"
+    },
+    {
+      "topic": "Ch 4 · Profiling result",
+      "q": "tabulate pbc5 if gender == 1 & int1 == 5 shows Agree 18.94% and Strongly Agree 71.21%. Which strategy does this finding drive?",
+      "options": [
+        "Run basic technology-education ads, because most are confused about EVs",
+        "Cut the price by a small cash discount",
+        "Target female buyers instead",
+        "Bundle the EV with a complimentary premium smart home wall charger, because 90.15% are technically confident"
+      ],
+      "answer": 3,
+      "why": "18.94 + 71.21 = 90.15% feel confident in their technical knowledge → no major technology barrier. The slide rewards this readiness with a high-performance smart wall charger (smart scheduling, app control, bi-directional charging)."
+    },
+    {
+      "topic": "Ch 4 · 4Ps",
+      "q": "In the 4P table, sn4 (expert/influencer support), att3 (modern & fashionable image) and int4 (willingness to test-drive) are used for which P?",
+      "options": [
+        "Product",
+        "Promotion",
+        "Price",
+        "Place"
+      ],
+      "answer": 1,
+      "why": "Promotion: Expert Advocacy & VIP Test-Drive Campaign — partner with tech experts, reviewers and lifestyle influencers; VIP home/office test drives. Product uses att1/att4/att5 (family); Price uses att2, pbc1/pbc6, beh3/beh4; Place uses pbc5/pbc7, beh5, beh1/beh2."
+    },
+    {
+      "topic": "Ch 4 · 4Ps",
+      "q": "Which tactic does the slide link to the PRICE strategy (att2 “wise purchase”, pbc1/pbc6 budget ready, beh3/beh4 comparing loans and placing deposits)?",
+      "options": [
+        "A family-centric mobility package with Vehicle-to-Load (V2L)",
+        "An interactive TCO (Total Cost of Ownership) calculator and pre-approved bank interest-rate packages",
+        "Turning showrooms into Experience Centers with technical specialists",
+        "A VIP home/office test-drive service"
+      ],
+      "answer": 1,
+      "why": "Smart Value & Seamless Financing: a TCO calculator shows long-term fuel and maintenance savings (it’s a wise choice) plus exclusive, fast-track bank packages. V2L family package = Product; Experience Centers = Place; VIP test drive = Promotion."
     }
   ],
-  c: [
+  "c": [
     {
-      q: "On the Chapter 5 slides, willingness to pay (the reservation price) is",
-      options: [
-        "The cost of production plus a markup",
-        "A price read off the demand curve: up to 20 baht for the 1st unit and up to 9 baht for the 10th",
-        "Always the optimal price point",
-        "The too-cheap price only"
+      "topic": "Ch 5 · WTP",
+      "q": "On the Chapter 5 slide, the consumer will pay up to 20 baht for the 1st unit and up to 9 baht for the 10th unit. Willingness to pay (reservation prices) are…",
+      "options": [
+        "The prices shown on the supply curve",
+        "The average price in the market",
+        "The cost of producing each unit",
+        "The prices shown on the demand curve"
       ],
-      answer: 1,
-      why: "The slide says reservation prices are the prices shown on the demand curve, and it gives those two unit examples."
+      "answer": 3,
+      "why": "WTP = reservation price = the maximum a consumer will pay for that unit = the height of the demand curve. It falls as more units are bought (20 → 18 → 9)."
     },
     {
-      q: "The two WTP methods named in the deck are",
-      options: [
-        "OLS and TPB",
-        "Contingent valuation and the Van Westendorp price sensitivity meter",
-        "Arc elasticity and income elasticity",
-        "Log-log regression and linear regression"
+      "topic": "Ch 5 · CVM",
+      "q": "In the Contingent Valuation Method (CVM), respondents are asked to…",
+      "options": [
+        "Indicate how much they would pay in the hypothetical scenario presented in the questionnaire",
+        "Give four prices: too cheap, cheap, expensive, too expensive",
+        "Record what they actually paid last month",
+        "Rate their attitude on a 5-point Likert scale"
       ],
-      answer: 1,
-      why: "The section header lists (1) Contingent Valuation Method and (2) Van Westendorp PSM. Log-log demand is not in these slides."
+      "answer": 0,
+      "why": "CVM uses a hypothetical scenario. The four-price question set is Van Westendorp PSM; Likert attitude items are TPB (Chapters 3–4)."
     },
     {
-      q: "Double-bounded CVM in the example uses P0 = 60, PL = 40, and PH = 80. A respondent who says yes to 60 is asked next about",
-      options: ["40 baht", "60 baht again", "80 baht", "The too-cheap price"],
-      answer: 2,
-      why: "Yes to the initial bid leads to the higher bid, 80. No to the initial bid leads to the lower bid, 40. Each person answers two questions."
-    },
-    {
-      q: "A [yes, no] respondent, yes at 60 and no at 80, is classified as",
-      options: [
-        "Premium / loyal, WTP at least 80, price skimming",
-        "Value-for-money, 60 ≤ WTP < 80, keep the base price",
-        "Price-sensitive, 40 ≤ WTP < 60, use discounts",
-        "Non-consumer, WTP below 40, drop them from communications"
+      "topic": "Ch 5 · Double-bounded CVM",
+      "q": "With P0 = 60, PL = 40 and PH = 80 baht, a respondent answers “Yes” to “Would you buy at 60 baht?”. What is the second question?",
+      "options": [
+        "Would you buy it at 40 baht?",
+        "Would you buy it at 60 baht again?",
+        "Would you still buy it at 80 baht (premium materials, special features)?",
+        "No second question is asked"
       ],
-      answer: 1,
-      why: "The segment table: [yes, yes] is WTP ≥ PH; [yes, no] is P0 ≤ WTP < PH; [no, yes] is PL ≤ WTP < P0; [no, no] is WTP < PL."
+      "answer": 2,
+      "why": "Double-bounded: each respondent answers two sequential questions. Yes at the initial bid (60) → the higher bid PH = 80. No at 60 → the lower bid PL = 40."
     },
     {
-      q: "Which CVM group does the slide tell you to exclude from all marketing communications?",
-      options: ["[yes, yes]", "[yes, no]", "[no, yes]", "[no, no]"],
-      answer: 3,
-      why: "[no, no] has WTP below the low price. The strategy line is to exclude that group. [yes, yes] is the primary target for a premium version."
-    },
-    {
-      q: "The CVM forecast says 25% buy at 80 baht, 50% at 60, and 80% at 40. In a market of 10,000 people, quantity demanded at 60 baht is",
-      options: ["2,500", "5,000", "8,000", "10,000"],
-      answer: 1,
-      why: "50% of 10,000 is 5,000. The slide’s market demand points are (80, 2,500), (60, 5,000), and (40, 8,000). The 50% already adds [yes, yes] and [yes, no], the people with WTP at least 60."
-    },
-    {
-      q: "Which PSM answer is a “not buy” price?",
-      options: [
-        "Expensive: it feels expensive, but the person would still consider buying",
-        "Cheap: it feels like a bargain and the person wants to buy now",
-        "Too cheap: the price raises so much quality doubt that the person would not buy",
-        "The indifference price point"
+      "topic": "Ch 5 · CVM groups",
+      "q": "A respondent answers [no, yes]: no at 60 baht, then yes at 40 baht. Their WTP level, segment and strategy are…",
+      "options": [
+        "WTP ≥ 80; Premium/Loyal; price skimming",
+        "60 ≤ WTP < 80; Value-for-Money; keep the base price",
+        "WTP < 40; Non-Consumers; exclude from all marketing communications",
+        "40 ≤ WTP < 60; Price-Sensitive/Promotion; occasional discounts, discount codes or a cheaper economy version"
       ],
-      answer: 2,
-      why: "Too expensive and too cheap are the two not-buy questions. Expensive and cheap are the two buy questions. The EV wording on the slide matches this option."
+      "answer": 3,
+      "why": "No to 60 means WTP < 60; yes to 40 means WTP ≥ 40. That group is the price-sensitive/promotion segment: short-term sales through discounts, codes or lower-spec versions (which also collect data on them)."
     },
     {
-      q: "The point of marginal cheapness (PMC), the lower boundary, is the intersection of",
-      options: [
-        "Too expensive and cheap",
-        "Expensive and too cheap",
-        "Cheap and expensive",
-        "Too cheap and too expensive"
+      "topic": "Ch 5 · CVM groups",
+      "q": "For the [yes, yes] group (WTP ≥ 80 baht) the slide recommends…",
+      "options": [
+        "Excluding them from marketing communications",
+        "Offering discount codes",
+        "Making them the primary target early and offering full-featured premium or luxury versions to maximize profit per unit through price skimming",
+        "Keeping the base price and stressing value for money"
       ],
-      answer: 1,
-      why: "PMC is expensive ∩ too cheap, about 68 baht in the running example. PME, the upper boundary, is too expensive ∩ cheap, about 92 baht. The acceptable range is (PMC, PME)."
+      "answer": 2,
+      "why": "[yes, yes] = Premium/Loyal segment → primary target, focus early, premium versions, price skimming. Discount codes are for [no, yes]; value-for-money is [yes, no]; exclusion is [no, no]."
     },
     {
-      q: "The slides say a launch price for that example can sit between",
-      options: ["40 and 60 baht", "68 and 92 baht", "92 and 160 baht", "0 and the PMC"],
-      answer: 1,
-      why: "Acceptable prices are the open range from PMC ≈ 68 to PME ≈ 92. Below the PMC, too-cheap suspicion outweighs the “expensive but still buy” response. Above the PME, “too expensive” takes over."
-    },
-    {
-      q: "In the high-protein egg PSM, the indifference price point and the optimal price point are described as",
-      options: [
-        "IDP ≈ 83, where “expensive” and “cheap” are about equally common; OPP between 70 and 80 because the too-cheap and too-expensive curves only meet near 0% there",
-        "IDP = 68 and OPP = 92",
-        "Both equal to 40, the rounded minimum price",
-        "OPP is the price that maximizes the too-expensive share"
+      "topic": "Ch 5 · CVM demand",
+      "q": "The CVM survey gives: [yes,yes] → 25% buy at 80 baht; adding [yes,no] → 50% buy at 60 baht. With a target market of 10,000 people, how many people buy at 60 baht?",
+      "options": [
+        "2,500",
+        "5,000",
+        "6,000",
+        "8,000"
       ],
-      answer: 0,
-      why: "IDP is the normal-looking market price, the crossing of cheap and expensive, marked about 83. OPP minimizes resistance. On the egg graph the two not-buy curves do not cross in the usual way; they meet near 0% around 70–80 baht, so the slide puts OPP in that interval."
+      "answer": 1,
+      "why": "At 60 baht everyone with WTP ≥ 60 buys: [yes,yes] + [yes,no] = 50%. 50% × 10,000 = 5,000. 2,500 is the quantity at 80; 8,000 at 40."
     },
     {
-      q: "Before estimating PMC, PME, OPP, and IDP, a response is discarded when",
-      options: [
-        "The person is older than 25",
-        "The four prices are not in the order too cheap < cheap < expensive < too expensive",
-        "Intention is below 3",
-        "The p-value is above 0.05"
+      "topic": "Ch 5 · CVM demand",
+      "q": "At 40 baht, 80% of the market would buy ([yes,yes] + [yes,no] + [no,yes]). With 10,000 people, which point is on the market demand curve?",
+      "options": [
+        "(40, 800)",
+        "(40, 8,000)",
+        "(80, 8,000)",
+        "(40, 2,000)"
       ],
-      answer: 1,
-      why: "The egg-cake slide states that rule. The kept data are in High Protein Egg.xlsx, from 100 people, and the do-file is PSM_4lines.do."
+      "answer": 1,
+      "why": "0.80 × 10,000 = 8,000 persons at a price of 40. The market curve on the slide: (80, 2,500), (60, 5,000), (40, 8,000). The [no,no] 20% never buy at any of the three prices."
     },
     {
-      q: "Newton–Miller–Smith adds which questions to the four PSM prices?",
-      options: [
-        "Gender and income only",
-        "How likely the person is to buy at their cheap price, and how likely at their expensive price",
-        "A second CVM bid of 80 baht",
-        "Attitude, subjective norm, and PBC"
+      "topic": "Ch 5 · PSM questions",
+      "q": "In Van Westendorp’s PSM, which question describes a price at which the consumer would NOT buy because they doubt the product’s quality?",
+      "options": [
+        "Too expensive",
+        "Too cheap",
+        "Expensive",
+        "Cheap"
       ],
-      answer: 1,
-      why: "Those two intent-to-purchase questions, on a 1–5 scale or a 0–100% scale, are what NMS adds so the four prices can be turned into a demand curve."
+      "answer": 1,
+      "why": "Too cheap (NOT BUY): so cheap you doubt its quality. Too expensive is also NOT BUY but because of price. Expensive and Cheap are BUY answers (still consider buying / a bargain)."
     },
     {
-      q: "The lowest stated price in the egg data is 42 baht and the highest is 158. For a 12-step grid the slides use",
-      options: [
-        "Prices from 42 to 158 in steps of (158 − 42) / 12",
-        "40 through 160 in steps of 10",
-        "68, 83, and 92 only",
-        "40, 60, and 80, the CVM bids"
+      "topic": "Ch 5 · PSM graphs",
+      "q": "Which two PSM curves are plotted as INVERSE (reverse) cumulative frequencies and therefore FALL as price rises?",
+      "options": [
+        "Cheap and too cheap",
+        "Too expensive and expensive",
+        "Expensive and cheap",
+        "Too expensive and too cheap"
       ],
-      answer: 1,
-      why: "42 is rounded down to 40 and 158 is rounded up to 160. Interval = (160 − 40) / 12 = 10. The prices are 40, 50, 60, …, 160."
+      "answer": 0,
+      "why": "Graph 3 (cheap) and Graph 4 (too cheap) are inverse cumulative: at low prices many people call it cheap/too cheap, and that share fades as price rises. Too expensive and expensive are ordinary cumulative curves that rise."
     },
     {
-      q: "On a 5-point likelihood scale, NMS purchase weights are",
-      options: [
-        "5 → 100%, 4 → 50%, 3 → 25%, 2 and 1 → 0",
-        "5 → 70%, 4 → 30%, and 1 through 3 → 0",
-        "Every score from 1 to 5 is 20%",
-        "5 → 0.10 because alpha is 10%"
+      "topic": "Ch 5 · PMC",
+      "q": "The Point of Marginal Cheapness (PMC) is the intersection of which curves, and what is it in the egg-cake example?",
+      "options": [
+        "Expensive (BUY) and too cheap (NOT BUY); lower boundary ≈ 68 baht",
+        "Too expensive and cheap; upper boundary ≈ 92 baht",
+        "Cheap and expensive; ≈ 83 baht",
+        "Too cheap and too expensive; 70–80 baht"
       ],
-      answer: 1,
-      why: "The slide: definitely buy (5) maps to 0.70, probably buy (4) maps to 0.30, and neutral through not buy (1–3) maps to 0."
+      "answer": 0,
+      "why": "PMC = Graph 2 (expensive) ∩ Graph 4 (too cheap) → the lower boundary of the acceptable range (≈ 68). Below it, more people think the product is “too cheap to buy” than “expensive”, and view it with suspicion."
     },
     {
-      q: "At a test price of 80 baht, respondent 4 has cheap = 80, expensive = 108, intent at cheap = 5, and intent at expensive = 4. The slide’s purchase weight is",
-      options: ["0%", "15%", "50%", "70%"],
-      answer: 2,
-      why: "80 lies between this person’s cheap and expensive prices, so the weight is the average of 70% and 30%, which is 50%. If the test price is outside that interval, the slide sets the weight to 0. Respondent 3, inside the interval with weights 30% and 0%, gets 15%."
-    },
-    {
-      q: "The slide’s average purchase probabilities for the egg cake are about 29.65% at 80 baht, 17.85% at 90, and 9.75% at 100. The separate teaching table for the revenue index uses Price × probability. At 85 baht and 25% that index is",
-      options: ["21.25 baht per customer", "110", "2,450", "176,400,000"],
-      answer: 0,
-      why: "85 × 0.25 = 21.25. The same slide computes 80 × 30% = 24 and 90 × 20% = 18. The 2,450 figure is the chart reading they multiply by the market, not this row."
-    },
-    {
-      q: "On the estimated egg-cake curves, the price that maximizes expected revenue per customer, and the total-revenue illustration for 72,000 Kasetsart students, are",
-      options: [
-        "40 baht, and 40 × 72,000",
-        "70 baht, and about 2,450 × 72,000 = 176,400,000 baht",
-        "92 baht, the PME, and 92 × 0.70 × 72,000",
-        "160 baht, because the grid ends there"
+      "topic": "Ch 5 · PME",
+      "q": "The Point of Marginal Expensiveness (PME) is…",
+      "options": [
+        "The intersection of too cheap and expensive; ≈ 68 baht",
+        "The intersection of too expensive and cheap; the upper boundary, ≈ 92 baht",
+        "The price that maximizes revenue, 70 baht",
+        "The intersection of cheap and expensive; ≈ 83 baht"
       ],
-      answer: 1,
-      why: "The slide says to price at 70 baht per unit to maximize expected revenue per customer. It then multiplies the revenue-index reading 2,450 by the 72,000-person target market. Very low prices, about 40 to 70 baht, are also where the slides say quality doubts pull purchase probability down."
+      "answer": 1,
+      "why": "PME = Graph 1 (too expensive) ∩ Graph 3 (cheap) → upper boundary (≈ 92). Above it (e.g. at 100) most people say it is too expensive and demand falls quickly. Acceptable range = (PMC, PME) = 68–92 baht."
+    },
+    {
+      "topic": "Ch 5 · OPP",
+      "q": "The Optimal Price Point (OPP) is the intersection of ____ and is described as the price that ____.",
+      "options": [
+        "cheap and expensive; most people think is normal for the market",
+        "expensive and too cheap; marks the lower boundary",
+        "too expensive and too cheap; minimizes consumer resistance so the widest audience is reached",
+        "too expensive and cheap; marks the upper boundary"
+      ],
+      "answer": 2,
+      "why": "OPP = the two NOT BUY curves (too expensive × too cheap). It prevents rejection from either side. In the egg-cake data the two curves only meet near 0% around 70–80 baht, so OPP is between 70 and 80. “The price most people think is normal” describes IDP."
+    },
+    {
+      "topic": "Ch 5 · IDP",
+      "q": "Which statement about the Indifference Price Point (IDP) is correct?",
+      "options": [
+        "It is the intersection of the two NOT BUY curves",
+        "It is always the lowest acceptable price",
+        "It is where revenue is maximized",
+        "It is where the number who think the price is expensive about equals the number who think it is cheap; often used as the “current market price” (≈ 83 baht in the egg-cake case)"
+      ],
+      "answer": 3,
+      "why": "IDP = cheap (Graph 3) ∩ expensive (Graph 2) — the two BUY curves. It represents the price most people consider normal; used as the current market price or to highlight good value and a positive brand image."
+    },
+    {
+      "topic": "Ch 5 · Egg-cake data",
+      "q": "In the High-Protein Egg Cake PSM survey (100 respondents), a respondent’s data were discarded when…",
+      "options": [
+        "They answered the survey online",
+        "They gave an intent score of 3",
+        "Their answers did not follow the order Too cheap < Cheap < Expensive < Too expensive",
+        "They chose a price above 100 baht"
+      ],
+      "answer": 2,
+      "why": "Logical answers must satisfy too cheap < cheap < expensive < too expensive; any respondent who broke the order was dropped. Intent scores of 1–3 just get a weight of 0 in NMS."
+    },
+    {
+      "topic": "Ch 5 · NMS",
+      "q": "What does the Newton–Miller–Smith (NMS) model add to the four PSM questions?",
+      "options": [
+        "Two questions on how likely the respondent is to buy at their own “cheap” price and at their own “expensive” price (1–5 or 0–100%)",
+        "A question on income and a question on gender",
+        "A double-bounded yes/no bid",
+        "Two questions on the competitor’s price"
+      ],
+      "answer": 0,
+      "why": "NMS adds two intent-to-purchase questions (intent_cheap and intent_expen). They turn the PSM price answers into purchase probabilities, giving a demand curve and a revenue curve."
+    },
+    {
+      "topic": "Ch 5 · NMS price grid",
+      "q": "The lowest price in the egg-cake data is 42 baht (rounded down to 40) and the highest is 158 (rounded up to 160). With 12 price intervals, the prices on the demand curve are…",
+      "options": [
+        "40, 52, 64, …",
+        "40, 50, 60, …, 160",
+        "42, 52, 62, …, 158",
+        "40, 60, 80, …, 160"
+      ],
+      "answer": 1,
+      "why": "Interval = (Pmax − Pmin)/12 = (160 − 40)/12 = 120/12 = 10 → 40, 50, 60, …, 160."
+    },
+    {
+      "topic": "Ch 5 · NMS weights",
+      "q": "At a test price of 80 baht, respondent 4 has cheap = 80, expensive = 108, intent_cheap = 5 and intent_expen = 4. Their purchase probability is…",
+      "options": [
+        "0%",
+        "30%",
+        "50%",
+        "70%"
+      ],
+      "answer": 2,
+      "why": "80 lies between cheap (80) and expensive (108), so average the weights: score 5 → 0.70, score 4 → 0.30; (70% + 30%)/2 = 50%. If 80 were outside that range the probability would be 0%."
+    },
+    {
+      "topic": "Ch 5 · NMS demand shape",
+      "q": "On the NMS demand curve for the egg cake, purchase probability RISES from 40 to 70 baht. The slide’s explanation is…",
+      "options": [
+        "The law of demand always holds",
+        "Students have more income at lower prices",
+        "Stata made a calculation error",
+        "At 40–70 baht consumers doubt the quality (hormones, counterfeit, close to expiry), and these doubts reduce the likelihood of purchase"
+      ],
+      "answer": 3,
+      "why": "Prices that are too low trigger quality suspicion — the same idea as the “too cheap” PSM question. So the lower the price in that range, the lower the probability that an individual will purchase."
+    },
+    {
+      "topic": "Ch 5 · Revenue index",
+      "q": "Expected revenue index per customer = Price × Probability of purchase. Using the NMS table (50 → 13.4%, 70 → 35.1%, 80 → 29.65%, 90 → 17.85%), which price maximizes expected revenue per customer?",
+      "options": [
+        "50 baht",
+        "70 baht",
+        "80 baht",
+        "90 baht"
+      ],
+      "answer": 1,
+      "why": "70 × 35.1 = 2,457 is the largest (80 × 29.65 = 2,372; 90 × 17.85 = 1,606.5; 50 × 13.4 = 670). The slide: price the product at 70 baht/unit to maximize expected revenue per customer."
+    },
+    {
+      "topic": "Ch 5 · Market forecast",
+      "q": "The target population is 72,000 Kasetsart students and the revenue index at 70 baht is about 2,450. Total estimated revenue is about…",
+      "options": [
+        "17,640,000 baht",
+        "176,400,000 baht",
+        "1,764,000,000 baht",
+        "2,522,000 baht"
+      ],
+      "answer": 1,
+      "why": "2,450 × 72,000: 2,450 × 72 = 171,500 + 4,900 = 176,400, then × 1,000 → 176,400,000 baht. Market demand at each price is likewise 72,000 × the purchase probability."
     }
   ]
 };
