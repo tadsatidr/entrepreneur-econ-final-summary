@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Last-minute formula sheet · 01111219</title>
+<title>Last-minute review · 01111219</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
@@ -19,137 +19,103 @@ window.MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\
   <div class="header-inner">
     <a class="brand" href="index.html">
       <strong>Entrepreneurial Economics</strong>
-      <span>01111219 · Final exam</span>
+      <span>01111219 · Final exam · Tue 1 Dec 2026</span>
     </a>
     <nav class="main" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="demand.html">Ch 1–2</a>
       <a href="behavior.html">Ch 3–4</a>
       <a href="market.html">Ch 5</a>
-      <a href="practice.html">Practice</a>
-      <a href="formulas.html" aria-current="page">Formula sheet</a>
+      <a href="practice.html">Practice (80 Qs)</a>
+      <a href="formulas.html" aria-current="page">Last-minute sheet</a>
     </nav>
   </div>
 </header>
 
 <main id="main" class="wrap">
-  <p class="kicker">Read this on the morning of 1 December · no new topics</p>
-  <h1>Last-minute review</h1>
-  <p class="lede">One page of the relations, signs, and slide numbers that the 80 questions can ask without a calculator. Full worked examples live on the chapter pages.</p>
+<p class="kicker">Read on the morning of Tue 1 December · no new topics</p>
+<h1>Last-minute review &amp; no-calculator shortcuts</h1>
+<p class="lede">One page of everything the 80 questions can test, condensed from the three chapter pages. Exam 09:00–11:00 (Bangkok), 80 MCQs, 25% of the grade, 2B pencil, no calculator, no cheat sheet. Split: 30 Ch 1–2 · 30 Ch 3–4 · 20 Ch 5.</p>
 
-  <div class="callout alert">
-    <p><strong>Tuesday 1 December 2026, 09:00–11:00, Bangkok.</strong> 80 multiple-choice questions, 25% of the grade. 2B pencil. No calculator. No cheat sheet. Split: 30 on Chapters 1–2, 30 on Chapters 3–4, 20 on Chapter 5.</p>
-  </div>
+<div class="sheet">
+<section>
+  <h2>Ch 1 · Demand &amp; elasticity</h2>
+  <p>Demand = willingness <b>and</b> ability to buy, at various prices, over a period. Law of demand: P↑ → Qd↓.</p>
+  <p><b>Movement along</b> D: own price only. <b>Shift right</b>: income ↑ (normal good), preference ↑, substitute price ↑, complement price ↓. Blue jeans at $60: 600 → 900.</p>
+  <p><b>Market</b> = sum of individual Q at one price: $12 → 4 + 5 + 100 = 109; $11 → 5 + 6 + 130 = 141.</p>
+  \[E=\frac{\%\Delta Q}{\%\Delta P}=\frac{\Delta Q}{\Delta P}\times\frac{\bar P}{\bar Q},\quad \bar P=\tfrac{P_1+P_2}{2},\ \bar Q=\tfrac{Q_1+Q_2}{2}\]
+  <p>Slide example: (10, 100) → (12, 50): ΔP = 2, ΔQ = −50, P̄ = 11, Q̄ = 75, 18.2% and −66.7% → <b>3.67, elastic</b>. Shortcut −25 × 11/75 = −11/3.</p>
+  <p>E = −2: price −1% → sales +2%.</p>
+  <p>|E| &gt; 1 elastic · &lt; 1 inelastic · = 1 unit · ∞ perfectly elastic (horizontal) · 0 perfectly inelastic (vertical).</p>
+  <p><b>TR</b>: elastic → TR moves opposite to P; inelastic → TR moves with P; unit → unchanged. Linear D: TR 350, 600, 750, <b>800 (max, unit elastic, Q 40, P 20)</b>, 750, 600, 350, 0.</p>
+  <p><b>Cross</b> \(E_c\): + substitutes, − complements (meat &amp; dairy −0.21). <b>Income</b> \(E_y\): + normal (&gt; 1 luxury, &lt; 1 necessity), − inferior.</p>
+</section>
+<section>
+  <h2>Ch 2 · Regression &amp; Stata</h2>
+  \[Q^d_x=\beta_0+\beta_1P_x+\beta_2P_z+\beta_3Y+u\]
+  <p>β = true (unknown) parameter; b = sample estimate. \(H_0:\beta=0\) vs \(H_1:\beta\neq0\). Reject if p &lt; α; α = 0.01, 0.05, 0.10.</p>
+  <p><b>Stars</b>: p &lt; 0.01 *** · &lt; 0.05 ** · &lt; 0.10 * · otherwise none. 0.000 → ***, 0.037 → **, 0.095 → *, 0.57 → none.</p>
+  <p>Significant: “+1 in X → Q changes by b units, other factors constant.” Insignificant: “no significant effect”, elasticity = <b>0</b>.</p>
+  \[E_d=b_1\frac{\bar P_x}{\bar Q},\ E_c=b_2\frac{\bar P_z}{\bar Q},\ E_y=b_3\frac{\bar Y}{\bar Q}\]
+  <p><b>Stata columns</b>: Coefficient (sign + size), Std. err., t = coef/SE, P&gt;|t| = p-value, 95% CI (contains 0 → insignificant at 5%), _cons = intercept, R² = SS Model / SS Total, Prob &gt; F = whole-model test.</p>
+  <p><b>Ex 1</b> <code>regress y x</code>: ŷ = 49.667 − 2.1576x, both p = 0.000, R² 0.9757, N 10. Price +$1 → Q −2.16 units. Ignore intercept (no economic meaning). <code>sum y x</code>: 37.8, 5.5 → <b>E = −0.31</b> (inelastic). Command window can’t save; do-file can. Plot: <code>twoway (scatter y x) (lfit y x)</code>.</p>
+  <p><b>Ex 2</b> <code>reg qd price advertise gpp</code>: expected signs −, +, +. Price −12.203 (p 0.037**) → −12,200 units per $1 (Q in thousands). Ads 0.008 (p 0.971), GPP 2.677 (p 0.429) → unchanged, elasticity 0. Means 175, 15.1, 125, 17.95. R² 0.7896, Prob &gt; F 0.0187. Price elasticity: slide prints −1.503; −12.202 × 15.1/175 ≈ −1.05 → <b>elastic either way</b>.</p>
+</section>
+<section>
+  <h2>Ch 3 · TPB</h2>
+  <p>Qx1 purchase occurred (intention = purchase) → <b>economics / demand theory</b>. Qx2 intention only (≠ purchase) → <b>psychology / TPB</b>. u = unobserved.</p>
+  \[\text{intent}=\beta_0+\beta_1\text{att}+\beta_2\text{sn}+\beta_3\text{pbc}+\varepsilon_1\]
+  \[\text{beh}=\delta_0+\delta_1\text{intent}+\delta_2\text{pbc}+\varepsilon_2\]
+  <p>All five hypothesized <b>+</b> (Ajzen 1991).</p>
+  <p><b>Attitude</b>: favorable/unfavorable evaluation (happy, wise, fashion, attractive, beneficial). <b>SN</b>: perceived social pressure (family, friends, someone respected/boss, experts/influencers, neighbors). <b>PBC</b>: difficulty in implementation, past experience, expected obstacles (money, autonomy, stress-free, own decision, technical knowledge, budget). <b>Intention</b>: motivation, effort (will consider, intend, encourage, willing to test-drive, expect in 3–5 yrs). <b>Behavior</b>: observable actions — preparatory (showroom, test drive, loan comparison) → ultimate (deposit, purchase, wall charger).</p>
+  <p>Likert 5 = strongly agree … 1 = strongly disagree.</p>
+</section>
+<section>
+  <h2>Ch 4 · EV case &amp; Stata</h2>
+  <p>Bangkok, <b>convenience sampling</b>, <b>550</b> respondents, EV.xlsx; import with “first row as variable names”. Labels: gender 1 male, 2 female, 3 LGBTQ+; YesNoLabel/AgreementLabel reusable; multi-answer questions → 0/1 variables (loansource1–8, obj1–9).</p>
+  <p><code>egen att = rowmean(att1-att5)</code> … pbc over <b>7</b> items; <b>intent</b> because <code>int</code> is reserved (integer type).</p>
+  <p><code>reg intent att sn pbc</code>: att <b>.317</b>, sn .269, pbc .254, all p 0.000 → all matter, <b>attitude most important</b>; R² 0.5058; F 186.29.</p>
+  <p><code>reg beh intent pbc</code>: intent <b>.839</b> (p 0.000) — only factor; pbc −.099 (<b>p 0.177</b>) no effect; R² 0.2452. att/sn/pbc act <b>indirectly</b> through intention.</p>
+  <p><b>4 steps</b>: segmentation → naming → profiling → strategy (4Ps). “Never guess — let the data drive.”</p>
+  <p><code>tabulate gender int1, row</code>: 132 men = <b>40.87%</b> of men at int1 = 5 (women 33.18%) → <b>Ready-to-Buy Males</b>, N 132. <code>tabulate car_debt if gender == 1 &amp; int1 == 5</code>: <b>88.64%</b> in debt, <b>52.27%</b> &gt; 1.5 M baht → intention ≠ ability; small discounts fail → trade-in, debt consolidation, balloon/flexible leasing. pbc5: <b>90.15%</b> confident → bundle smart wall charger.</p>
+  <p><b>4Ps</b>: Product ← att1, att4, att5 (family package, V2L). Price ← att2, pbc1/6, beh3/4 (TCO calculator, bank packages). Place ← pbc5/7, beh5, beh1/2 (free charger, Experience Center). Promotion ← sn4, att3, int4 (experts/influencers, VIP test drive).</p>
+</section>
+<section>
+  <h2>Ch 5 · WTP, CVM, PSM</h2>
+  <p>WTP = reservation price = height of demand curve (1st unit 20, 10th unit 9). Methods: CVM, Van Westendorp PSM.</p>
+  <p><b>Double-bounded CVM</b>: P0 60 → yes → PH 80; no → PL 40.</p>
+  <p>[yes,yes] WTP ≥ 80 premium/loyal → skimming · [yes,no] 60 ≤ WTP &lt; 80 value-for-money → keep base price · [no,yes] 40 ≤ WTP &lt; 60 price-sensitive → discounts, codes, economy version · [no,no] &lt; 40 non-consumers → exclude.</p>
+  <p>Buy shares 25% at 80, 50% at 60, 80% at 40; × 10,000 → 2,500 / 5,000 / 8,000.</p>
+  <p><b>PSM</b>: too expensive (NOT BUY), expensive (BUY), cheap (BUY), too cheap (NOT BUY). Rising (cumulative): too expensive, expensive. Falling (inverse): cheap, too cheap.</p>
+  <p><b>PMC</b> = expensive ∩ too cheap ≈ <b>68</b> (lower) · <b>PME</b> = too expensive ∩ cheap ≈ <b>92</b> (upper) · range 68–92 · <b>OPP</b> = too cheap ∩ too expensive, min resistance, <b>70–80</b> · <b>IDP</b> = cheap ∩ expensive, “normal/current market price”, ≈ <b>83</b>.</p>
+  <p>Egg cake: 100 respondents; drop rows unless too cheap &lt; cheap &lt; expensive &lt; too expensive; do-file PSM_4lines.do.</p>
+</section>
+<section>
+  <h2>Ch 5 · NMS demand &amp; revenue</h2>
+  <p>NMS adds 2 questions: likelihood of buying at your cheap price and at your expensive price.</p>
+  <p>Grid: 42 → 40, 158 → 160, (160 − 40)/12 = 10 → 40, 50, …, 160.</p>
+  <p>Weights: 5 → 0.70, 4 → 0.30, 1–3 → 0. Price inside [cheap, expensive] → (W_cheap + W_expen)/2, else 0. Examples at 80: (30 + 0)/2 = 15%, (70 + 30)/2 = 50%.</p>
+  <p>Averages: <b>29.65%</b> at 80 (≈ 30% of market), 17.85% at 90, 9.75% at 100. Peak 35.1% at 70. Below 70 → quality doubts (hormones, counterfeit, expiry) → lower probability.</p>
+  \[\text{Revenue index}=\text{Price}\times\text{Probability}\]
+  <p>80 × 30% = 24; 85 × 25% = 21.25; 90 × 20% = 18. Table max 70 × 35.1 = 2,457 → <b>price at 70 baht</b>.</p>
+  <p>Market 72,000 students: demand = 72,000 × probability; revenue ≈ 2,450 × 72,000 = <b>176,400,000 baht</b>.</p>
+</section>
+</div>
 
-  <div class="sheet">
-    <section>
-      <h2>Ch 1–2 · demand and elasticity</h2>
-      <p class="mini">Own price moves you along the curve. Income, preference, a higher substitute price, and a lower complement price shift demand right.</p>
-      <p class="mini">Market quantity at one price is the sum of individual quantities. The diagram: at $12, 4 + 5 + 100 = 109. At $11, 5 + 6 + 130 = 141.</p>
-      <div class="formula">
-        \[
-          E=\frac{\%\Delta Q}{\%\Delta P}=\frac{\Delta Q}{\Delta P}\times\frac{\bar P}{\bar Q}
-        \]
-      </div>
-      <p class="mini">Averages: \(\bar P=(P_1+P_2)/2\), \(\bar Q=(Q_1+Q_2)/2\). Worked point: 10→12 and 100→50 gives \(\bar P=11\), \(\bar Q=75\), 18.2% and −66.7%, size 3.67, elastic.</p>
-      <p class="mini">Elastic &gt; 1. Inelastic &lt; 1. Unit = 1. Perfectly elastic = \(\infty\). Perfectly inelastic = 0. Signed example: \(E=-2\) means a 1% price cut raises sales 2%.</p>
-      <p class="mini"><strong>Revenue.</strong> Elastic: price up, revenue down; price down, revenue up. Inelastic: the opposite. Unit elastic: revenue unchanged.</p>
-      <p class="mini"><strong>Cross-price.</strong> Positive = substitutes. Negative = complements.</p>
-      <p class="mini"><strong>Income.</strong> Positive = normal; inside that, above 1 = luxury, below 1 = necessity. Negative = inferior.</p>
-    </section>
-
-    <section>
-      <h2>Ch 1–2 · regression</h2>
-      <div class="formula">
-        \[
-          Q^d=\beta_0+\beta_1 P_x+\beta_2 P_z+\beta_3 Y+u
-        \]
-      </div>
-      <p class="mini">Reject \(H_0:\beta=0\) when p &lt; \(\alpha\). \(\alpha\in\{0.01,0.05,0.10\}\).</p>
-      <p class="mini">Stars: p = 0.000 → ***. p = 0.095 → * only. p = 0.57 → no star. p = 0.037 → **.</p>
-      <p class="mini">Significant slope: a one-unit increase changes quantity by \(b\) units, other factors held constant. Insignificant slope: no significant effect, and the elasticity is set to 0.</p>
-      <div class="formula">
-        \[
-          E_d=b_1\frac{\bar P}{\bar Q},\quad
-          E_c=b_2\frac{\bar P_z}{\bar Q},\quad
-          E_Y=b_3\frac{\bar Y}{\bar Q}
-        \]
-      </div>
-      <p class="mini">Linear model only. The slope is not itself a percent elasticity.</p>
-      <p class="mini"><strong>Simple line.</strong> \(\hat Y=49.667-2.1576x\). Both p = 0.000. Slope: −2.16 units per extra dollar. Ignore the intercept 49.67. Means 37.8 and 5.5. Elasticity −0.31, so a 1% price rise cuts quantity 0.31%. R² = 0.9757.</p>
-      <p class="mini"><strong>Multiple.</strong> \(\hat Q=310.245-12.203\,\text{Price}+0.008\,\text{Ads}+2.677\,\text{GPP}\). Expected signs: −, +, +. Only price is significant (p = 0.037): about −12,200 units per extra dollar. Ads p = 0.971 and GPP p = 0.429 → elasticities 0. Means: Q 175, P 15.1, ads 125, GPP 17.95. Price elasticity \(= -12.202\times 15.1/175 \approx -1.05\) (slightly elastic). The slide prints −1.503 next to that product; recompute it. R² = 0.7896. Prob &gt; F = 0.0187.</p>
-    </section>
-
-    <section>
-      <h2>Ch 3–4 · planned behavior</h2>
-      <p class="mini">Demand = willingness and ability, several prices, a stated time period. \(u\) is unobserved.</p>
-      <p class="mini">Purchase actually happens → economics, demand theory. Intention only → psychology, TPB.</p>
-      <div class="formula">
-        \[
-          \mathrm{intent}=\beta_0+\beta_1\mathrm{att}+\beta_2\mathrm{sn}+\beta_3\mathrm{pbc}+\varepsilon_1
-        \]
-        \[
-          \mathrm{beh}=\delta_0+\delta_1\mathrm{intent}+\delta_2\mathrm{pbc}+\varepsilon_2
-        \]
-      </div>
-      <p class="mini">All five slopes are hypothesized positive. Ajzen (1991): attitude, subjective norm, and PBC raise intention; intention and PBC are hypothesized to raise behavior.</p>
-      <p class="mini">Attitude: favorable or unfavorable evaluation (happy, wise, fashion, attractive, beneficial). Subjective norm: social pressure (family, friends, someone respected or the boss, experts, neighbors). PBC: difficulty, experience, obstacles (money, autonomy, calm, knowledge). Intention: will, intend, expect. Behavior: have visited, driven, compared loans, paid a deposit, installed a charger.</p>
-      <p class="mini">Likert: 5 strongly agree down to 1 strongly disagree. Row means. <code>intent</code>, not <code>int</code>, because <code>int</code> is Stata’s integer keyword. att and sn over 5 items, pbc over 7, intent over 5, beh over 5.</p>
-      <p class="mini">Bangkok, convenience sample, N = 550, file EV.xlsx. Gender: 1 male, 2 female, 3 LGBTQ+.</p>
-    </section>
-
-    <section>
-      <h2>Ch 3–4 · numbers to recognize</h2>
-      <p class="mini">Steps: segment → name → profile → 4P strategy. Command <code>tabulate gender int1, row</code>.</p>
-      <p class="mini">Ready-to-Buy Males: 132 men, 40.87% of men, int1 = 5. Women: 70, 33.18%. Filter <code>gender==1 &amp; int1==5</code>.</p>
-      <p class="mini">Of those 132: 88.64% have car debt; 52.27% owe more than 1,500,000 baht. Intention is not ability. Small discounts fail. pbc5: 90.15% technically confident, so technology is not the barrier.</p>
-      <p class="mini">Package: trade-in, roll the old loan into the EV loan, balloon or flexible payments, plus a smart home charger.</p>
-      <p class="mini"><strong>reg intent att sn pbc.</strong> Coefs about 0.317, 0.269, 0.254, all p = 0.000. Attitude is largest, so most important for intention. R² = 0.5058. N = 550. F = 186.29.</p>
-      <p class="mini"><strong>reg beh intent pbc.</strong> Intention about 0.839, p = 0.000. PBC about −0.099, p = 0.177, no effect on behavior. R² = 0.2452. The three antecedents still affect buying indirectly, through intention.</p>
-      <p class="mini">4P map: product ← att1, att4, att5. Price ← att2, pbc1, pbc6, beh3, beh4. Place ← pbc5, pbc7, beh5, beh1, beh2. Promotion ← sn4, att3, int4.</p>
-    </section>
-
-    <section>
-      <h2>Ch 5 · CVM and PSM</h2>
-      <p class="mini">Reservation price = height of the demand curve. 1st unit up to 20 baht; 10th unit up to 9 baht. Methods: CVM and Van Westendorp PSM.</p>
-      <p class="mini">Double bound: \(P_0=60\), \(P_L=40\), \(P_H=80\). Yes at 60 → ask 80. No at 60 → ask 40.</p>
-      <p class="mini">[yes, yes] WTP ≥ 80, premium, skim. [yes, no] 60 ≤ WTP &lt; 80, value, keep the base price. [no, yes] 40 ≤ WTP &lt; 60, discounts or a cheaper version. [no, no] WTP &lt; 40, exclude from communications.</p>
-      <p class="mini">Buyers: 25% at 80, 50% at 60, 80% at 40. Out of 10,000: 2,500, 5,000, 8,000.</p>
-      <p class="mini">PSM buy questions: expensive, cheap. Not-buy questions: too expensive, too cheap. Cumulative curves rise. Inverse curves (cheap, too cheap) fall.</p>
-      <p class="mini">PMC = expensive ∩ too cheap ≈ 68, lower bound. PME = too expensive ∩ cheap ≈ 92, upper bound. Acceptable range (68, 92). Below PMC, quality suspicion wins. Above PME, “too expensive” wins.</p>
-      <p class="mini">IDP = cheap ∩ expensive ≈ 83, the normal market price. OPP minimizes resistance. Egg graph: too-cheap and too-expensive meet near 0% around 70–80, so OPP is in that band. Drop a row unless too cheap &lt; cheap &lt; expensive &lt; too expensive. File <code>High Protein Egg.xlsx</code>, do-file <code>PSM_4lines.do</code>, 100 respondents.</p>
-    </section>
-
-    <section>
-      <h2>Ch 5 · NMS demand and revenue</h2>
-      <p class="mini">Two extra questions: likelihood of buying at the person’s cheap price, and at their expensive price.</p>
-      <p class="mini">Grid: 42 rounds down to 40, 158 rounds up to 160. \((160-40)/12=10\). Prices 40, 50, …, 160.</p>
-      <p class="mini">Weights: 5 → 70%, 4 → 30%, 1–3 → 0. If the test price is between that person’s cheap and expensive prices, average the two weights. Otherwise 0. So 15% or 50% are the two worked non-zero cases at 80 baht.</p>
-      <p class="mini">Sample averages: 29.65% at 80 (about 30% of the market), 17.85% at 90, 9.75% at 100. Prices around 40–70 baht raise quality doubts and can lower purchase probability.</p>
-      <div class="formula">
-        \[
-          \text{Revenue index} = \text{Price}\times\text{purchase probability}
-        \]
-      </div>
-      <p class="mini">80 × 30% = 24. 85 × 25% = 21.25. 90 × 20% = 18.</p>
-      <p class="mini">Revenue-maximizing price on the egg chart: <strong>70 baht</strong>. Target population 72,000. Total revenue illustration: \(2{,}450\times 72{,}000=176{,}400{,}000\) baht. Do-file: “NMS demand curve and revenue.”</p>
-    </section>
-  </div>
-
-  <h2>Thirty-second pass before you go in</h2>
-  <div class="tips">
-    <div class="tip"><strong>Sign first.</strong> Own price negative. Cross-price: + substitutes, − complements. Income: + normal, − inferior.</div>
-    <div class="tip"><strong>Then compare with 1.</strong> Size above 1 elastic, luxury if it is an income elasticity and positive. Size below 1 inelastic, or a necessity if income elasticity is positive.</div>
-    <div class="tip"><strong>Revenue follows the bigger percent change.</strong> If quantity moves more than price, revenue follows quantity. If price moves more, revenue follows price.</div>
-    <div class="tip"><strong>p against 0.10, 0.05, 0.01.</strong> Insignificant coefficient: “no effect,” and elasticity 0. Do not multiply.</div>
-    <div class="tip"><strong>TPB path.</strong> att, sn, pbc → intention, all significant, attitude largest. intention → behavior. Direct pbc → behavior is not significant (0.177).</div>
-    <div class="tip"><strong>Chapter 5 path.</strong> CVM pairs, then PSM crossings, then 70 / 30 / 0 weights, then price × probability. Launch between 68 and 92. Price the egg cake at 70 for revenue.</div>
-  </div>
+<h2>Thirty-second pass before you walk in</h2>
+<div class="tips">
+  <div class="tip"><strong>Sign first, then compare with 1.</strong>Own price −; cross + subst / − compl; income + normal / − inferior; |E| vs 1.</div>
+  <div class="tip"><strong>Revenue follows the bigger % change.</strong>Elastic: P↑ TR↓. Inelastic: P↑ TR↑.</div>
+  <div class="tip"><strong>p vs 0.10, 0.05, 0.01.</strong>Insignificant → “no effect”, elasticity 0. Don’t multiply.</div>
+  <div class="tip"><strong>TPB path.</strong>att, sn, pbc → intention (attitude largest). Intention → behavior. pbc → behavior not significant (0.177).</div>
+  <div class="tip"><strong>CVM is a path.</strong>Yes at 60 → ask 80. No at 60 → ask 40. Stack buyers 25 → 50 → 80%.</div>
+  <div class="tip"><strong>PSM crossings.</strong>OPP = two NOT BUY curves; IDP = two BUY curves; PMC low (68), PME high (92). Price egg cake at 70.</div>
+</div>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>Condensed from the five lecture decks. Longer explanations, the Stata tables, and the practice questions are on the chapter pages.</p>
+    <p>Condensed from the chapter pages of this site. For full explanations, diagrams and the Stata tables, open the chapter pages.</p>
   </div>
 </footer>
 </body>

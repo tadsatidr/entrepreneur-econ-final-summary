@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chapters 3–4 · Consumer behavior · 01111219</title>
+<title>Chapters 3–4 · Consumer behavior & the Bangkok EV case · 01111219</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
@@ -19,327 +19,408 @@ window.MathJax = { tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\
   <div class="header-inner">
     <a class="brand" href="index.html">
       <strong>Entrepreneurial Economics</strong>
-      <span>01111219 · Final exam</span>
+      <span>01111219 · Final exam · Tue 1 Dec 2026</span>
     </a>
     <nav class="main" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="demand.html">Ch 1–2</a>
       <a href="behavior.html" aria-current="page">Ch 3–4</a>
       <a href="market.html">Ch 5</a>
-      <a href="practice.html">Practice</a>
-      <a href="formulas.html">Formula sheet</a>
+      <a href="practice.html">Practice (80 Qs)</a>
+      <a href="formulas.html">Last-minute sheet</a>
     </nav>
   </div>
 </header>
 
 <main id="main" class="wrap narrow">
-  <p class="kicker">30 of 80 questions · 37.5%</p>
-  <h1>Chapters 3–4. Consumer behavior and the Bangkok EV study</h1>
-  <p class="lede">Chapter 3 starts from the demand equation, then switches to the theory of planned behavior when intention and purchase come apart. Chapter 4 estimates that theory on a 550-person pure-EV survey and turns the tables into a 4P strategy.</p>
-  <nav class="toc" aria-label="On this page">
-    <a href="#demand">Demand again</a>
-    <a href="#bridge">Economics versus TPB</a>
-    <a href="#constructs">Five constructs</a>
-    <a href="#eq">The two equations</a>
-    <a href="#survey">The survey</a>
-    <a href="#steps">Four strategy steps</a>
-    <a href="#males">Ready-to-Buy Males</a>
-    <a href="#reg">The two regressions</a>
-    <a href="#fourp">4Ps from the items</a>
-    <a href="#tips">No-calculator tips</a>
-    <a href="#quiz">Practice</a>
-  </nav>
+<p class="kicker">Chapters 3–4 · 30 of 80 exam questions (37.5%)</p>
+<h1>Consumer behavior and the Bangkok pure-EV case — learned from zero</h1>
+<p class="lede">Chapter 3 explains <i>why</i> people who say they want to buy often don’t, using the Theory of Planned Behavior (TPB). Chapter 4 measures TPB with a 550-person Bangkok survey on pure electric vehicles (EVs), runs two Stata regressions, and turns the numbers into a 4P marketing strategy. Everything you need is on this page.</p>
 
-  <h2 id="demand">Demand, restated</h2>
-  <p>Demand is the willingness and ability of buyers to purchase different quantities of a good or service at different prices during a specific time period.</p>
-  <div class="formula">
-    \[
-      Q_x^d = \beta_0 + \beta_1 P_x + \beta_2 P_z + \beta_3 Y + u
-    \]
+<div class="callout blue">
+  <span class="label">How this block is examined</span>
+  <p>30 questions. Expect: (1) <b>definitions</b> of the five TPB constructs and which questionnaire item belongs to which; (2) <b>the two equations</b> and their hypothesized signs; (3) <b>Stata reading</b> — which coefficient is largest, which is insignificant (p = 0.177), R², N = 550; (4) <b>the 4-step strategy case</b>: 132 men = 40.87%, 88.64% with car debt, 52.27% owing &gt; 1.5 million, 90.15% technically confident; (5) <b>4P mapping</b> and <b>Stata commands</b> (<code>egen … rowmean</code>, <code>tabulate … , row</code>, <code>if gender == 1 &amp; int1 == 5</code>, why <code>intent</code> not <code>int</code>).</p>
+</div>
+
+<nav class="toc" aria-label="On this page">
+  <a href="#demand">1. Demand restated</a>
+  <a href="#gap">2. Intention vs purchase</a>
+  <a href="#tpb">3. TPB model</a>
+  <a href="#constructs">4. Five constructs</a>
+  <a href="#hyp">5. Equations &amp; signs</a>
+  <a href="#survey">6. The survey</a>
+  <a href="#stata-data">7. Data in Stata</a>
+  <a href="#composite">8. Row means</a>
+  <a href="#regs">9. Two regressions</a>
+  <a href="#steps">10. 4-step strategy</a>
+  <a href="#rtb">11. Ready-to-Buy Males</a>
+  <a href="#fourp">12. 4Ps</a>
+  <a href="#recap">Recap</a>
+  <a href="#quiz">Practice</a>
+</nav>
+
+<h2>Chapter 3 · Consumer behavior dynamics</h2>
+
+<h3 id="demand">1. Demand restated: observed and unobserved variables</h3>
+<p><b>Demand is the willingness and ability of buyers to purchase different quantities of a good or service at different prices during a specific time period.</b></p>
+<div class="formula">\[
+Q_x^d=\beta_0+\beta_1P_x+\beta_2P_z+\beta_3Y+u
+\]</div>
+<p>\(Q_x^d\) quantity demanded of X; \(P_x\) price of X; \(P_z\) price of a related good Z (substitute or complement); \(Y\) consumer income; <b>\(u\) = unobserved variables affecting \(Q_x^d\)</b>. The slides split the right-hand side into:</p>
+<ul>
+  <li><b>Observed variables</b>: \(P_x, P_z, Y\) — we can collect them in a table (person 1…10, old and new prices, income, quantity).</li>
+  <li><b>Unobserved variables</b>: \(u\) — things like feelings, social pressure and confidence that demand theory does not measure.</li>
+</ul>
+<p>\(Q_x^d\) itself is labelled “<b>willingness and ability to purchase</b>”.</p>
+
+<h3 id="gap">2. When intention and purchase are not the same</h3>
+<figure class="fig"><svg viewBox="0 0 720 280" role="img" aria-label="Left: demand theory with u, Px, Pz, Y pointing to quantity demanded. Right: TPB, where purchase intention leads to actual purchase and both are unobserved" xmlns="http://www.w3.org/2000/svg"><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c1915"/></marker><marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b23a32"/></marker></defs><text x="165.0" y="20.0" font-size="13" fill="#1b4332" text-anchor="middle" font-weight="bold">Economics explanation (demand theory)</text><ellipse cx="40" cy="120" rx="26" ry="20" fill="white" stroke="#6d655b" stroke-width="2"/><text x="40.0" y="124.4" font-size="12.5" fill="#6d655b" text-anchor="middle" font-weight="bold">u</text><rect x="110" y="100" width="70" height="40" rx="10" fill="white" stroke="#1b4332" stroke-width="2"/><text x="145.0" y="124.4" font-size="12.5" fill="#1b4332" text-anchor="middle" font-weight="bold">Qxd</text><line x1="66.0" y1="120.0" x2="108.0" y2="120.0" stroke="#6d655b" stroke-width="1.5" marker-end="url(#arr)"/><rect x="230" y="50" width="60" height="34" rx="10" fill="white" stroke="#1e3a5f" stroke-width="2"/><text x="260.0" y="71.4" font-size="12.5" fill="#1e3a5f" text-anchor="middle" font-weight="bold">Px</text><line x1="228.0" y1="67.0" x2="182.0" y2="120.0" stroke="#1e3a5f" stroke-width="1.5" marker-end="url(#arr)"/><rect x="230" y="120" width="60" height="34" rx="10" fill="white" stroke="#1e3a5f" stroke-width="2"/><text x="260.0" y="141.4" font-size="12.5" fill="#1e3a5f" text-anchor="middle" font-weight="bold">Pz</text><line x1="228.0" y1="137.0" x2="182.0" y2="120.0" stroke="#1e3a5f" stroke-width="1.5" marker-end="url(#arr)"/><rect x="230" y="190" width="60" height="34" rx="10" fill="white" stroke="#1e3a5f" stroke-width="2"/><text x="260.0" y="211.4" font-size="12.5" fill="#1e3a5f" text-anchor="middle" font-weight="bold">Y</text><line x1="228.0" y1="207.0" x2="182.0" y2="120.0" stroke="#1e3a5f" stroke-width="1.5" marker-end="url(#arr)"/><text x="165.0" y="250.0" font-size="11" fill="#6d655b" text-anchor="middle" font-weight="normal">Observed: Px, Pz, Y.  Unobserved: u.</text><text x="165.0" y="267.0" font-size="11" fill="#6d655b" text-anchor="middle" font-weight="normal">Qx1 = purchase occurred (intention = actual purchase)</text><text x="535.0" y="20.0" font-size="13" fill="#b23a32" text-anchor="middle" font-weight="bold">Psychology explanation (TPB)</text><ellipse cx="390" cy="120" rx="26" ry="20" fill="white" stroke="#6d655b" stroke-width="2"/><text x="390.0" y="124.4" font-size="12.5" fill="#6d655b" text-anchor="middle" font-weight="bold">u</text><ellipse cx="500" cy="120" rx="62" ry="30" fill="white" stroke="#b23a32" stroke-width="2"/><text x="500.0" y="116.6" font-size="12.5" fill="#b23a32" text-anchor="middle" font-weight="bold">Purchase</text><text x="500.0" y="132.1" font-size="12.5" fill="#b23a32" text-anchor="middle" font-weight="bold">intention</text><ellipse cx="660" cy="120" rx="55" ry="30" fill="white" stroke="#b23a32" stroke-width="2"/><text x="660.0" y="116.6" font-size="12.5" fill="#b23a32" text-anchor="middle" font-weight="bold">Actual</text><text x="660.0" y="132.1" font-size="12.5" fill="#b23a32" text-anchor="middle" font-weight="bold">purchase</text><line x1="416.0" y1="120.0" x2="436.0" y2="120.0" stroke="#6d655b" stroke-width="1.5" marker-end="url(#arr)"/><line x1="562.0" y1="120.0" x2="603.0" y2="120.0" stroke="#b23a32" stroke-width="2" marker-end="url(#arrR)"/><text x="500.0" y="74.0" font-size="10.5" fill="#6d655b" text-anchor="middle" font-weight="normal" font-style="italic">unobserved variable</text><text x="660.0" y="74.0" font-size="10.5" fill="#6d655b" text-anchor="middle" font-weight="normal" font-style="italic">unobserved variable</text><text x="535.0" y="250.0" font-size="11" fill="#6d655b" text-anchor="middle" font-weight="normal">Intention can exist without a purchase.</text><text x="535.0" y="267.0" font-size="11" fill="#6d655b" text-anchor="middle" font-weight="normal">Qx2 = intention only (intention ≠ actual purchase)</text><line x1="345.0" y1="30.0" x2="345.0" y2="270.0" stroke="#cbbfa9" stroke-width="1" stroke-dasharray="4 4"/></svg><figcaption>The slides’ two explanations side by side.</figcaption></figure>
+<div class="grid-2">
+  <div class="panel">
+    <h4 style="margin-top:0">\(Q_{x1}\): Purchasing occurred</h4>
+    <p><b>Purchase intention = actual purchase.</b> The person wanted it and bought it. This is the <b>economics explanation (demand theory)</b>: price, related prices and income explain quantity.</p>
   </div>
-  <p>\(Q_x^d\) is quantity demanded of X. \(P_x\) is its price. \(P_z\) is the price of a related good, a substitute or a complement. \(Y\) is the consumer’s income. \(u\) stands for unobserved variables that affect \(Q_x^d\). The slides draw \(P_x\), \(P_z\), and \(Y\) as the observed variables, and \(u\) as the unobserved ones. \(Q_x^d\) itself is labeled willingness and ability to purchase.</p>
-
-  <h2 id="bridge">When purchase happens, and when it does not</h2>
-  <div class="grid-2">
-    <div class="callout">
-      <p><strong>\(Q_{x1}\): purchasing occurred.</strong> Purchase intention equals the actual purchase. The slides call this the economics explanation, demand theory.</p>
-    </div>
-    <div class="callout warn">
-      <p><strong>\(Q_{x2}\): purchasing did not occur.</strong> Intention only. Purchase intention is not the actual purchase. The slides call this the psychology explanation and introduce the theory of planned behavior.</p>
-    </div>
+  <div class="panel">
+    <h4 style="margin-top:0">\(Q_{x2}\): Purchasing not occurred / intention only</h4>
+    <p><b>Purchase intention ≠ actual purchase.</b> The person intends to buy but hasn’t. Demand theory cannot explain the gap, so the slides use the <b>psychology explanation: the Theory of Planned Behavior (TPB)</b>. Both purchase intention and actual purchase are driven by <b>unobserved variables</b>.</p>
   </div>
-  <p>TPB is what the deck uses once intention and behavior are allowed to differ. The diagram still has \(P_x\), \(P_z\), and \(Y\) in the picture, but the explanation that gets estimated in Chapter 4 is the psychological one.</p>
+</div>
+<div class="learn">
+  <div><b class="h">What it means</b>Economics explains what people <i>buy</i>; psychology (TPB) explains what they <i>intend</i> and why intention does or doesn’t become action.</div>
+  <div><b class="h">Why it matters</b>A firm with many “interested” customers but few sales must find the barrier between intention and behavior.</div>
+  <div><b class="h">On the exam</b>Match: “purchase occurred” → demand theory; “intention only” → TPB.</div>
+</div>
 
-  <h2 id="constructs">The five TPB pieces, with the EV items</h2>
-  <p>The running example is purchasing a pure electric vehicle. Chapter 3 gives the definitions and a short item list. Chapter 4’s questionnaire is the longer instrument that is actually averaged and regressed. Counts below are the Chapter 4 counts.</p>
+<h3 id="tpb">3. The Theory of Planned Behavior (TPB)</h3>
+<p>Three psychological factors → <b>Intention</b> → <b>Behavior</b>, with Perceived Behavioral Control also pointing directly at Behavior.</p>
+<figure class="fig"><svg viewBox="0 0 720 320" role="img" aria-label="TPB path diagram with hypothesized positive signs" xmlns="http://www.w3.org/2000/svg"><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c1915"/></marker><marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b23a32"/></marker></defs><ellipse cx="90" cy="60" rx="78" ry="30" fill="white" stroke="#1b4332" stroke-width="2"/><text x="90.0" y="56.6" font-size="12.5" fill="#1b4332" text-anchor="middle" font-weight="bold">Attitude toward</text><text x="90.0" y="72.1" font-size="12.5" fill="#1b4332" text-anchor="middle" font-weight="bold">behavior (att)</text><ellipse cx="90" cy="160" rx="78" ry="30" fill="white" stroke="#1b4332" stroke-width="2"/><text x="90.0" y="156.6" font-size="12.5" fill="#1b4332" text-anchor="middle" font-weight="bold">Subjective</text><text x="90.0" y="172.1" font-size="12.5" fill="#1b4332" text-anchor="middle" font-weight="bold">norm (sn)</text><ellipse cx="90" cy="260" rx="78" ry="30" fill="white" stroke="#1b4332" stroke-width="2"/><text x="90.0" y="256.8" font-size="11.5" fill="#1b4332" text-anchor="middle" font-weight="bold">Perceived behavioral</text><text x="90.0" y="271.3" font-size="11.5" fill="#1b4332" text-anchor="middle" font-weight="bold">control (pbc)</text><ellipse cx="380" cy="160" rx="70" ry="30" fill="white" stroke="#1e3a5f" stroke-width="2"/><text x="380.0" y="156.6" font-size="12.5" fill="#1e3a5f" text-anchor="middle" font-weight="bold">Intention</text><text x="380.0" y="172.1" font-size="12.5" fill="#1e3a5f" text-anchor="middle" font-weight="bold">(intent)</text><ellipse cx="620" cy="160" rx="70" ry="30" fill="white" stroke="#b23a32" stroke-width="2"/><text x="620.0" y="156.6" font-size="12.5" fill="#b23a32" text-anchor="middle" font-weight="bold">Behavior</text><text x="620.0" y="172.1" font-size="12.5" fill="#b23a32" text-anchor="middle" font-weight="bold">(beh)</text><line x1="168.0" y1="66.0" x2="312.0" y2="148.0" stroke="#1b4332" stroke-width="2" marker-end="url(#arr)"/><line x1="168.0" y1="160.0" x2="308.0" y2="160.0" stroke="#1b4332" stroke-width="2" marker-end="url(#arr)"/><line x1="166.0" y1="252.0" x2="312.0" y2="172.0" stroke="#1b4332" stroke-width="2" marker-end="url(#arr)"/><line x1="450.0" y1="160.0" x2="548.0" y2="160.0" stroke="#1e3a5f" stroke-width="2.5" marker-end="url(#arr)"/><path d="M166,272 Q420,330 600,190" fill="none" stroke="#1b4332" stroke-width="2" marker-end="url(#arr)"/><text x="235.0" y="98.0" font-size="13" fill="#1b4332" text-anchor="middle" font-weight="bold">β1 (+)</text><text x="238.0" y="152.0" font-size="13" fill="#1b4332" text-anchor="middle" font-weight="bold">β2 (+)</text><text x="232.0" y="236.0" font-size="13" fill="#1b4332" text-anchor="middle" font-weight="bold">β3 (+)</text><text x="500.0" y="150.0" font-size="13" fill="#1e3a5f" text-anchor="middle" font-weight="bold">δ1 (+)</text><text x="470.0" y="300.0" font-size="13" fill="#1b4332" text-anchor="middle" font-weight="bold">δ2 (+)</text><text x="380.0" y="22.0" font-size="12" fill="#6d655b" text-anchor="middle" font-weight="normal">(1) intent = β0 + β1 att + β2 sn + β3 pbc + ε1     (2) beh = δ0 + δ1 intent + δ2 pbc + ε2</text></svg><figcaption>Hypothesized model (Ajzen, 1991). All five arrows are expected to be positive (+).</figcaption></figure>
 
-  <h3>Attitude toward the behavior</h3>
-  <p>Attitudes reflect the degree to which people evaluate a specific behavior as favorable or unfavorable.</p>
-  <ul>
-    <li>ATT1. It makes my family happy to purchase a pure electric vehicle.</li>
-    <li>ATT2. It is wise to purchase a pure electric vehicle.</li>
-    <li>ATT3. Purchasing a pure electric vehicle makes my family fashion.</li>
-    <li>ATT4. Purchasing a pure electric vehicle is attractive to my family.</li>
-    <li>ATT5, on the Chapter 4 instrument. Purchasing a pure electric vehicle is beneficial to my family.</li>
-  </ul>
+<h3 id="constructs">4. The five constructs, defined and measured</h3>
+<p>Every item is answered on a <b>5-point Likert scale</b>: <b>5 = Strongly Agree, 4 = Agree, 3 = Neutral/Undecided, 2 = Disagree, 1 = Strongly Disagree</b>. Chapter 3 lists short item sets; the Chapter 4 questionnaire (which is actually analysed) has the longer sets marked “Ch 4”.</p>
 
-  <h3>Subjective norm</h3>
-  <p>Subjective norms refer to perceived social pressure on behavior accomplishment.</p>
-  <ul>
-    <li>SN1. My family encourages me to purchase a pure electric vehicle.</li>
-    <li>SN2. Friends surrounding me encourage me.</li>
-    <li>SN3. Chapter 3 says “someone I respect supports buying a pure EV.” One blank of the Chapter 4 form says “my boss encourages me.” The filled coding example returns to “someone I respect.”</li>
-    <li>SN4. Experts or influencers I follow encourage me.</li>
-    <li>SN5, Chapter 4. People in my neighborhood encourage me.</li>
-  </ul>
+<h4>① Attitude toward behavior (ATT) — 5 items</h4>
+<p class="callout"><b>Definition:</b> Attitudes reflect the degree to which people evaluate a specific behavior as <b>favorable or unfavorable</b>.</p>
+<ol>
+  <li><b>att1</b> It makes my family happy to purchase a pure electric vehicle.</li>
+  <li><b>att2</b> It is wise to purchase a pure electric vehicle.</li>
+  <li><b>att3</b> Purchasing a pure electric vehicle makes my family fashion.</li>
+  <li><b>att4</b> Purchasing a pure electric vehicle is attractive to my family.</li>
+  <li><b>att5</b> (Ch 4) Purchasing a pure electric vehicle is beneficial to my family.</li>
+</ol>
 
-  <h3>Perceived behavioral control</h3>
-  <p>Perceived behavioral control reflects people’s difficulty in implementation, and it reflects past experience and expected obstacles.</p>
-  <ul>
-    <li>PBC1. Sufficient financial resources and situational readiness to purchase without hesitation.</li>
-    <li>PBC2. Full autonomy to make the final decision.</li>
-    <li>PBC3. Comfortable and stress-free when making the final decision.</li>
-    <li>PBC4, Chapter 4. Can decide regardless of public opinions or online drama.</li>
-    <li>PBC5. Enough clear information and technical knowledge. This is the item profiled later, and the strategy slide also treats it as technical confidence.</li>
-    <li>PBC6, Chapter 4. The necessary budget, cash flow, or financing.</li>
-    <li>PBC7, Chapter 4. A second technical-knowledge item.</li>
-  </ul>
+<h4>② Subjective norm (SN) — 5 items</h4>
+<p class="callout"><b>Definition:</b> Subjective norms refer to <b>perceived social pressure</b> on behavior accomplishment.</p>
+<ol>
+  <li><b>sn1</b> My families encourage me to purchase a pure electric vehicle.</li>
+  <li><b>sn2</b> Friends surrounding me encourage me to purchase a pure electric vehicle.</li>
+  <li><b>sn3</b> Someone I respect supports buying a pure EV car. (The blank Ch 4 form words sn3 as “My boss encourages me…”; the filled example uses “Someone I respect”.)</li>
+  <li><b>sn4</b> Experts or influencers I follow encourage me to purchase a pure electric vehicle.</li>
+  <li><b>sn5</b> (Ch 4) People in my neighborhood encourage me to purchase a pure electric vehicle.</li>
+</ol>
 
-  <h3>Intention</h3>
-  <p>Individual behavioral intention reflects how motivated individuals are to perform a specific behavior, that is, how much effort they will put into doing it.</p>
-  <ul>
-    <li>INT1. When I buy a next car, I will consider buying a pure EV. This is the target outcome in the segmentation example.</li>
-    <li>INT2. I intend to choose a pure EV as my next car.</li>
-    <li>INT3. I will encourage friends and family to buy one.</li>
-    <li>INT4, Chapter 4. Willing to gather information and test-drive before the next purchase.</li>
-    <li>INT5, Chapter 4. Expect to purchase a pure EV within the next 3 to 5 years.</li>
-  </ul>
+<h4>③ Perceived behavioral control (PBC) — 7 items</h4>
+<p class="callout"><b>Definition:</b> Perceived behavioral control reflects people’s <b>difficulty in implementation</b> and reflects <b>past experiences</b> and <b>expected difficulties or obstacles</b>.</p>
+<ol>
+  <li><b>pbc1</b> I have sufficient financial resources and situational readiness to purchase an EV without hesitation.</li>
+  <li><b>pbc2</b> I have full autonomy and independence to make the final decision to buy an EV by myself.</li>
+  <li><b>pbc3</b> I feel comfortable and stress-free when making the final decision to purchase an EV.</li>
+  <li><b>pbc4</b> (Ch 4) I can confidently make my own decision to buy an EV regardless of public opinions or online drama.</li>
+  <li><b>pbc5</b> I possess enough clear information and technical knowledge to confidently purchase an EV. (Ch 3 numbers this PBC4.)</li>
+  <li><b>pbc6</b> (Ch 4) I currently have the necessary budget, cash flow, or financing opportunities to purchase an EV.</li>
+  <li><b>pbc7</b> (Ch 4) I feel I have enough clear information and technical knowledge to confidently buy an EV.</li>
+</ol>
 
-  <h3>Behavior</h3>
-  <p>Behavior covers observable actions, from preparatory steps such as test-driving and checking loans to the final action of making a purchase. The slide contrasts a cognitive, mental-state measure (intention) with two kinds of action: preparatory action, and the ultimate purchase.</p>
-  <ul>
-    <li>BEH1. Visited EV showrooms or exhibitions to inspect pure EVs.</li>
-    <li>BEH2. Taken an actual test drive.</li>
-    <li>BEH3. Compared auto-loan rates and insurance for a pure EV.</li>
-    <li>BEH4. Started a formal step, such as a booking deposit or finance documents.</li>
-    <li>BEH5. Prepared the home: electricity meter or a wall-charger installation.</li>
-  </ul>
-  <p>Answers use a 5-point Likert scale: 5 strongly agree, 4 agree, 3 neutral or undecided, 2 disagree, 1 strongly disagree.</p>
+<h4>④ Intention (INT) — 5 items</h4>
+<p class="callout"><b>Definition:</b> Individual behavioral intention reflects <b>how motivated</b> individuals are to perform a specific behavior, that is, <b>how much effort they will put into doing it</b>.</p>
+<ol>
+  <li><b>int1</b> When I buy a (next) car, I will consider buying a pure electric vehicle. ← the target outcome in the Ch 4 case</li>
+  <li><b>int2</b> I intend to choose a pure electric vehicle as my next car. (Ch 4 form: “I will encourage my friends…”; order differs slightly between decks.)</li>
+  <li><b>int3</b> I will encourage my friends and family to buy a pure electric vehicle.</li>
+  <li><b>int4</b> (Ch 4) I am willing to make an effort to gather information and test-drive a pure EV before my next car purchase.</li>
+  <li><b>int5</b> (Ch 4) I expect to purchase a pure electric vehicle as my next car within the next 3 to 5 years.</li>
+</ol>
 
-  <h2 id="eq">Signs and the two equations</h2>
-  <p>According to Ajzen (1991), as stated on the slides, a more positive attitude, a stronger positive subjective norm, and greater perceived behavioral control all enhance behavioral intention. Stronger positive intentions lead to a higher likelihood of performing the behavior. The resources and opportunities reflected by perceived behavioral control are also hypothesized to raise actual behavior.</p>
-  <div class="formula">
-    \[
-      \text{intent} = \beta_0 + \beta_1 \text{att} + \beta_2 \text{sn} + \beta_3 \text{pbc} + \varepsilon_1
-      \tag{1}
-    \]
-    \[
-      \text{beh} = \delta_0 + \delta_1 \text{intent} + \delta_2 \text{pbc} + \varepsilon_2
-      \tag{2}
-    \]
+<h4>⑤ Behavior (BEH) — 5 items</h4>
+<p class="callout"><b>Definition:</b> Behavior covers a range of <b>observable actions</b>, from <b>preparatory steps</b> such as test-driving and checking loans to the <b>final action</b> of making a purchase.</p>
+<table class="data">
+  <thead><tr><th></th><th>INTENTION</th><th>BEHAVIOR</th></tr></thead>
+  <tbody><tr><th>Measurement scope</th><td>Cognitive readiness (mental state)</td><td>1. <b>Preparatory action</b>: e.g. information search, test drive, loan checks<br>2. <b>Ultimate action</b>: e.g. final purchase &amp; adoption</td></tr></tbody>
+</table>
+<ol>
+  <li><b>beh1</b> I have visited EV showrooms or automotive exhibitions to physically inspect Pure EVs.</li>
+  <li><b>beh2</b> I have taken actual test drives of Pure EVs.</li>
+  <li><b>beh3</b> I have compared specific auto loan rates and insurance options for buying a Pure EV.</li>
+  <li><b>beh4</b> I have initiated formal transactional steps, such as placing a booking deposit or submitting finance documents.</li>
+  <li><b>beh5</b> I have prepared my residential infrastructure, such as upgrading the electricity meter or arranging for a Wall Charger installation.</li>
+</ol>
+<div class="callout trap"><span class="label">Exam trap: intention vs behavior items</span><p>Intention items are about the <b>future</b> (“I will consider”, “I intend”, “I am willing”, “I expect within 3–5 years”). Behavior items are <b>things already done</b> (“I <b>have</b> visited / taken test drives / compared loans / placed a deposit / prepared my home”). “Willing to test-drive” = intention (int4); “have taken a test drive” = behavior (beh2).</p></div>
+
+<h3 id="hyp">5. The hypotheses and the two equations</h3>
+<p><b>Ajzen (1991), equation (1):</b> a more positive <b>attitude</b>, a stronger positive <b>subjective norm</b>, and greater <b>perceived behavioral control</b> all <b>enhance behavioral intention</b>.</p>
+<p><b>Ajzen (1991), equation (2):</b> stronger positive <b>intentions</b> lead to a higher likelihood of behavior achievement. Also, the resources and opportunities a person has — reflected by <b>perceived behavioral control</b> — positively influence their <b>actual behavior</b>.</p>
+<div class="formula">\[
+\text{intent}=\beta_0+\beta_1\,\text{att}+\beta_2\,\text{sn}+\beta_3\,\text{pbc}+\varepsilon_1 \qquad (1)
+\]
+\[
+\text{beh}=\delta_0+\delta_1\,\text{intent}+\delta_2\,\text{pbc}+\varepsilon_2 \qquad (2)
+\]</div>
+<p>Hypothesized signs: \(\beta_1(+),\ \beta_2(+),\ \beta_3(+),\ \delta_1(+),\ \delta_2(+)\). Note that <b>pbc appears in both equations</b> (it can affect behavior directly and through intention); att and sn appear only in (1).</p>
+
+<details class="check"><summary>Self-check (Chapter 3)</summary>
+<ol>
+  <li>“My boss encourages me to buy an EV” measures…? <i>→ Subjective norm (social pressure).</i></li>
+  <li>“It is wise to purchase a pure EV” measures…? <i>→ Attitude.</i></li>
+  <li>“I have sufficient financial resources…” measures…? <i>→ Perceived behavioral control.</i></li>
+  <li>Which construct is the dependent variable in equation (2)? <i>→ Behavior (beh).</i></li>
+</ol>
+</details>
+
+<h2>Chapter 4 · Marketing strategy: a data-driven approach with Stata</h2>
+
+<h3 id="survey">6. The survey: “Factors affecting pure EV purchasing in Bangkok”</h3>
+<p><b>Questionnaires were distributed in Bangkok using convenience sampling. 550 people responded. The data are in EV.xlsx.</b> Each form has a questionnaire number (e.g. 001). Three parts:</p>
+<table class="data">
+  <thead><tr><th>Part</th><th>Questions (Stata variable name)</th><th>Coding</th></tr></thead>
+  <tbody>
+    <tr><td><b>1. Demographic information</b></td><td>1 Gender (<code>gender</code>) · 2 Age (<code>age</code>) · 3 Marital status (<code>status</code>) · 4 Education (<code>educ</code>) · 5 Family members living together (<code>member</code>) · 6 Occupation (<code>occ</code>) · 7 Work experience (<code>exper</code>) · 8 Average monthly income (<code>income</code>)</td><td>The ticked box number is the value. Gender: <b>1 = Male, 2 = Female, 3 = LGBTQ+</b>. Age: 1 ≤ 25 … 6 ≥ 61. Income: 1 &lt; 15,000 baht … 7 &gt; 100,000 baht. <code>member</code> is the number written in.</td></tr>
+    <tr><td><b>2. Car information</b></td><td>9 How long using your car (<code>car_year</code>) · 10 Financing used (<code>loansource1</code>–<code>loansource8</code>) · 11 Main purpose of the car (<code>obj1</code>–<code>obj9</code>) · 12 Initial financing/loan for present car (<code>car_debt</code>) · 13 Other debt (<code>other_debt</code>)</td><td>Q10 and Q11 allow <b>more than one</b> answer, so each option is its own 0/1 variable (ticked = 1 “Yes”, not ticked = 0 “No”). <code>car_debt</code>: 1 No debt, 2 1–300,000, 3 300,000–500,000, 4 500,001–700,000, 5 700,001–900,000, 6 900,001–1,200,000, 7 1,200,001–1,500,000, 8 &gt; 1,500,000 baht.</td></tr>
+    <tr><td><b>3. Psychological factors</b></td><td><code>att1–att5</code>, <code>sn1–sn5</code>, <code>pbc1–pbc7</code>, <code>int1–int5</code>, <code>beh1–beh5</code></td><td>Likert 5 → 1</td></tr>
+  </tbody>
+</table>
+<p class="mini">The eight financing sources: cash/personal savings, commercial bank auto loan, captive automotive financial services, saving cooperative loan, government/company welfare loan, personal cash loan (later “credit card or personal cash loan”), support from relatives or friends, non-institutional/informal lending.</p>
+
+<h3 id="stata-data">7. Getting the data into Stata and labelling it</h3>
+<ol class="steps">
+  <li>Save the Excel file (EV.xlsx) to a folder on your computer.</li>
+  <li>Open Stata → <b>File → Import → Excel spreadsheet (*.xls; *.xlsx)</b> → <b>Browse</b> → select EV.xlsx.</li>
+  <li>Tick <b>“Import first row as variable names”</b> (row 1 of Excel holds the names <code>gender, age, status…</code>), then OK. Result: 550 observations.</li>
+  <li><b>Label variables</b> (describe what a variable is): e.g. label <code>member</code> as “Family Member”, <code>loansource1</code> as “Cash/ Personal Saving”. You can change the <b>label</b> but not the <b>name</b> in the Properties window.</li>
+  <li><b>Label values</b> (describe what each code means): for <code>gender</code>, create a value label with 1 = male, 2 = female, 3 = LGBTQ+ (Manage value labels → Create label → Add). Repeat for other variables.</li>
+  <li>A single value label such as <b>YesNoLabel</b> (1 Yes, 0 No) or <b>AgreementLabel</b> (1 Strongly Disagree, 2 Disagree, 3 Neutral/Undecided, 4 Agree, 5 Strongly Agree) <b>can be applied to multiple variables</b>.</li>
+</ol>
+
+<h3 id="composite">8. Building the five scores (row means)</h3>
+<p>Each construct is the <b>average of its items for that respondent</b> (a “row mean” — one row = one person):</p>
+<div class="formula">\[
+\text{att}=\frac{att_1+\dots+att_5}{5},\quad \text{sn}=\frac{sn_1+\dots+sn_5}{5},\quad \text{pbc}=\frac{pbc_1+\dots+pbc_7}{7},\quad \text{intent}=\frac{int_1+\dots+int_5}{5},\quad \text{beh}=\frac{beh_1+\dots+beh_5}{5}
+\]</div>
+<pre class="code"><span class="c">* STEP 1: Generate variables att, sn, pbc, int, beh</span>
+egen att    = rowmean(att1-att5)
+egen sn     = rowmean(sn1-sn5)
+egen pbc    = rowmean(pbc1-pbc7)
+egen intent = rowmean(int1-int5)   <span class="c">/* In STATA, int is a reserved keyword used to specify the integer data type. */</span>
+egen beh    = rowmean(beh1-beh5)</pre>
+<div class="callout trap"><span class="label">Exam favourite</span><p>Why is the variable called <code>intent</code> and not <code>int</code>? Because <b><code>int</code> is a reserved keyword in Stata (the integer data type)</b>. And pbc is divided by <b>7</b>, not 5.</p></div>
+<p><b>Worked example — questionnaire 001 on the slides</b> (ticks converted to numbers):</p>
+<div class="scroll"><table class="data">
+  <thead><tr><th>Construct</th><th>Item scores</th><th>Sum</th><th>Row mean</th></tr></thead>
+  <tbody>
+    <tr><td>att</td><td>5, 4, 5, 5, 4</td><td>23</td><td>23 ÷ 5 = <b>4.6</b></td></tr>
+    <tr><td>sn</td><td>4, 4, 3, 5, 4</td><td>20</td><td>20 ÷ 5 = <b>4.0</b></td></tr>
+    <tr><td>pbc</td><td>4, 5, 4, 3, 4, 5, 5</td><td>30</td><td>30 ÷ 7 ≈ <b>4.29</b></td></tr>
+    <tr><td>intent</td><td>5, 4, 3, 5, 4</td><td>21</td><td>21 ÷ 5 = <b>4.2</b></td></tr>
+    <tr><td>beh</td><td>5, 4, 5, 4, 5</td><td>23</td><td>23 ÷ 5 = <b>4.6</b></td></tr>
+  </tbody>
+</table></div>
+<p class="mini">(The sums are our arithmetic on the ticks shown in the slide’s filled questionnaire; the slide shows the formulas.)</p>
+
+<h3 id="regs">9. The two regressions (Step 2: estimate the models)</h3>
+<pre class="code">reg intent att sn pbc     <span class="c">// equation (1)</span>
+reg beh intent pbc        <span class="c">// equation (2)</span></pre>
+
+<h4>Equation (1): what drives intention?</h4>
+<div class="scroll"><table class="stata">
+  <caption>. reg intent att sn pbc</caption>
+  <thead><tr><th>Source</th><th class="num">SS</th><th class="num">df</th><th class="num">MS</th><th></th><th class="num"></th></tr></thead>
+  <tbody>
+    <tr><td>Model</td><td class="num">107.584195</td><td class="num">3</td><td class="num">35.8613982</td><td>Number of obs</td><td class="num">550</td></tr>
+    <tr><td>Residual</td><td class="num">105.106721</td><td class="num">546</td><td class="num">.192503153</td><td>F(3, 546)</td><td class="num">186.29</td></tr>
+    <tr><td>Total</td><td class="num">212.690916</td><td class="num">549</td><td class="num">.387415147</td><td>Prob &gt; F</td><td class="num">0.0000</td></tr>
+    <tr><td></td><td></td><td></td><td></td><td>R-squared / Adj R-squared</td><td class="num">0.5058 / 0.5031</td></tr>
+    <tr><td></td><td></td><td></td><td></td><td>Root MSE</td><td class="num">.43875</td></tr>
+  </tbody>
+</table></div>
+<div class="scroll"><table class="stata">
+  <thead><tr><th>intent</th><th class="num">Coefficient</th><th class="num">Std. err.</th><th class="num">t</th><th class="num">P&gt;|t|</th><th class="num">[95% conf. interval]</th><th>Stars</th></tr></thead>
+  <tbody>
+    <tr class="hl"><td>att</td><td class="num">.3168693</td><td class="num">.0465236</td><td class="num">6.81</td><td class="num">0.000</td><td class="num">.2254822 &nbsp; .4082564</td><td>***</td></tr>
+    <tr><td>sn</td><td class="num">.2694953</td><td class="num">.0413033</td><td class="num">6.52</td><td class="num">0.000</td><td class="num">.1883624 &nbsp; .3506281</td><td>***</td></tr>
+    <tr><td>pbc</td><td class="num">.2538433</td><td class="num">.0399974</td><td class="num">6.35</td><td class="num">0.000</td><td class="num">.1752756 &nbsp; .3324109</td><td>***</td></tr>
+    <tr><td>_cons</td><td class="num">.6750665</td><td class="num">.1541329</td><td class="num">4.38</td><td class="num">0.000</td><td class="num">.3723005 &nbsp; .9778325</td><td>***</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><b>All latent variables (att, sn, pbc) influence the intention to purchase a pure EV car</b> — every p-value is 0.000 &lt; 0.01, so all three are significant at 1% (***), and all signs are positive as hypothesized.</li>
+  <li><b>Among them, attitude is the most important factor</b> for increasing intention — it has the largest coefficient: 0.317 &gt; 0.269 (sn) &gt; 0.254 (pbc). Meaning: a 1-point higher attitude score raises the intention score by about 0.32 points, holding sn and pbc constant.</li>
+  <li>R² = 0.5058: att, sn and pbc together explain about <b>51%</b> of the variation in intention. N = 550. Prob &gt; F = 0.0000 → the model is significant overall.</li>
+</ul>
+
+<h4>Equation (2): what drives actual behavior?</h4>
+<div class="scroll"><table class="stata">
+  <caption>. reg beh intent pbc</caption>
+  <thead><tr><th>Source</th><th class="num">SS</th><th class="num">df</th><th class="num">MS</th><th></th><th class="num"></th></tr></thead>
+  <tbody>
+    <tr><td>Model</td><td class="num">130.878333</td><td class="num">2</td><td class="num">65.4391665</td><td>Number of obs</td><td class="num">550</td></tr>
+    <tr><td>Residual</td><td class="num">402.932646</td><td class="num">547</td><td class="num">.736622753</td><td>F(2, 547)</td><td class="num">88.84</td></tr>
+    <tr><td>Total</td><td class="num">533.810979</td><td class="num">549</td><td class="num">.972333295</td><td>Prob &gt; F</td><td class="num">0.0000</td></tr>
+    <tr><td></td><td></td><td></td><td></td><td>R-squared / Adj R-squared</td><td class="num">0.2452 / 0.2424</td></tr>
+    <tr><td></td><td></td><td></td><td></td><td>Root MSE</td><td class="num">.85827</td></tr>
+  </tbody>
+</table></div>
+<div class="scroll"><table class="stata">
+  <thead><tr><th>beh</th><th class="num">Coefficient</th><th class="num">Std. err.</th><th class="num">t</th><th class="num">P&gt;|t|</th><th class="num">[95% conf. interval]</th><th>Stars</th></tr></thead>
+  <tbody>
+    <tr class="hl"><td>intent</td><td class="num">.8389568</td><td class="num">.0730803</td><td class="num">11.48</td><td class="num">0.000</td><td class="num">.6954044 &nbsp; .9825092</td><td>***</td></tr>
+    <tr><td>pbc</td><td class="num">−.0992519</td><td class="num">.0734366</td><td class="num">−1.35</td><td class="num">0.177</td><td class="num">−.2435043 &nbsp; .0450004</td><td>—</td></tr>
+    <tr><td>_cons</td><td class="num">.6014014</td><td class="num">.2830442</td><td class="num">2.12</td><td class="num">0.034</td><td class="num">.0454147 &nbsp; 1.157388</td><td>**</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><b>Intention is the only factor that influences the purchase (behavior) of a pure EV car</b>: 0.839, p = 0.000 (***). A 1-point higher intention → behavior score about 0.84 points higher.</li>
+  <li><b>Perceived behavioral control has no effect on this purchase behavior</b>: p = 0.177 &gt; 0.10 → fail to reject \(H_0:\delta_2=0\). Its sign is even negative (−0.099), but because it is insignificant we read it as “no effect”. Note the 95% interval (−0.244 to 0.045) contains 0.</li>
+  <li>R² = 0.2452: intention and pbc explain about <b>25%</b> of the variation in behavior.</li>
+  <li><b>Attitude, social norms and PBC indirectly affect how people decide to buy</b> a pure EV — they raise intention (eq. 1), and intention raises behavior (eq. 2).</li>
+</ul>
+<figure class="fig"><svg viewBox="0 0 720 320" role="img" aria-label="TPB path diagram with estimated coefficients" xmlns="http://www.w3.org/2000/svg"><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1c1915"/></marker><marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b23a32"/></marker></defs><ellipse cx="90" cy="60" rx="78" ry="30" fill="white" stroke="#1b4332" stroke-width="2"/><text x="90.0" y="56.6" font-size="12.5" fill="#1b4332" text-anchor="middle" font-weight="bold">Attitude toward</text><text x="90.0" y="72.1" font-size="12.5" fill="#1b4332" text-anchor="middle" font-weight="bold">behavior (att)</text><ellipse cx="90" cy="160" rx="78" ry="30" fill="white" stroke="#1b4332" stroke-width="2"/><text x="90.0" y="156.6" font-size="12.5" fill="#1b4332" text-anchor="middle" font-weight="bold">Subjective</text><text x="90.0" y="172.1" font-size="12.5" fill="#1b4332" text-anchor="middle" font-weight="bold">norm (sn)</text><ellipse cx="90" cy="260" rx="78" ry="30" fill="white" stroke="#1b4332" stroke-width="2"/><text x="90.0" y="256.8" font-size="11.5" fill="#1b4332" text-anchor="middle" font-weight="bold">Perceived behavioral</text><text x="90.0" y="271.3" font-size="11.5" fill="#1b4332" text-anchor="middle" font-weight="bold">control (pbc)</text><ellipse cx="380" cy="160" rx="70" ry="30" fill="white" stroke="#1e3a5f" stroke-width="2"/><text x="380.0" y="156.6" font-size="12.5" fill="#1e3a5f" text-anchor="middle" font-weight="bold">Intention</text><text x="380.0" y="172.1" font-size="12.5" fill="#1e3a5f" text-anchor="middle" font-weight="bold">(intent)</text><ellipse cx="620" cy="160" rx="70" ry="30" fill="white" stroke="#b23a32" stroke-width="2"/><text x="620.0" y="156.6" font-size="12.5" fill="#b23a32" text-anchor="middle" font-weight="bold">Behavior</text><text x="620.0" y="172.1" font-size="12.5" fill="#b23a32" text-anchor="middle" font-weight="bold">(beh)</text><line x1="168.0" y1="66.0" x2="312.0" y2="148.0" stroke="#1b4332" stroke-width="2" marker-end="url(#arr)"/><line x1="168.0" y1="160.0" x2="308.0" y2="160.0" stroke="#1b4332" stroke-width="2" marker-end="url(#arr)"/><line x1="166.0" y1="252.0" x2="312.0" y2="172.0" stroke="#1b4332" stroke-width="2" marker-end="url(#arr)"/><line x1="450.0" y1="160.0" x2="548.0" y2="160.0" stroke="#1e3a5f" stroke-width="2.5" marker-end="url(#arr)"/><path d="M166,272 Q420,330 600,190" fill="none" stroke="#b23a32" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrR)"/><text x="235.0" y="92.0" font-size="12.5" fill="#1b4332" text-anchor="middle" font-weight="bold">β1 = 0.317***</text><text x="235.0" y="107.0" font-size="10.5" fill="#6d655b" text-anchor="middle" font-weight="normal">p = 0.000</text><text x="238.0" y="150.0" font-size="12.5" fill="#1b4332" text-anchor="middle" font-weight="bold">β2 = 0.269***</text><text x="238.0" y="182.0" font-size="10.5" fill="#6d655b" text-anchor="middle" font-weight="normal">p = 0.000</text><text x="232.0" y="228.0" font-size="12.5" fill="#1b4332" text-anchor="middle" font-weight="bold">β3 = 0.254***</text><text x="232.0" y="243.0" font-size="10.5" fill="#6d655b" text-anchor="middle" font-weight="normal">p = 0.000</text><text x="500.0" y="148.0" font-size="12.5" fill="#1e3a5f" text-anchor="middle" font-weight="bold">δ1 = 0.839***</text><text x="500.0" y="182.0" font-size="10.5" fill="#6d655b" text-anchor="middle" font-weight="normal">p = 0.000</text><text x="470.0" y="300.0" font-size="12.5" fill="#b23a32" text-anchor="middle" font-weight="bold">δ2 = −0.099  (p = 0.177, not significant)</text><text x="380.0" y="22.0" font-size="12" fill="#6d655b" text-anchor="middle" font-weight="normal">Eq (1): R² = 0.5058, N = 550     Eq (2): R² = 0.2452, N = 550</text></svg><figcaption>The estimated TPB model. Solid = significant at 1%; dashed red = not significant.</figcaption></figure>
+<div class="callout"><span class="label">No-calculator reading</span><p>To find the “most important” factor, compare coefficients <b>within one regression</b> (all on the same 1–5 scale): .3168 vs .2694 vs .2538 → attitude. To find the insignificant one, scan the <code>P&gt;|t|</code> column for anything above 0.10 → pbc in eq. (2) at 0.177. Don’t confuse <b>pbc’s two roles</b>: significant for intention (0.254***), not significant for behavior (−0.099, p = 0.177).</p></div>
+
+<h3 id="steps">10. The 4-step data-driven marketing strategy</h3>
+<ol class="steps">
+  <li><b>Market segmentation</b> — the process of grouping consumers with similar needs, behaviors, or characteristics into distinct groups (e.g. grouping by gender or age in Stata).</li>
+  <li><b>Segment naming</b> — giving a meaningful name and a brief description to each segment based on their core traits, making it actionable for business decisions.</li>
+  <li><b>Segment profiling</b> — deeply analyzing the selected segment’s financial constraints, core drivers, and key barriers (e.g. using <code>if</code> conditions in Stata to scan debt, attitude, and obstacles) to create a clear customer persona.</li>
+  <li><b>Data-driven strategy formulation</b> — “Turning customer insights into actionable business decisions.” Once you have the customer profile, design a marketing strategy (4Ps) that directly responds to the data. <b>Never guess — let the data drive your strategy.</b></li>
+</ol>
+
+<h3 id="rtb">11. The worked case: “Ready-to-Buy Males”</h3>
+<p><b>Task:</b> you are an EV marketing consultant developing a launch strategy for the pure-EV market in Bangkok. Goal: <b>maximize int1</b> (intention to consider an EV for the next car).</p>
+
+<h4>Step 1 · Segmentation: <code>tabulate gender int1, row</code></h4>
+<p>A cross-tabulation of gender (rows) against int1 (columns 1–5). The <code>, row</code> option adds <b>row percentages</b> (each row sums to 100%).</p>
+<div class="scroll"><table class="stata">
+  <caption>Consider EV for next car (int1)</caption>
+  <thead><tr><th>gender</th><th class="num">Strongly (dis.)</th><th class="num">Disagree</th><th class="num">Neutral/U</th><th class="num">Agree</th><th class="num">Strongly (agree)</th><th class="num">Total</th></tr></thead>
+  <tbody>
+    <tr class="hl"><td>male</td><td class="num">11<br>3.41</td><td class="num">6<br>1.86</td><td class="num">65<br>20.12</td><td class="num">109<br>33.75</td><td class="num"><b>132<br>40.87</b></td><td class="num">323<br>100.00</td></tr>
+    <tr><td>female</td><td class="num">10<br>4.55</td><td class="num">9<br>4.09</td><td class="num">52<br>23.64</td><td class="num">76<br>34.55</td><td class="num">73<br>33.18</td><td class="num">220<br>100.00</td></tr>
+    <tr><td>LGBTQ+</td><td class="num">0<br>0.00</td><td class="num">1<br>14.29</td><td class="num">0<br>0.00</td><td class="num">3<br>42.86</td><td class="num">3<br>42.86</td><td class="num">7<br>100.00</td></tr>
+    <tr><td>Total</td><td class="num">21<br>3.82</td><td class="num">16<br>2.91</td><td class="num">117<br>21.27</td><td class="num">188<br>34.18</td><td class="num">208<br>37.82</td><td class="num">550<br>100.00</td></tr>
+  </tbody>
+</table></div>
+<p>Top number = frequency (people); bottom = row % (share of that gender). Check: 323 + 220 + 7 = 550.</p>
+<ul>
+  <li><b>132 male respondents, 40.87% of all male respondents</b>, said they definitely want an EV for their next car (int1 = 5). (132 ÷ 323 ≈ 0.41.)</li>
+  <li>The slide’s text says “70 female respondents, 33.18%, feel the same” — the table itself prints <b>73</b> females at 33.18% (73 ÷ 220 = 33.18%). Remember <b>33.18%</b>; the count 73 is what the table shows.</li>
+  <li>Conclusion: <b>men are much more likely to be ready to buy</b>, so focus on “males with a purchase-intention score of 5”.</li>
+  <li class="mini">LGBTQ+ shows 42.86% but only 3 of 7 people — too small a group to target.</li>
+</ul>
+
+<h4>Step 2 · Naming</h4>
+<ul>
+  <li><b>Market segment:</b> males with a purchase-intention score of 5 (int1 = 5).</li>
+  <li><b>Segment name: “Ready-to-Buy Males”.</b></li>
+  <li><b>Who they are:</b> Bangkok-based male consumers (urban market) with the highest readiness to switch to pure EVs.</li>
+  <li><b>Their mindset:</b> they do not need further convincing about EV benefits; they are at the final stage of the decision-making process and prepared to buy immediately.</li>
+</ul>
+
+<h4>Step 3 · Profiling (scan the segment with <code>if</code>)</h4>
+<p><b>Profiling variable 1: car_debt</b> — objective: check whether remaining auto loans hinder immediate EV conversion. Segment: gender = 1, int1 = 5, <b>N = 132</b>.</p>
+<pre class="code">tabulate car_debt if gender == 1 &amp; int1 == 5</pre>
+<div class="scroll"><table class="stata">
+  <thead><tr><th>car_debt</th><th class="num">Freq.</th><th class="num">Percent</th><th class="num">Cum.</th></tr></thead>
+  <tbody>
+    <tr><td>No debt</td><td class="num">15</td><td class="num">11.36</td><td class="num">11.36</td></tr>
+    <tr><td>1–300,000 Baht</td><td class="num">7</td><td class="num">5.30</td><td class="num">16.67</td></tr>
+    <tr><td>300,000–500,000 Baht</td><td class="num">5</td><td class="num">3.79</td><td class="num">20.45</td></tr>
+    <tr><td>500,001–700,000 Baht</td><td class="num">10</td><td class="num">7.58</td><td class="num">28.03</td></tr>
+    <tr><td>700,001–900,000 Baht</td><td class="num">7</td><td class="num">5.30</td><td class="num">33.33</td></tr>
+    <tr><td>900,001–1,200,000 Baht</td><td class="num">6</td><td class="num">4.55</td><td class="num">37.88</td></tr>
+    <tr><td>1,200,001–1,500,000 Baht</td><td class="num">13</td><td class="num">9.85</td><td class="num">47.73</td></tr>
+    <tr class="hl"><td>More than 1,500,000</td><td class="num">69</td><td class="num">52.27</td><td class="num">100.00</td></tr>
+    <tr><td><b>Total</b></td><td class="num">132</td><td class="num">100.00</td><td></td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><b>88.64%</b> of this premium target group currently carry existing car debt. (Easy check: 100 − 11.36 “no debt” = 88.64.)</li>
+  <li>Remarkably, <b>52.27%</b> of them owe <b>more than 1,500,000 Baht</b> on their current vehicles (69 of 132).</li>
+  <li><b>Key interpretation:</b> high purchase intention (int1 = 5) does <b>NOT</b> equal financial ability to purchase. They want the EV today but are trapped by current car loans. <b>Traditional advertising or small cash discounts will fail.</b></li>
+</ul>
+<p><b>Profiling variable 2: pbc5</b> (barrier: infrastructure &amp; home-charging anxiety / technical knowledge) — objective: evaluate perceived difficulty with home charging setup and public charging access.</p>
+<pre class="code">tabulate pbc5 if gender == 1 &amp; int1 == 5</pre>
+<div class="scroll"><table class="stata">
+  <thead><tr><th>Technical knowledge</th><th class="num">Freq.</th><th class="num">Percent</th><th class="num">Cum.</th></tr></thead>
+  <tbody>
+    <tr><td>Strongly Disagree</td><td class="num">1</td><td class="num">0.76</td><td class="num">0.76</td></tr>
+    <tr><td>Disagree</td><td class="num">1</td><td class="num">0.76</td><td class="num">1.52</td></tr>
+    <tr><td>Neutral/Undecided</td><td class="num">11</td><td class="num">8.33</td><td class="num">9.85</td></tr>
+    <tr class="hl"><td>Agree</td><td class="num">25</td><td class="num">18.94</td><td class="num">28.79</td></tr>
+    <tr class="hl"><td>Strongly Agree</td><td class="num">94</td><td class="num">71.21</td><td class="num">100.00</td></tr>
+    <tr><td><b>Total</b></td><td class="num">132</td><td class="num">100.00</td><td></td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li><b>High technical confidence: 90.15%</b> (= 18.94 + 71.21) of ready-to-buy males feel confident in their technical knowledge to purchase an EV.</li>
+  <li>Nearly all men in this segment see <b>no major barrier in EV technology</b>; they are tech-savvy, well-informed and confident with EV specifications and operations.</li>
+</ul>
+
+<h4>Step 4 · Strategic marketing implications</h4>
+<p><b>Strategic goal:</b> unlock the high-value segment by <b>removing their debt barrier</b> and <b>leveraging their technical readiness</b> to sell a premium EV in one smooth transaction.</p>
+<p><b>The solution: the “Financial Transition &amp; Tech-Forward” EV Package</b></p>
+<div class="grid-2">
+  <div class="panel">
+    <h4 style="margin-top:0">1. Integrated financial engineering (driven by <code>car_debt</code>)</h4>
+    <ul>
+      <li><b>Aggressive trade-in programs:</b> partner with used-car networks to buy back current cars at a premium, offsetting the remaining loan.</li>
+      <li><b>Debt consolidation:</b> work with financial institutions to roll the remaining car debt into the new EV loan under a low-interest framework.</li>
+      <li><b>Balloon financing / flexible leasing:</b> low monthly payments in the early years to accommodate tight cash flow.</li>
+    </ul>
   </div>
-  <p>Every slope in that diagram is marked positive: \(\beta_1, \beta_2, \beta_3, \delta_1, \delta_2 &gt; 0\).</p>
-  <p>The composites are row means of the Likert items:</p>
-  <div class="formula">
-    \[
-      \text{att}=\frac{\text{att}_1+\cdots+\text{att}_5}{5},\quad
-      \text{sn}=\frac{\text{sn}_1+\cdots+\text{sn}_5}{5},\quad
-      \text{pbc}=\frac{\text{pbc}_1+\cdots+\text{pbc}_7}{7}
-    \]
-    \[
-      \text{intent}=\frac{\text{int}_1+\cdots+\text{int}_5}{5},\quad
-      \text{beh}=\frac{\text{beh}_1+\cdots+\text{beh}_5}{5}
-    \]
+  <div class="panel">
+    <h4 style="margin-top:0">2. Advanced ecosystem integration (driven by <code>pbc5</code>)</h4>
+    <ul>
+      <li><b>Complimentary high-performance home charging kit:</b> because customers have high technical readiness (90.15%), reward them by bundling the EV with a premium <b>smart home wall charger</b> — smart scheduling, mobile-app control and bi-directional charging.</li>
+    </ul>
   </div>
+</div>
+<div class="callout trap"><span class="label">Exam trap</span><p>Which finding justifies the financing package? <b>car_debt (88.64% indebted, 52.27% &gt; 1.5 M)</b>. Which justifies the wall-charger bundle? <b>pbc5 (90.15% technically confident)</b>. Why not a small cash discount? Because the barrier is <b>debt</b>, not price awareness or motivation.</p></div>
 
-  <h2 id="survey">What was estimated</h2>
-  <p>Questionnaires were distributed in Bangkok by convenience sampling. 550 people responded. The file is <code>EV.xlsx</code>. The slides walk through importing that file, labeling variables, and attaching value labels. A label such as a yes/no label or an agreement label can be applied to more than one variable. The gender value label is 1 = male, 2 = female, 3 = LGBTQ+.</p>
-  <p>Stata commands on the estimation slides:</p>
-  <ul>
-    <li><code>egen att = rowmean(att1-att5)</code></li>
-    <li><code>egen sn = rowmean(sn1-sn5)</code></li>
-    <li><code>egen pbc = rowmean(pbc1-pbc7)</code></li>
-    <li><code>egen intent = rowmean(int1-int5)</code></li>
-    <li><code>egen beh = rowmean(beh1-beh5)</code></li>
-    <li><code>reg intent att sn pbc</code></li>
-    <li><code>reg beh intent pbc</code></li>
-  </ul>
-  <div class="callout">
-    <p><strong>The name <code>intent</code> is deliberate.</strong> The slide notes that in Stata, <code>int</code> is a reserved keyword for the integer data type, so the row mean cannot be stored under that name.</p>
-  </div>
-  <p>The questionnaire also records demographics and the current car: gender, age band, marital status, education, family members, occupation, work experience, monthly income band, years with the current car, up to eight loan sources, nine reasons for using a conventional vehicle, the current car-loan band (<code>car_debt</code>), and other debt (<code>other_debt</code>). The segmentation example uses <code>gender</code>, <code>int1</code>, <code>car_debt</code>, and <code>pbc5</code>. You do not need every income bracket memorized; you need to know which variable the profile actually tabulates.</p>
-  <p>One filled questionnaire is shown as a coding demonstration (female, age 25 or under, single, bachelor’s degree, five family members, and so on). Those ticks are an illustration of data entry, not a finding about the 550.</p>
+<h3 id="fourp">12. Step 3 of the regression analysis: from survey items to the 4Ps</h3>
+<p>The TPB items are mapped onto <b>Product, Price, Place, Promotion</b>:</p>
+<div class="scroll"><table class="data">
+  <thead><tr><th>4P</th><th>Survey items referenced</th><th>Actionable marketing tactic</th></tr></thead>
+  <tbody>
+    <tr><td><b>Product</b></td><td>att1 makes family happy · att4 attractive to family · att5 beneficial to family</td><td><b>Family-Centric Mobility Package:</b> emphasize comfort, safety, a quiet cabin and Vehicle-to-Load (V2L) for family trips; market the EV as a complete mobility solution for the whole household, not just one person.</td></tr>
+    <tr><td><b>Price</b></td><td>att2 wise purchase decision · pbc1/pbc6 budget &amp; cash-flow ready · beh3/beh4 comparing loans &amp; placing deposits</td><td><b>Smart Value &amp; Seamless Financing:</b> an interactive TCO (Total Cost of Ownership) calculator showing long-term fuel and maintenance savings (it’s a wise choice); partner with banks for pre-approved, exclusive interest-rate packages and fast-track processing for ready buyers.</td></tr>
+    <tr><td><b>Place</b></td><td>pbc5/pbc7 technical confidence · beh5 residential power readiness · beh1/beh2 showroom visits &amp; test drives</td><td><b>Turnkey Ecosystem &amp; Stress-Free Experience Center:</b> free wall charger with home installation and meter upgrades; turn showrooms into Experience Centers with technical specialists who give clear information and avoid hard selling.</td></tr>
+    <tr><td><b>Promotion</b></td><td>sn4 expert/influencer support · att3 modern &amp; fashionable image · int4 willingness to test-drive</td><td><b>Expert Advocacy &amp; VIP Test-Drive Campaign:</b> partner with tech experts, automotive reviewers and executive lifestyle influencers for status appeal and social proof; a VIP home/office test-drive service for high-intent prospects.</td></tr>
+  </tbody>
+</table></div>
+<p class="mini">Logic: attitude items about the <b>family</b> shape the product; money items (wise, budget, loans) shape price; infrastructure and showroom items shape place; social-influence and image items shape promotion.</p>
 
-  <h2 id="steps">Four steps, then the 4Ps</h2>
-  <ol>
-    <li><strong>Market segmentation.</strong> Group consumers with similar needs, behaviors, or characteristics. The example groups with gender and crosses it with the outcome.</li>
-    <li><strong>Segment naming.</strong> Give the group a name and a short description that a business can act on.</li>
-    <li><strong>Segment profiling.</strong> Use <code>if</code> conditions to scan financial constraints, drivers, and barriers, and write a persona.</li>
-    <li><strong>Data-driven strategy.</strong> Design the 4Ps from that profile. The slide’s line is to let the data drive the strategy rather than guess.</li>
-  </ol>
-  <p>The worked assignment: an EV marketing consultant launching a pure EV in Bangkok, with the goal of raising <code>int1</code> (intention to consider an EV for the next car). The assigned segment variable in the example is gender.</p>
+<h2 id="recap">Recap — the 12 things to know cold</h2>
+<ol>
+  <li>\(Q_x^d=\beta_0+\beta_1P_x+\beta_2P_z+\beta_3Y+u\); observed: Px, Pz, Y; unobserved: u.</li>
+  <li>Qx1 purchase occurred (intention = purchase) → demand theory. Qx2 intention only → TPB (psychology).</li>
+  <li>TPB: att, sn, pbc → intention → behavior; pbc → behavior too. Ajzen (1991). All hypothesized +.</li>
+  <li>Attitude = favorable/unfavorable evaluation. SN = perceived social pressure. PBC = difficulty, past experience, expected obstacles. Intention = motivation/effort. Behavior = observable actions (preparatory → ultimate).</li>
+  <li>5-point Likert, 5 = strongly agree. Items: att 5, sn 5, pbc 7, int 5, beh 5.</li>
+  <li>Bangkok, convenience sampling, 550 respondents, EV.xlsx; import with “first row as variable names”.</li>
+  <li><code>egen x = rowmean(...)</code>; <code>intent</code> because <code>int</code> is a reserved keyword.</li>
+  <li>Eq (1): att .317, sn .269, pbc .254, all p = 0.000 → all matter, attitude most important; R² 0.5058.</li>
+  <li>Eq (2): intent .839 (p = 0.000) only factor; pbc −.099 (p = 0.177) no effect; R² 0.2452. att/sn/pbc work indirectly.</li>
+  <li>4 steps: segmentation → naming → profiling → strategy (4Ps). “Never guess — let the data drive.”</li>
+  <li><code>tabulate gender int1, row</code>: 132 males = 40.87% (females 33.18%) → “Ready-to-Buy Males”, N = 132.</li>
+  <li>car_debt: 88.64% in debt, 52.27% &gt; 1.5 M baht → trade-in, consolidation, balloon. pbc5: 90.15% confident → smart wall charger bundle.</li>
+</ol>
 
-  <h2 id="males">The worked segment: Ready-to-Buy Males</h2>
-  <p>Command: <code>tabulate gender int1, row</code>. Row percentages, so each gender sums to 100%.</p>
-  <ul>
-    <li>132 male respondents, 40.87% of all male respondents, said they definitely want an electric vehicle for their next car (<code>int1 = 5</code>).</li>
-    <li>70 female respondents, 33.18%, gave the same answer.</li>
-    <li>The slide’s conclusion: men are much more likely to be ready to buy, so the analysis focuses on males with a purchase-intention score of 5.</li>
-  </ul>
-  <p>Segment name: “Ready-to-Buy Males.” Who they are: Bangkok-based male consumers in an urban market, with the highest readiness to switch to pure EVs. Mindset on the slide: they do not need further convincing about the benefits. They are at the final stage and are prepared to buy immediately. The Stata filter used from here on is <code>gender == 1 &amp; int1 == 5</code>, and N = 132.</p>
-
-  <h3>Profile 1. <code>car_debt</code></h3>
-  <p>Command: <code>tabulate car_debt if gender == 1 &amp; int1 == 5</code>. The question is whether a remaining auto loan blocks an immediate switch.</p>
-  <ul>
-    <li>88.64% of this target group currently carry existing car debt.</li>
-    <li>52.27% of them owe more than 1,500,000 baht on the current vehicle.</li>
-  </ul>
-  <p>The slide’s interpretation: a score of 5 on <code>int1</code> does not equal the financial ability to purchase. They want the EV now and are trapped by the current loan. Traditional advertising or a small cash discount will fail.</p>
-
-  <h3>Profile 2. <code>pbc5</code></h3>
-  <p>Command: <code>tabulate pbc5 if gender == 1 &amp; int1 == 5</code>. The stated objective is perceived difficulty with home charging and public charging. The finding the slide actually reports is about technical knowledge:</p>
-  <ul>
-    <li>90.15% of ready-to-buy males feel confident in their technical knowledge to purchase an EV.</li>
-    <li>Nearly all of them see no major barrier in the technology. The slide calls them tech-savvy, well informed, and confident with specifications and operation.</li>
-  </ul>
-
-  <h3>The package that follows those two findings</h3>
-  <p>Strategic goal: remove the debt barrier and use the technical readiness to sell a premium EV in one transaction. The name on the slide is the “Financial Transition &amp; Tech-Forward” EV package.</p>
-  <ol>
-    <li><strong>Integrated financial engineering, from the car-debt table.</strong> Aggressive trade-in, buying back the current car at a premium so the remaining loan is offset. Debt consolidation that rolls the old loan into the new EV loan at a low rate. Balloon financing or flexible leasing with low payments in the early years.</li>
-    <li><strong>Ecosystem, from the pbc5 table.</strong> A complimentary high-performance home wall charger, because technical readiness is already 90.15%. The charger is described with smart scheduling, a mobile app, and bi-directional charging. It is framed as a reward for people who are already confident, not as a lesson for people who are not.</li>
-  </ol>
-
-  <h2 id="reg">Reading the two Stata regressions</h2>
-  <p>Both equations are estimated on all 550 respondents, not only on the 132 men. The latent variables are the row means.</p>
-  <div class="scroll">
-    <table class="stata">
-      <caption>reg intent att sn pbc</caption>
-      <tbody>
-        <tr><th>Number of obs</th><td>550</td><th>F(3, 546)</th><td>186.29</td></tr>
-        <tr><th>Prob &gt; F</th><td>0.0000</td><th>R-squared</th><td>0.5058</td></tr>
-        <tr><th>Adj R-squared</th><td>0.5031</td><th>Root MSE</th><td>0.43875</td></tr>
-      </tbody>
-    </table>
-    <table class="stata">
-      <thead>
-        <tr><th>intent</th><th>Coefficient</th><th>Std. err.</th><th>t</th><th>P&gt;|t|</th><th>95% conf. interval</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>att</td><td>0.3168693</td><td>0.0465236</td><td>6.81</td><td>0.000</td><td>0.2254822 to 0.4082564</td></tr>
-        <tr><td>sn</td><td>0.2694953</td><td>0.0413033</td><td>6.52</td><td>0.000</td><td>0.1883624 to 0.3506281</td></tr>
-        <tr><td>pbc</td><td>0.2538433</td><td>0.0399974</td><td>6.35</td><td>0.000</td><td>0.1752756 to 0.3324109</td></tr>
-        <tr><td>_cons</td><td>0.6750665</td><td>0.1541329</td><td>4.38</td><td>0.000</td><td>0.3723005 to 0.9778325</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p>The slide’s three bullets:</p>
-  <ul>
-    <li>All three latent variables, attitude, subjective norm, and perceived behavioral control, influence the intention to purchase a pure EV.</li>
-    <li>Among them, attitude is the most important factor for increasing that intention. The coefficients sit on the same 1-to-5 row-mean scale, and 0.317 is larger than 0.269 and 0.254. Every p-value is 0.000, so “most important” here is about size, not about which one is significant.</li>
-    <li>Attitude, social norms, and perceived behavioral control indirectly affect the decision to buy a pure EV.</li>
-  </ul>
-  <p>R-squared 0.5058 says the three composites account for about half of the sample variation in intention. Prob &gt; F = 0.0000 says the equation as a whole is significant. Each t statistic is above 6, so each slope is far below the 0.01 cutoff and would take ***.</p>
-
-  <div class="scroll">
-    <table class="stata">
-      <caption>reg beh intent pbc</caption>
-      <tbody>
-        <tr><th>Number of obs</th><td>550</td><th>F(2, 547)</th><td>88.84</td></tr>
-        <tr><th>Prob &gt; F</th><td>0.0000</td><th>R-squared</th><td>0.2452</td></tr>
-        <tr><th>Adj R-squared</th><td>0.2424</td><th>Root MSE</th><td>0.85827</td></tr>
-      </tbody>
-    </table>
-    <table class="stata">
-      <thead>
-        <tr><th>beh</th><th>Coefficient</th><th>Std. err.</th><th>t</th><th>P&gt;|t|</th><th>95% conf. interval</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>intent</td><td>0.8389568</td><td>0.0730803</td><td>11.48</td><td>0.000</td><td>0.6954044 to 0.9825092</td></tr>
-        <tr><td>pbc</td><td>−0.0992519</td><td>0.0734366</td><td>−1.35</td><td>0.177</td><td>−0.2435043 to 0.0450004</td></tr>
-        <tr><td>_cons</td><td>0.6014014</td><td>0.2830442</td><td>2.12</td><td>0.034</td><td>0.0454147 to 1.157388</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p>The slide’s two bullets:</p>
-  <ul>
-    <li>Intention is the only factor that influences the purchase of a pure EV.</li>
-    <li>Perceived behavioral control has no effect on this purchase behavior.</li>
-  </ul>
-  <p>That second bullet is the direct coefficient in equation (2). Its p-value is 0.177, which is above 0.10, so you fail to reject \(H_0: \delta_2 = 0\) even at 10%. The point estimate is negative, about −0.099, but the slide does not interpret the sign; it says there is no effect. The hypothesis on the diagram was positive. The data do not support that direct positive effect.</p>
-  <p>The indirect path is the other bullet from the first regression. Attitude, subjective norm, and PBC all raise intention, and intention raises behavior (coefficient about 0.839, t = 11.48). R-squared on the behavior equation is lower, 0.2452. The model F test is still significant. The intercept’s p-value is 0.034, so the constant itself is significant at 5%, which is not one of the slide’s conclusion bullets.</p>
-  <div class="callout blue">
-    <p><strong>Hold both results at once.</strong> PBC matters for intention (p = 0.000 in equation 1). PBC does not have a direct effect on behavior (p = 0.177 in equation 2). It can still matter for behavior through intention. That is the “indirectly” sentence.</p>
-  </div>
-
-  <h2 id="fourp">The 4P table, tied to item numbers</h2>
-  <p>After the regressions, the deck titles a tactics table “Step 3: Marketing Strategy.” That numbering is not the same as the four-step framework above, where strategy is step 4. Treat this table as a second strategy layer: it maps questionnaire items to tactics. It is not the same exercise as the Ready-to-Buy Males package, though a home charger appears in both.</p>
-  <div class="scroll">
-    <table class="data">
-      <thead>
-        <tr><th>P</th><th>Items the slide cites</th><th>Tactic</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Product</td>
-          <td>att1 family happiness, att4 attractive to the family, att5 beneficial to the family</td>
-          <td>Family-centric mobility package: comfort, safety, a quiet cabin, vehicle-to-load for family trips. Sell a household solution, not a one-person product.</td>
-        </tr>
-        <tr>
-          <td>Price</td>
-          <td>att2 wise purchase; pbc1 and pbc6 budget and cash flow; beh3 and beh4 comparing loans and placing deposits</td>
-          <td>Smart value and financing: a total-cost-of-ownership calculator for fuel and maintenance savings, plus bank packages with exclusive rates and fast processing for buyers who are ready.</td>
-        </tr>
-        <tr>
-          <td>Place</td>
-          <td>pbc5 and pbc7 technical confidence; beh5 home electrical readiness; beh1 and beh2 showroom visits and test drives</td>
-          <td>A free wall charger, with installation and meter upgrades handled for the buyer. Showrooms become experience centers with technical specialists and without hard selling.</td>
-        </tr>
-        <tr>
-          <td>Promotion</td>
-          <td>sn4 experts and influencers; att3 modern and fashionable; int4 willingness to test-drive</td>
-          <td>Expert advocacy: tech reviewers and executive-lifestyle influencers. A VIP home or office test drive taken to high-intent prospects.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2 id="tips">No-calculator tips for this block</h2>
-  <div class="tips">
-    <div class="tip">
-      <strong>Sort the item before you sort the coefficient.</strong>
-      Happy, wise, fashion, attractive, beneficial: attitude. Family, friends, boss, experts, neighbors: subjective norm. Money, autonomy, stress, knowledge: PBC. “I will / I intend / I expect”: intention. “I have visited / driven / compared / paid / installed”: behavior.
-    </div>
-    <div class="tip">
-      <strong>Equation (1) has three slopes. Equation (2) has two.</strong>
-      PBC is in both. Attitude and subjective norm are only in the intention equation. Behavior is never a regressor in these slides.
-    </div>
-    <div class="tip">
-      <strong>Compare p with 0.10, not with the coefficient.</strong>
-      0.000 is significant. 0.177 is not. A negative −0.099 does not become a finding when the p-value fails.
-    </div>
-    <div class="tip">
-      <strong>“Most important” is the largest intention slope.</strong>
-      0.317 &gt; 0.269 &gt; 0.254. All three are significant, so the ranking is by size. The 0.839 belongs to intention in the behavior equation; do not mix the two tables.
-    </div>
-    <div class="tip">
-      <strong>The four percentages.</strong>
-      40.87% of men (132 people) and 33.18% of women (70 people) are at int1 = 5. Of the 132 men, 88.64% have car debt, 52.27% owe more than 1.5 million baht, and 90.15% are technically confident.
-    </div>
-    <div class="tip">
-      <strong>R-squared is not a star.</strong>
-      0.5058 and 0.2452 describe fit. Significance of one variable is the p-value column. Both equations have Prob &gt; F = 0.0000.
-    </div>
-  </div>
-
-  <h2 id="quiz">Practice for Chapters 3–4</h2>
-  <p>Twenty questions from these two decks. The same set is on the <a href="practice.html#set-b">practice page</a>.</p>
-  <div class="quiz" data-quiz="b"></div>
+<h2 id="quiz">Practice · Chapters 3–4 (30 questions)</h2>
+<p>Click an answer for instant feedback. The full 80-question mock exam is on the <a href="practice.html">Practice page</a>.</p>
+<div class="quiz" data-quiz="b"></div>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>Source: Chapter 3, Consumer Behavior Dynamic, and Chapter 4, Marketing Strategy: A Data-Driven Approach with STATA. Professor Dr. Poomthan Rangkakulnuwat. The Chapter 4 deck is the EV purchasing workshop for Bangkok.</p>
+    <p>Source: Chapter 3, Consumer Behavior Dynamic, and Chapter 4, Marketing Strategy: A Data-Driven Approach with STATA. Professor Dr. Poomthan Rangkakulnuwat, School of Economics, Kasetsart University.</p>
   </div>
 </footer>
 <script src="js/quiz-data.js"></script>
